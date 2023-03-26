@@ -1,4 +1,5 @@
 import React from "react";
+import LandingChat from "./LandingChat";
 import LandingContents from "./LandingContents";
 import LandingMain from "./LandingMain";
 
@@ -6,7 +7,7 @@ function Landing() {
   return (
     <>
       <LandingMain />
-      <LandingMain />
+      <LandingChat />
       <LandingMain />
       <LandingContents />
     </>

@@ -16,7 +16,7 @@ function LandingContents() {
           <RecipeButton>레시피 확인하기</RecipeButton>
         </S.MainWrapper>
         <S.Fryfan
-          src="./images/frypan.svg"
+          src="./images/Frypan.svg"
           alt="프라이팬 사진"
           width={650}
           height={650}
