@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const LandingChat = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: white;
   display: flex;
   justify-content: right;
@@ -14,4 +14,5 @@ export const LandingChat = styled.div`
 export const Bread = styled(Image)`
   position: relative;
   right: -10rem;
+  z-index: 50;
 `

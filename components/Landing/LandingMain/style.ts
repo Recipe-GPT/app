@@ -7,7 +7,7 @@ export const MainBackground = styled.div`
 `;
 
 export const MainBackgroundImage = styled(Image)`
-  height: auto !important;
+  height: 100vh !important;
   position: relative !important;
   filter: blur(10px);
 `;
