@@ -6,7 +6,22 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    font-family: 'NanumSquare', sans-serif;
+    font-family: 'Pretendard-Regular';
+  }
+
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  html{
+    font-size: 14px;
+  }
+
+  body{
+    margin: 0;
   }
 
   button{
