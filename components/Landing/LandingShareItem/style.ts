@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const LandingShareItem = styled.div<{ index: number }>`
   position: relative;
-  top: ${({ index }) => `${index * 5.75}rem`};
+  top: ${({ index }) => `${index * 9.5}rem`};
 `;
 
 export const FoodImage = styled(Image)`
