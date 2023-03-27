@@ -1,5 +1,7 @@
 import RecipeButton from "@/components/etc/Button/RecipeButton";
 import React from "react";
+import { Fade } from "react-awesome-reveal";
+import LandingShareItem from "../LandingShareItem";
 import * as S from "./style";
 
 function LandingContents() {
@@ -21,7 +23,7 @@ function LandingContents() {
           width={650}
           height={650}
         />
-        <S.ChatWrapper>
+        <S.SectionWrapper>
           <S.SectionTitle color="black">
             마음에 드는 레시피를 선택하세요!
           </S.SectionTitle>
@@ -64,7 +66,20 @@ function LandingContents() {
               />
             </S.ChatItem>
           </S.Chat>
-        </S.ChatWrapper>
+        </S.SectionWrapper>
+        <S.ShareWrapper>
+          <S.ShareHeadWrapper>
+            <S.SectionTitle color="white">
+              서로의 레시피를 공유해보세요!
+            </S.SectionTitle>
+            <RecipeButton>레시피 둘러보기</RecipeButton>
+          </S.ShareHeadWrapper>
+          <Fade cascade duration={1000}>
+            <LandingShareItem index={0} />
+            <LandingShareItem index={1} />
+            <LandingShareItem index={2} />
+          </Fade>
+        </S.ShareWrapper>
       </S.LandingContents>
     </>
   );

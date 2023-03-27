@@ -11,4 +11,6 @@ export const RecipeButton = styled.button`
   justify-content: space-between;
   align-items: center;
   width: 23rem;
+  position: relative;
+  z-index: 30;
 `;
