@@ -48,8 +48,8 @@ export const Fryfan = styled(Image)`
 `;
 
 export const SectionWrapper = styled.div`
-  padding: 9.5rem 0;
-  min-height: 100vh;
+  /* padding: 9.5rem 0; */
+  min-height: 90vh;
   position: relative;
 `;
 
@@ -58,6 +58,7 @@ export const SectionTitle = styled.h1<{ color: string;  }>`
   font-size: 3rem;
   position: relative;
   z-index: 50;
+  margin-top: 10vh;
 `;
 
 export const Chat = styled.div`
@@ -107,5 +108,5 @@ export const ShareHeadWrapper = styled.div`
   align-items: flex-end;
   position: absolute;
   right: 0;
-  top: 1rem;
+  /* top: 10vh; */
 `;
