@@ -7,6 +7,7 @@ export const MainBackground = styled.div`
   position: relative;
   background-image: url("./images/MainBackground.svg");
   filter: blur(10px);
+  transform: scale(1.03);
 `;
 
 // export const MainBackgroundImage = styled(Image)`
