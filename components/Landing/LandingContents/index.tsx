@@ -1,4 +1,5 @@
 import RecipeButton from "@/components/etc/Button/RecipeButton";
+import Footer from "@/components/etc/Footer";
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 import LandingShareItem from "../LandingShareItem";
@@ -80,6 +81,7 @@ function LandingContents() {
             <LandingShareItem index={2} />
           </Fade>
         </S.ShareWrapper>
+        <Footer />
       </S.LandingContents>
     </>
   );

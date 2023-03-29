@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const LandingContents = styled.div`
   backdrop-filter: blur(20px);
   position: absolute;
+  /* position: relative; */
   left: 50%;
   width: calc(100% - 200px);
   top: 100px;
@@ -11,9 +12,10 @@ export const LandingContents = styled.div`
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50px 50px 0px 0px;
   padding: 9.5rem 6.5rem;
-  /* padding-bottom: 0; */
-  height: calc(300vh - 100px);
+  padding-bottom: 0;
+  height: calc(200vh + 900px);
 `;
+
 
 export const MainWrapper = styled.div`
   display: inline-flex;
@@ -46,8 +48,8 @@ export const Fryfan = styled(Image)`
 `;
 
 export const SectionWrapper = styled.div`
-  padding: 9.5rem 0;
-  height: 100vh;
+  /* padding: 9.5rem 0; */
+  min-height: 90vh;
   position: relative;
 `;
 
@@ -56,6 +58,7 @@ export const SectionTitle = styled.h1<{ color: string;  }>`
   font-size: 3rem;
   position: relative;
   z-index: 50;
+  margin-top: 10vh;
 `;
 
 export const Chat = styled.div`
@@ -105,5 +108,5 @@ export const ShareHeadWrapper = styled.div`
   align-items: flex-end;
   position: absolute;
   right: 0;
-  top: 0;
+  /* top: 10vh; */
 `;
