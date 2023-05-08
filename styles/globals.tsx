@@ -18,9 +18,9 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  html{
+  /* html{
     font-size: 14px;
-  }
+  } */
 
   body{
     margin: 0;

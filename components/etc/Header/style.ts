@@ -12,7 +12,7 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: white; */
+  /* background-color: black; */
 `;
 
 export const Logo = styled(Image)`
@@ -22,6 +22,7 @@ export const Logo = styled(Image)`
 export const NavItem = styled(Link)<{ active?: boolean }>`
   font-size: 1.5rem;
   font-weight: bolder;
+  mix-blend-mode: difference;
   color: ${({ theme }) => theme.color.mainGrey};
   cursor: pointer;
   display: flex;
@@ -46,7 +47,7 @@ export const Login = styled(NavItem)`
   align-items: center;
   justify-content: center;
   height: 40px;
-  width: 90px;
+  width: 110px;
 
   border: ${({ theme }) => `2px solid ${theme.color.lightGrey}`};
 `;

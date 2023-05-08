@@ -8,7 +8,7 @@ export const Footer = styled.footer`
   transform: translateX(-50%);
   z-index: 100;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
 `;
 
@@ -39,5 +39,5 @@ export const FooterContent = styled.span`
 export const Icons = styled.div`
   display: flex;
   gap: 1rem;
-  align-items: center;
+  align-items: end;
 `;

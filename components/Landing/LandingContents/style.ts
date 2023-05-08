@@ -13,7 +13,7 @@ export const LandingContents = styled.div`
   border-radius: 50px 50px 0px 0px;
   padding: 9.5rem 6.5rem;
   padding-bottom: 0;
-  height: calc(200vh + 900px);
+  height: calc(200vh + 1100px);
 `;
 
 

@@ -75,7 +75,7 @@ function LandingContents() {
             </S.SectionTitle>
             <RecipeButton>레시피 둘러보기</RecipeButton>
           </S.ShareHeadWrapper>
-          <Fade cascade duration={1000}>
+          <Fade cascade duration={1000} triggerOnce>
             <LandingShareItem index={0} />
             <LandingShareItem index={1} />
             <LandingShareItem index={2} />
