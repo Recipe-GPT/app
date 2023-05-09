@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const LandingShareItem = styled.div<{ index: number }>`
   position: relative;
-  top: ${({ index }) => `${index * 9.5}rem`};
+  top: ${({ index }) => `${index * 10 + 5}rem`};
 `;
 
 export const FoodImage = styled(Image)`
@@ -41,10 +41,10 @@ export const ItemInfo = styled.div`
 `;
 
 export const ItemNickname = styled.span`
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #847a75;
 `;
 
 export const ItemDate = styled(ItemNickname)`
-  font-size: 1.25rem;
+  font-size: 1rem;
 `;

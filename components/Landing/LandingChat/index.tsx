@@ -8,8 +8,8 @@ function LandingChat() {
         <S.Bread
           src="./images/Bread.svg"
           alt="프라이팬 사진"
-          width={800}
-          height={800}
+          width={900}
+          height={900}
         />
       </S.LandingChat>
     </>

@@ -8,18 +8,43 @@ export const Footer = styled.footer`
   transform: translateX(-50%);
   z-index: 100;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
 `;
 
 export const FooterText = styled.span`
-  font-size: 2.5rem;
+  display: flex;
+  gap: 1.25rem;
+  flex-direction: column;
+`;
+
+export const FooterTitle = styled.span`
+  font-size: 2rem;
   color: ${({ theme }) => theme.color.mainGrey};
-  font-weight: 600;
+  font-weight: 700;
+  font-family: "Noto Sans", sans-serif;
+`;
+
+export const FooterContents = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const FooterContent = styled.span`
+  font-size: 1rem;
+  color: #505050;
+  font-family: "Noto Sans", sans-serif;
 `;
 
 export const Icons = styled.div`
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap: 0.5rem;
+  align-items: end;
+  justify-content: center;
+  cursor: pointer;
+`;
+
+export const Icon = styled.a`
+  width: 40px;
+  height: 40px;
 `
