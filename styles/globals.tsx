@@ -7,8 +7,10 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     font-family: 'Pretendard-Regular';
+    padding: 0;
+    margin: 0;
   }
-
+  
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
 
   @font-face {
@@ -18,9 +20,6 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  /* html{
-    font-size: 14px;
-  } */
   &:link, &:visited{
     color: unset;
   }
