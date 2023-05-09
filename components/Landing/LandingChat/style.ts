@@ -14,5 +14,5 @@ export const LandingChat = styled.div`
 export const Bread = styled(Image)`
   position: relative;
   right: -10rem;
-  z-index: 50;
+  z-index: 30;
 `

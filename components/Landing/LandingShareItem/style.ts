@@ -41,10 +41,10 @@ export const ItemInfo = styled.div`
 `;
 
 export const ItemNickname = styled.span`
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #847a75;
 `;
 
 export const ItemDate = styled(ItemNickname)`
-  font-size: 1.25rem;
+  font-size: 1rem;
 `;

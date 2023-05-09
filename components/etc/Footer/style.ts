@@ -38,6 +38,13 @@ export const FooterContent = styled.span`
 
 export const Icons = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   align-items: end;
+  justify-content: center;
+  cursor: pointer;
 `;
+
+export const Icon = styled.a`
+  width: 40px;
+  height: 40px;
+`

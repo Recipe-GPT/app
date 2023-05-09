@@ -19,17 +19,22 @@ export const Logo = styled(Image)`
   cursor: pointer;
 `;
 
-export const NavItem = styled(Link)<{ active?: boolean }>`
+export const NavItem = styled(Link)<{ active?: boolean; landing: boolean }>`
   font-size: 1.5rem;
   font-weight: bolder;
   mix-blend-mode: difference;
-  color: ${({ theme }) => theme.color.mainGrey};
+  color: ${({ theme, landing }) =>
+    landing ? theme.color.grey600 : theme.color.mainGrey};
   cursor: pointer;
   display: flex;
   align-items: center;
   height: 40px;
-  border-bottom: ${({ active, theme }) =>
-    active && `2px solid ${theme.color.lightGrey}`};
+  border-bottom: ${({ active, theme, landing }) =>
+    active
+      ? landing
+        ? `2px solid ${theme.color.grey600}`
+        : `2px solid ${theme.color.lightGrey}`
+      : ""};
   &:link {
     text-decoration: none;
   }
@@ -49,7 +54,10 @@ export const Login = styled(NavItem)`
   height: 40px;
   width: 110px;
 
-  border: ${({ theme }) => `2px solid ${theme.color.lightGrey}`};
+  border: ${({ theme, landing }) =>
+    landing
+      ? `2px solid ${theme.color.grey600}`
+      : `2px solid ${theme.color.lightGrey}`};
 `;
 
 export const NavLeft = styled.div`

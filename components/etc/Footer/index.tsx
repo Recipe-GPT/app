@@ -19,8 +19,12 @@ function Footer() {
           </S.FooterContents>
         </S.FooterText>
         <S.Icons>
-          <ImMail4 size={40} />
-          <ImGithub size={40} />
+          <S.Icon href="https://github.com/Recipe-GPT">
+            <ImMail4 size={40} />
+          </S.Icon>
+          <S.Icon href="https://github.com/Recipe-GPT">
+            <ImGithub size={40} />
+          </S.Icon>
         </S.Icons>
       </S.Footer>
     </>

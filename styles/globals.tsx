@@ -21,6 +21,9 @@ const GlobalStyle = createGlobalStyle`
   /* html{
     font-size: 14px;
   } */
+  &:link, &:visited{
+    color: unset;
+  }
 
   body{
     margin: 0;
