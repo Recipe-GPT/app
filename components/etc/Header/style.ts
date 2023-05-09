@@ -24,7 +24,7 @@ export const NavItem = styled(Link)<{ active?: boolean; landing: boolean }>`
   font-weight: bolder;
   mix-blend-mode: difference;
   color: ${({ theme, landing }) =>
-    landing ? theme.color.grey600 : theme.color.mainGrey};
+    landing ? theme.color.grey600 : theme.color.mainGrey} !important;
   cursor: pointer;
   display: flex;
   align-items: center;
