@@ -1,10 +1,11 @@
 import React from "react";
 import * as S from "./style";
 import { AiFillFire } from "react-icons/ai";
+import BoardItem from "../BoardItem";
 
-function BoardWrap({ isYellow }: { isYellow?: true }) {
+function BoardSection({ isYellow }: { isYellow?: true }) {
   return (
-    <S.BoardWrap isYellow={isYellow}>
+    <S.BoardSection isYellow={isYellow}>
       <S.Title isYellow={isYellow}>
         {isYellow ? (
           <>
@@ -17,8 +18,14 @@ function BoardWrap({ isYellow }: { isYellow?: true }) {
           </span>
         )}
       </S.Title>
-    </S.BoardWrap>
+      <S.BoardWrap>
+        <BoardItem />
+        <BoardItem />
+        <BoardItem />
+        <BoardItem />
+      </S.BoardWrap>
+    </S.BoardSection>
   );
 }
 
-export default BoardWrap;
+export default BoardSection;
