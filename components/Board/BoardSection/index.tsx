@@ -23,6 +23,7 @@ function BoardSection({ isYellow }: { isYellow?: true }) {
         <BoardItem />
         <BoardItem />
         <BoardItem />
+        <BoardItem />
       </S.BoardWrap>
     </S.BoardSection>
   );

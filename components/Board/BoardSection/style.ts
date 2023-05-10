@@ -24,10 +24,10 @@ export const Emphasis = styled.span`
 `;
 
 export const BoardWrap = styled.div`
-  /* display: flex;
+  display: flex;
   gap: 2.25rem;
-  flex-wrap: wrap; */
-  display: grid;
+  flex-wrap: wrap;
+  /* display: grid;
   gap: 2.25rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); */
 `
