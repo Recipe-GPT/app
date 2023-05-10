@@ -11,8 +11,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   
-  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
-
   @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
