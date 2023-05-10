@@ -1,16 +1,18 @@
 import React from "react";
 import Footer from "../etc/Footer";
 import Header from "../etc/Header";
-import BoardWrap from "./BoardSection";
+import BoardSection from "./BoardSection";
 import * as S from "./style";
+import BoardMainSection from "./BoardMainSection";
 
 function Board() {
   return (
     <>
       <Header />
       <S.Board>
-        <BoardWrap />
-        <BoardWrap isYellow/>
+        <BoardSection />
+        <BoardSection isYellow />
+        <BoardMainSection />
       </S.Board>
       {/* <Footer /> */}
     </>
