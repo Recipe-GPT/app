@@ -50,10 +50,8 @@ export const Title = styled.h1`
 export const Description = styled.p`
   color: #7d7d8e;
   overflow: hidden;
-  white-space: normal;
+  white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1.2rem;
-  height: 3.6rem;
   word-wrap: break-word;
 `;
 

@@ -10,7 +10,7 @@ function BoardItem() {
       <S.Content>
         <S.TitleWrap>
           <S.Title>음식이름음식이름음식이름</S.Title>
-          <S.Description>달달하면서 매콤한 간단 LA갈비</S.Description>
+          <S.Description>달달하면서 매콤한 간단 LA갈비 달달하면서 매콤한 간단 LA갈비 달달하면서 매콤한 간단 LA갈비</S.Description>
         </S.TitleWrap>
         <S.InfoWrap>
           <S.Info>작성자</S.Info>
