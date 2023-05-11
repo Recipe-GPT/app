@@ -9,9 +9,13 @@ export const BoardRecipeButton = styled.button`
   padding: 1.25rem 0;
   background-color: white;
   border-radius: 15px;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: ${({ theme }) => theme.color.mainGrey};
+  transition: 0.3s;
+  &:hover {
+    background-color: ${({ theme }) => theme.color.grey600};
+  }
   &:active {
     box-shadow: none;
   }

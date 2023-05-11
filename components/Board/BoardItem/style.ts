@@ -7,6 +7,10 @@ export const BoardItem = styled.div`
   background-color: white;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: ${({ theme }) => theme.color.grey600};
+  }
   &:active {
     box-shadow: none;
   }
