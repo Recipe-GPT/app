@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const LandingIntro = styled.div`
   overflow-x: hidden;
-  background-color: ${({ theme }) => theme.color.serveYellow};
+  background: ${({ theme }) => theme.color.serveYellow};
   height: 100vh;
   position: relative;
 `;
@@ -15,7 +15,7 @@ export const LandMent = styled.div`
 `;
 
 export const LandMentone = styled.h1`
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 500;
   color: ${({ theme }) => theme.color.lightGrey};
   margin: 0;
@@ -24,6 +24,6 @@ export const LandMentone = styled.h1`
 export const LandBold = styled.p`
   margin: 0;
   font-weight: 600;
-  background-color: ${({ theme }) => theme.color.lightYellow};
+  background: ${({ theme }) => theme.color.lightYellow};
   float: left;
 `;
