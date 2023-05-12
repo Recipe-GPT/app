@@ -14,7 +14,7 @@ function Board() {
         <BoardSection isYellow />
         <BoardMainSection />
       </S.Board>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

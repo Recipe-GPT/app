@@ -1,11 +1,15 @@
 import React from "react";
 import * as S from "./style";
-import { ImMail4, ImGithub } from "react-icons/im";
+import { ImGithub } from "react-icons/im";
+import { MdMail } from "react-icons/md";
+import { useRouter } from "next/router";
 
 function Footer() {
+  const router = useRouter();
+  console.log(router.pathname === "/");
   return (
     <>
-      <S.Footer>
+      <S.Footer isLanding={router.pathname === "/"}>
         <S.FooterText>
           <S.FooterTitle>Recipe GPT</S.FooterTitle>
           <S.FooterContents>
@@ -19,9 +23,12 @@ function Footer() {
           </S.FooterContents>
         </S.FooterText>
         <S.Icons>
-          <S.Icon href="https://github.com/Recipe-GPT">
-            <ImMail4 size={40} />
-          </S.Icon>
+          <S.MailIcon
+            href="https://github.com/Recipe-GPT"
+            isLanding={router.pathname === "/"}
+          >
+            <MdMail size={30} />
+          </S.MailIcon>
           <S.Icon href="https://github.com/Recipe-GPT">
             <ImGithub size={40} />
           </S.Icon>
