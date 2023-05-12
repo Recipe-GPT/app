@@ -39,7 +39,7 @@ export const Search = styled.input`
   color: ${({ theme }) => theme.color.grey900};
   border: none;
   width: 260px;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   /* font-size: 1.25rem; */
 `;
 
@@ -49,7 +49,7 @@ export const SearchButton = styled(IoSearch)`
   top: 50%;
   transform: translateY(-50%);
   color: ${({ theme }) => theme.color.grey900};
-  right: 1rem;
+  right: 1.5rem;
 `;
 
 export const BoardMainWrap = styled(BoardWrap)``;

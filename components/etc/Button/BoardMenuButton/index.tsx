@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import * as S from "./style";
 import { CgArrowsExchangeAltV } from "react-icons/cg";
 import { VscTriangleDown } from "react-icons/vsc";
+import { useOnClickOutside } from "usehooks-ts";
 
 type SortedByType = "RECENTLY" | "POPULARITY";
 
@@ -19,12 +20,21 @@ const sortedByList: SortedByType[] = ["RECENTLY", "POPULARITY"];
 function BoardMenuButton() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [sortedBy, setSortedBy] = useState<SortedByType>("RECENTLY");
+
+  const ref = useRef(null);
+
+  useOnClickOutside(ref, () => {
+    if (isOpen) {
+      setIsOpen(false);
+    }
+  });
+
   return (
     <>
       {isOpen ? (
         <>
           <span></span>
-          <S.MenuActiveWrap>
+          <S.MenuActiveWrap ref={ref}>
             <S.MenuActiveButton
               isActive
               onClick={() => {
