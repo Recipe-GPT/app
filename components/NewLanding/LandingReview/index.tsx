@@ -2,8 +2,17 @@ import React from "react";
 import * as S from "./style";
 import ReviewData from "../ReviewCard/data.json";
 import ReviewCard from "../ReviewCard";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, {
+  Navigation,
+  Autoplay,
+  EffectFade,
+  Pagination,
+} from "swiper";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
 function LandingReview() {
+  SwiperCore.use([Navigation, Autoplay, EffectFade, Pagination]);
   return (
     <S.LandingReview>
       <S.LandingReviewDiv>
@@ -17,15 +26,27 @@ function LandingReview() {
           </S.ReviewMentBottom>
         </S.LandingReviewTop>
         <S.ReviewCardDiv>
-          {ReviewData.reviews.map((r, index) => (
-            <ReviewCard
-              profile={r.profile}
-              name={r.name}
-              menu={r.menu}
-              star={r.star}
-              review={r.review}
-            />
-          ))}
+          {" "}
+          <Swiper
+            slidesPerView="auto"
+            // autoplay={{ delay: 2000 }}
+            spaceBetween={10 }
+            slidesPerGroup={3}
+            pagination={{ clickable: true }}
+            loop={true}
+          >
+            {ReviewData.reviews.map((r, index) => (
+              <SwiperSlide key={index}>
+                <ReviewCard
+                  profile={r.profile}
+                  name={r.name}
+                  menu={r.menu}
+                  star={r.star}
+                  review={r.review}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </S.ReviewCardDiv>
       </S.LandingReviewDiv>
     </S.LandingReview>

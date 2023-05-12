@@ -6,7 +6,7 @@ export const ReviewCard = styled.div`
   padding: 25px;
   border-radius: 30px;
   position: relative;
-  filter: drop-shadow(0px 6px 20px rgba(0, 0, 0, 0.1));
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
 `;
 
 export const CardTop = styled.div``;

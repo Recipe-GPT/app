@@ -6,8 +6,7 @@ export const LandingReview = styled.div`
 `;
 
 export const LandingReviewDiv = styled.div`
-position: relative;
-top: 73px;
+  padding: 100px 0px;
   width: 67vw;
   margin: 0 auto;
 `;
@@ -34,3 +33,4 @@ export const ReviewMentBottom = styled.p`
 export const ReviewCardDiv = styled.div`
   padding-top: 40px;
 `;
+ 
