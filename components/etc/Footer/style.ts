@@ -67,7 +67,7 @@ export const MailIcon = styled(Icon)<{ isLanding: boolean }>`
   background-color: ${({ isLanding, theme }) =>
     isLanding ? theme.color.mainGrey : "white"};
   color: ${({ isLanding, theme }) =>
-    isLanding ? "#AFBF8C" : theme.color.mainYellow};
+    isLanding ? "#AFBF8C" : theme.color.mainYellow} !important;
   border-radius: 100%;
   display: flex;
   justify-content: center;
