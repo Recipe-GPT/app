@@ -30,6 +30,7 @@ export const Menu = styled.div`
 
 export const SearchWrap = styled.div`
   position: relative;
+  height: 3.15rem;
 `;
 
 export const Search = styled.input`

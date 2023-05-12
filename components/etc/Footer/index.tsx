@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 
 function Footer() {
   const router = useRouter();
-  console.log(router.pathname === "/");
   return (
     <>
       <S.Footer isLanding={router.pathname === "/"}>

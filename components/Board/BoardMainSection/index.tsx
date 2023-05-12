@@ -1,8 +1,8 @@
 import React from "react";
 import * as S from "./style";
 import BoardRecipeButton from "@/components/etc/Button/BoardRecipeButton";
-import { CgArrowsExchangeAltV } from "react-icons/cg";
 import BoardItem from "../BoardItem";
+import BoardMenuButton from "@/components/etc/Button/BoardMenuButton";
 
 function BoardMainSection() {
   return (
@@ -12,10 +12,7 @@ function BoardMainSection() {
         <BoardRecipeButton>🖊️ &nbsp; 레시피 작성하러 가기</BoardRecipeButton>
       </S.RecipeButtons>
       <S.BoardMenuWrap>
-        <S.Menu>
-          <CgArrowsExchangeAltV size={40} />
-          최신순
-        </S.Menu>
+        <BoardMenuButton />
         <S.SearchWrap>
           <S.Search placeholder="레시피 검색" />
           <S.SearchButton size={20} />
