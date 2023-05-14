@@ -29,7 +29,6 @@ function LandingReview() {
           {" "}
           <Swiper
             slidesPerView="auto"
-            // autoplay={{ delay: 2000 }}
             spaceBetween={10 }
             slidesPerGroup={3}
             pagination={{ clickable: true }}
