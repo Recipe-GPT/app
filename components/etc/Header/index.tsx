@@ -31,9 +31,9 @@ function Header() {
               질문하기
             </S.NavItem>
             <S.NavItem
-              active={pathname === "/community"}
+              active={pathname === "/board"}
               landing={pathname === "/"}
-              href="/community"
+              href="/board"
             >
               커뮤니티
             </S.NavItem>

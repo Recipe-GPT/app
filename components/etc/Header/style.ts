@@ -3,9 +3,11 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export const Header = styled.header`
-  width: calc(100% - 200px);
+  /* width: calc(100% - 200px); */
+  width: 100%;
+  padding: 0 100px;
   position: absolute;
-  top: 1.25rem;
+  height: 5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
@@ -24,7 +26,7 @@ export const NavItem = styled(Link)<{ active?: boolean; landing: boolean }>`
   font-weight: bolder;
   mix-blend-mode: difference;
   color: ${({ theme, landing }) =>
-    landing ? theme.color.grey600 : theme.color.mainGrey};
+    landing ? theme.color.grey600 : theme.color.mainGrey} !important;
   cursor: pointer;
   display: flex;
   align-items: center;
