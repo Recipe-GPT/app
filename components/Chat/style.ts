@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const ChatPage = styled.div`
+export const Chat = styled.div`
   
 `;

@@ -1,13 +1,14 @@
 import React from "react";
-import * as S from "./style";
-import Header from "@/components/etc/Header";
-import Sidebar from "@/components/etc/Sidebar";
+import Head from "next/head";
+import Chat from "@/components/Chat";
 
 function ChatPage() {
   return (
     <>
-      <Header />
-      <Sidebar />
+      <Head>
+        <title>채팅임 ㅋㅋ</title>
+      </Head>
+      <Chat />
     </>
   );
 }
