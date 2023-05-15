@@ -28,13 +28,13 @@ export const Content = styled.div`
   display: flex;
   min-height: 30px;
   font-size: 1.125rem;
-  line-height: 40px;
+  line-height: 30px;
   width: 100%;
 `;
 
 export const ContentLabel = styled.span`
   display: inline-block;
-  max-height: 40px;
+  max-height: 30px;
   min-width: 56px;
 `;
 
@@ -62,5 +62,5 @@ export const Material = styled.div`
   font-size: 1rem;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 30px;
 `;
