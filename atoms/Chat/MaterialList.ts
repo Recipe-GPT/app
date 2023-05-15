@@ -2,7 +2,7 @@ import { MaterialStatusType } from "@/types/Chat/MaterialStatusType";
 import { atom } from "recoil";
 
 export const MaterialListState = atom<{
-  [key in MaterialStatusType]: string[];
+  [key in MaterialStatusType]: { name: string; isHover: boolean }[];
 }>({
   key: "MaterialListState",
   default: {

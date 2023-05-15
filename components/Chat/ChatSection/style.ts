@@ -1,3 +1,4 @@
+import { IoClose } from "react-icons/io5";
 import styled from "styled-components";
 
 export const ChatSection = styled.section`
@@ -56,6 +57,7 @@ export const MaterialWrap = styled.div`
 `;
 
 export const Material = styled.div`
+  user-select: none;
   background-color: rgba(255, 226, 137, 0.6);
   border-radius: 5px;
   padding: 5px 10px;
@@ -63,4 +65,23 @@ export const Material = styled.div`
   display: flex;
   align-items: center;
   height: 30px;
+  /* transition: 0.3s; */
+  cursor: pointer;
+  &:hover {
+    background-color: ${({ theme }) => theme.color.lightGrey};
+  }
+  position: relative;
+`;
+
+export const Transparent = styled.span`
+  color: transparent;
+`;
+
+export const CloseButton = styled(IoClose)`
+  position: absolute;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
 `;

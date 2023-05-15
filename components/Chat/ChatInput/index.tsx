@@ -15,7 +15,10 @@ function ChatInput() {
     if (materialInput) {
       setMaterialList((prev) => ({
         ...prev,
-        [materialStatus]: [...prev[materialStatus], materialInput],
+        [materialStatus]: [
+          ...prev[materialStatus],
+          { name: materialInput, isHover: false },
+        ],
       }));
       setMaterialInput("");
     } else {
