@@ -21,17 +21,46 @@ export const ContentWrap = styled.div`
   line-height: 2px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 `;
 
 export const Content = styled.div`
   display: flex;
-  align-items: center;
-  min-height: 40px;
+  min-height: 30px;
   font-size: 1.125rem;
   line-height: 40px;
   width: 100%;
 `;
 
+export const ContentLabel = styled.span`
+  display: inline-block;
+  max-height: 40px;
+  min-width: 56px;
+`;
+
+export const ShortContentLabel = styled(ContentLabel)`
+  min-width: 41px;
+`;
+
 export const GreedingContent = styled(Content)`
   margin-bottom: 10px;
+`;
+
+export const MaterialWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 30px;
+  gap: 10px;
+  margin-left: 10px;
+`;
+
+export const Material = styled.div`
+  background-color: rgba(255, 226, 137, 0.6);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  height: 40px;
 `;

@@ -1,5 +1,5 @@
+import { MaterialStatusType } from "@/types/Chat/MaterialStatusType";
 import { atom } from "recoil";
-type MaterialStatusType = "SEASONING" | "INGREDIENT";
 
 export const MaterialStatusState = atom<MaterialStatusType>({
   key: "MaterialStatusState",
