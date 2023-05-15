@@ -33,3 +33,21 @@ export const SendIcon = styled(FiSend)`
   height: 20px;
   color: ${({ theme }) => theme.color.grey700};
 `;
+
+export const ChangingStatusWrap = styled.div`
+  width: 9rem;
+  height: 3rem;
+  display: flex;
+`;
+
+export const ChangingStatus = styled.div<{ isActive: boolean }>`
+  box-shadow: ${({ isActive }) => isActive && "0px 0px 5px rgba(0, 0, 0, 0.1)"};
+  border-bottom: none;
+  border-radius: 20px 20px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  transition: 0.1s;
+  cursor: pointer;
+`;
