@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import Image from "next/image";
+import ChatInput from "../ChatInput";
 
 function ChatSection() {
   return (
@@ -20,6 +21,7 @@ function ChatSection() {
           <S.Content>조미료 :</S.Content>
         </S.ContentWrap>
       </S.ChatWrap>
+      <ChatInput />
     </S.ChatSection>
   );
 }

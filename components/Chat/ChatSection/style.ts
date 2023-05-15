@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 export const ChatSection = styled.section`
-  padding-top: 5rem;
-  padding-left: 16.25rem;
-  min-height: 100vh;
+  min-height: calc(100vh - 5rem);
+  position: relative;
+  top: 5rem;
+  left: 16.25rem;
+  width: calc(100% - 16.25rem);
 `;
 
 export const ChatWrap = styled.div`
   background-color: #fffcf4;
   width: 100%;
-  padding: 40px 200px;
+  padding: 2.5rem 12.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.color.lightYellow};
   display: flex;
   gap: 1.5rem;
@@ -26,6 +28,8 @@ export const Content = styled.div`
   align-items: center;
   min-height: 40px;
   font-size: 1.125rem;
+  line-height: 40px;
+  width: 100%;
 `;
 
 export const GreedingContent = styled(Content)`

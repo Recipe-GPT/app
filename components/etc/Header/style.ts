@@ -5,7 +5,7 @@ import Link from "next/link";
 export const Header = styled.header<{ isGrey: boolean }>`
   width: 100%;
   padding: 0 50px;
-  position: absolute;
+  position: ${({ isGrey }) => (isGrey ? "fixed" : "absolute")};
   height: 5rem;
   left: 50%;
   transform: translateX(-50%);
