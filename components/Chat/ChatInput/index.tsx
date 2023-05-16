@@ -22,7 +22,7 @@ function ChatInput() {
       }));
       setMaterialInput("");
     } else {
-      console.log("asdf");
+      console.log("🫃");
     }
   };
 
@@ -46,7 +46,7 @@ function ChatInput() {
         <S.Input
           placeholder={`${
             materialStatus === "INGREDIENT" ? "재" : "조미"
-          }료 추가 입력 (콤마로 여러개 입력 구분) (입력이 비어있는 상태에서 엔터 누를 시 요리 추천기능 작동)`}
+          }료 추가 입력`}
           onChange={(e) => setMaterialInput(e.target.value)}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
@@ -55,6 +55,9 @@ function ChatInput() {
           }}
           value={materialInput}
         />
+        {!materialInput && (
+          <S.Placeholder>Enter로 요리 추천 시작</S.Placeholder>
+        )}
         <S.SendIcon onClick={() => handleSubmit()} />
       </S.InputWrap>
     </S.ChatInput>

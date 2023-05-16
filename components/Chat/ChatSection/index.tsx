@@ -31,33 +31,35 @@ function ChatSection() {
                       onMouseOver={() =>
                         setMaterialList((prev) => ({
                           ...prev,
-                          ["INGREDIENT"]: [
-                            ...prev["INGREDIENT"].slice(0, index),
-                            {
-                              name: prev["INGREDIENT"][index].name,
-                              isHover: true,
-                            },
-                            ...prev["INGREDIENT"].slice(
-                              index + 1,
-                              prev["INGREDIENT"].length,
-                            ),
-                          ],
+                          ["INGREDIENT"]: prev["INGREDIENT"].map((material) =>
+                            prev["INGREDIENT"].indexOf(material) === index
+                              ? {
+                                  ...prev["INGREDIENT"][index],
+                                  isHover: true,
+                                }
+                              : material,
+                          ),
                         }))
                       }
                       onMouseLeave={() =>
                         setMaterialList((prev) => ({
                           ...prev,
-                          ["INGREDIENT"]: [
-                            ...prev["INGREDIENT"].slice(0, index),
-                            {
-                              name: prev["INGREDIENT"][index].name,
-                              isHover: false,
-                            },
-                            ...prev["INGREDIENT"].slice(
-                              index + 1,
-                              prev["INGREDIENT"].length,
-                            ),
-                          ],
+                          ["INGREDIENT"]: prev["INGREDIENT"].map((material) =>
+                            prev["INGREDIENT"].indexOf(material) === index
+                              ? {
+                                  ...prev["INGREDIENT"][index],
+                                  isHover: false,
+                                }
+                              : material,
+                          ),
+                        }))
+                      }
+                      onClick={() =>
+                        setMaterialList((prev) => ({
+                          ...prev,
+                          ["INGREDIENT"]: prev["INGREDIENT"].filter(
+                            (material) => !material.isHover,
+                          ),
                         }))
                       }
                     >
@@ -85,33 +87,35 @@ function ChatSection() {
                       onMouseOver={() =>
                         setMaterialList((prev) => ({
                           ...prev,
-                          ["SEASONING"]: [
-                            ...prev["SEASONING"].slice(0, index),
-                            {
-                              name: prev["SEASONING"][index].name,
-                              isHover: true,
-                            },
-                            ...prev["SEASONING"].slice(
-                              index + 1,
-                              prev["SEASONING"].length,
-                            ),
-                          ],
+                          ["SEASONING"]: prev["SEASONING"].map((material) =>
+                            prev["SEASONING"].indexOf(material) === index
+                              ? {
+                                  ...prev["SEASONING"][index],
+                                  isHover: true,
+                                }
+                              : material,
+                          ),
                         }))
                       }
                       onMouseLeave={() =>
                         setMaterialList((prev) => ({
                           ...prev,
-                          ["SEASONING"]: [
-                            ...prev["SEASONING"].slice(0, index),
-                            {
-                              name: prev["SEASONING"][index].name,
-                              isHover: false,
-                            },
-                            ...prev["SEASONING"].slice(
-                              index + 1,
-                              prev["SEASONING"].length,
-                            ),
-                          ],
+                          ["SEASONING"]: prev["SEASONING"].map((material) =>
+                            prev["SEASONING"].indexOf(material) === index
+                              ? {
+                                  ...prev["SEASONING"][index],
+                                  isHover: false,
+                                }
+                              : material,
+                          ),
+                        }))
+                      }
+                      onClick={() =>
+                        setMaterialList((prev) => ({
+                          ...prev,
+                          ["SEASONING"]: prev["SEASONING"].filter(
+                            (material) => !material.isHover,
+                          ),
                         }))
                       }
                     >

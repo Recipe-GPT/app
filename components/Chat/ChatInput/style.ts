@@ -25,6 +25,12 @@ export const Input = styled.input`
   border-radius: 10px;
 `;
 
+export const Placeholder = styled.span`
+  position: absolute;
+  right: 2.75rem;
+  color: ${({ theme }) => theme.color.grey700};
+`;
+
 export const SendIcon = styled(FiSend)`
   position: absolute;
   right: 1.25rem;
@@ -35,19 +41,23 @@ export const SendIcon = styled(FiSend)`
 `;
 
 export const ChangingStatusWrap = styled.div`
-  width: 9rem;
+  width: 8rem;
   height: 3rem;
   display: flex;
+  align-items: center;
 `;
 
 export const ChangingStatus = styled.div<{ isActive: boolean }>`
   box-shadow: ${({ isActive }) => isActive && "0px 0px 5px rgba(0, 0, 0, 0.1)"};
   border-bottom: none;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4.5rem;
+  width: 4rem;
+  height: 2rem;
   transition: 0.1s;
   cursor: pointer;
+  background-color: ${({ isActive, theme }) =>
+    isActive && theme.color.serveYellow};
 `;
