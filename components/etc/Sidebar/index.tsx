@@ -14,7 +14,7 @@ function Sidebar() {
           <S.ForkIcon
             width={20}
             height={20}
-            src="./images/ForkAndKnife.svg"
+            src="/images/ForkAndKnife.svg"
             alt="수저 아이콘"
           />
           파인애플 볶음밥
@@ -23,7 +23,7 @@ function Sidebar() {
           <S.ForkIcon
             width={20}
             height={20}
-            src="./images/ForkAndKnife.svg"
+            src="/images/ForkAndKnife.svg"
             alt="수저 아이콘"
           />
           투움바 떡볶이
@@ -32,7 +32,7 @@ function Sidebar() {
           <S.ForkIcon
             width={20}
             height={20}
-            src="./images/ForkAndKnife.svg"
+            src="/images/ForkAndKnife.svg"
             alt="수저 아이콘"
           />
           하이라이스

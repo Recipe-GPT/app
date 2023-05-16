@@ -6,7 +6,7 @@ import { MaterialStatusState } from "@/atoms/Chat/MaterialStatus";
 import { MaterialListState } from "@/atoms/Chat/MaterialList";
 import { MaterialStatusType } from "@/types/Chat/MaterialStatusType";
 
-function ChatInput() {
+function ChatDetailInput() {
   const router = useRouter();
   const [materialStatus, setMaterialStatus] =
     useRecoilState<MaterialStatusType>(MaterialStatusState);
@@ -43,35 +43,15 @@ function ChatInput() {
 
   return (
     <S.ChatInput>
-      <S.ChangingStatusWrap>
-        <S.ChangingStatus
-          isActive={materialStatus === "INGREDIENT"}
-          onClick={() => setMaterialStatus("INGREDIENT")}
-        >
-          재료
-        </S.ChangingStatus>
-        <S.ChangingStatus
-          isActive={materialStatus === "SEASONING"}
-          onClick={() => setMaterialStatus("SEASONING")}
-        >
-          조미료
-        </S.ChangingStatus>
-      </S.ChangingStatusWrap>
       <S.InputWrap onSubmit={(e) => handleSubmit(e)}>
         <S.Input
-          placeholder={`${
-            materialStatus === "INGREDIENT" ? "재료" : "조미료"
-          } 추가 입력`}
           onChange={(e) => setMaterialInput(e.target.value)}
           value={materialInput}
         />
-        {!materialInput && (
-          <S.Placeholder>Enter로 요리 추천 시작</S.Placeholder>
-        )}
         <S.SendIcon type="submit" />
       </S.InputWrap>
     </S.ChatInput>
   );
 }
 
-export default ChatInput;
+export default ChatDetailInput;

@@ -2,15 +2,14 @@ import React from "react";
 import * as S from "./style";
 import { useRouter } from "next/router";
 
-function Header() {
+function Header({ isGrey }: { isGrey?: true }) {
   const { pathname } = useRouter();
-
   return (
     <>
-      <S.Header isGrey={pathname === "/chat"}>
+      <S.Header isGrey={isGrey}>
         <S.NavLeft>
           <S.Logo
-            src="./images/Logo.svg"
+            src="/images/Logo.svg"
             alt="레시피 GPT 로고"
             width={57}
             height={40}

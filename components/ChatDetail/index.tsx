@@ -2,16 +2,16 @@ import React from "react";
 import * as S from "./style";
 import Header from "../etc/Header";
 import Sidebar from "../etc/Sidebar";
-import ChatSection from "./ChatSection";
+import ChatDetailSection from "./ChatDetailSection";
 
-function Chat() {
+function ChatDetail() {
   return (
     <>
-      <Header isGrey />
+      <Header isGrey/>
       <Sidebar />
-      <ChatSection />
+      <ChatDetailSection />
     </>
   );
 }
 
-export default Chat;
+export default ChatDetail;
