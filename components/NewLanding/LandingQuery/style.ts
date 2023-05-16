@@ -40,7 +40,8 @@ export const QueryLeftBottom = styled.p`
   color: ${({ theme }) => theme.color.mainYellow};
 `;
 
-export const QueryRight = styled.div``;
+export const QueryRight = styled.div`
+`;
 
 export const QueryProfile = styled.img`
   background-color: white;
@@ -55,14 +56,11 @@ export const QueryProfileY = styled.img`
 
 export const Question = styled.div`
   padding: 13px 0px;
-  width: 25vw;
   display: flex;
-  justify-content: space-between;
-  position: relative;
+  justify-content: right;
 `;
 export const QuestionY = styled.div`
   padding: 13px 0px;
-  width: 25vw;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -70,8 +68,6 @@ export const QuestionY = styled.div`
 `;
 
 export const QuestionMe = styled.p`
-  position: relative;
-  right: 10px;
   box-shadow: 0px 6px 21px rgba(0, 0, 0, 0.1);
   background-color: ${({ theme }) => theme.color.lightYellow};
   color: white;
@@ -79,6 +75,8 @@ export const QuestionMe = styled.p`
   border-radius: 20px;
   font-size: 18px;
   line-height: 25px;
+  position: relative;
+  right: 10px;
 `;
 
 export const QuestionGpt = styled.p`
@@ -91,8 +89,4 @@ export const QuestionGpt = styled.p`
   border-radius: 20px;
   font-size: 18px;
   line-height: 25px;
-`;
-
-export const QueryQuestion = styled.p`
-  padding: 10px;
 `;

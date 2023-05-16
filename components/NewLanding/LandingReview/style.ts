@@ -33,4 +33,3 @@ export const ReviewMentBottom = styled.p`
 export const ReviewCardDiv = styled.div`
   padding-top: 40px;
 `;
- 

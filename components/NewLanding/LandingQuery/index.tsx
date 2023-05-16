@@ -1,6 +1,5 @@
 import React from "react";
 import * as S from "./style";
-
 function LandingQuery() {
   return (
     <S.LandingQuery>
@@ -21,7 +20,7 @@ function LandingQuery() {
         <S.QueryRight>
           <S.Question>
             <S.QuestionMe>
-              돼지고기, 당근, 마늘, 김치가 남았는데 이걸로 만들 수 있는 음식이
+              돼지고기, 당근, 마늘, 김치가 남았는데<br/> 이걸로 만들 수 있는 음식이
               있을까?
             </S.QuestionMe>
             <S.QueryProfile
@@ -37,16 +36,17 @@ function LandingQuery() {
               height={50}
             />
             <S.QuestionGpt>
-              네, 돼지고기 김치찌개나 김치볶음밥,<br/> 당근 조림 중 하나는 어떠세요?
+              네, 돼지고기 김치찌개나 김치볶음밥,
+              <br /> 당근 조림 중 하나는 어떠세요?
               <br />
               원하는 레시피가 있다면 말씀해주세요.
             </S.QuestionGpt>
           </S.QuestionY>
           <S.Question>
-            <S.QuestionMe>
-              오늘은 김치볶음밥이 땡기네!
-              <br /> 맛있는 김치볶음밥 레시피 알려줘
-            </S.QuestionMe>
+              <S.QuestionMe>
+                오늘은 김치볶음밥이 땡기네!
+                <br /> 맛있는 김치볶음밥 레시피 알려줘
+              </S.QuestionMe>
             <S.QueryProfile
               src="https://i.pinimg.com/564x/cd/d2/d4/cdd2d458ea81f0de645890a63213e22d.jpg"
               width={50}
