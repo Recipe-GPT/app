@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./style";
+import { AiTwotoneStar } from "react-icons/ai";
 
 function ReviewCard(props: {
   profile: string;
@@ -20,9 +21,13 @@ function ReviewCard(props: {
         </S.CardInfo>
       </S.CardTop>
       <S.CardMid>
-        <div>
-
-        </div>
+        <S.CardStar>
+          <AiTwotoneStar />
+          <AiTwotoneStar />
+          <AiTwotoneStar />
+          <AiTwotoneStar />
+          <AiTwotoneStar />
+        </S.CardStar>
         <S.CardStarNum>{props.star}</S.CardStarNum>
       </S.CardMid>
       <S.CardBottom>

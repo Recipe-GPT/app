@@ -12,8 +12,8 @@ function Header() {
           <S.Logo
             src="./images/Logo.svg"
             alt="레시피 GPT 로고"
-            width={57}
-            height={40}
+            width={50}
+            height={33}
           />
           <S.Navbar>
             <S.NavItem

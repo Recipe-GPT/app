@@ -4,6 +4,7 @@ import LandingIntro from "./LandingIntro";
 import LandingQuery from "./LandingQuery";
 import LandingReview from "./LandingReview";
 import * as S from "./style";
+import Footer from "../etc/Footer";
 
 function Landing() {
   return (

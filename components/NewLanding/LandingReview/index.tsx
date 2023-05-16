@@ -28,9 +28,9 @@ function LandingReview() {
         <S.ReviewCardDiv>
           {" "}
           <Swiper
-            slidesPerView="auto"
-            spaceBetween={10 }
+            slidesPerView={3}
             slidesPerGroup={3}
+            spaceBetween={20}
             pagination={{ clickable: true }}
             loop={true}
           >
