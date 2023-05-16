@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 
-function ChatDetailRecipe({
+function ChatResultRecipe({
   index,
   title,
   children,
@@ -19,4 +19,4 @@ function ChatDetailRecipe({
   );
 }
 
-export default ChatDetailRecipe;
+export default ChatResultRecipe;

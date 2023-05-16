@@ -1,4 +1,4 @@
-import ChatDetail from "@/components/ChatDetail";
+import ChatResult from "@/components/ChatResult";
 import Head from "next/head";
 import React from "react";
 
@@ -8,7 +8,7 @@ function RecipeDetailPage() {
       <Head>
         <title>채팅임 ㅋㅋ</title>
       </Head>
-      <ChatDetail />
+      <ChatResult />
     </>
   );
 }
