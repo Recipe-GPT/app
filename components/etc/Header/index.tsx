@@ -7,7 +7,7 @@ function Header() {
 
   return (
     <>
-      <S.Header>
+      <S.Header isGrey={pathname === "/chat"}>
         <S.NavLeft>
           <S.Logo
             src="./images/Logo.svg"
@@ -16,30 +16,18 @@ function Header() {
             height={40}
           />
           <S.Navbar>
-            <S.NavItem
-              active={pathname === "/"}
-              landing={pathname === "/"}
-              href="/"
-            >
+            <S.NavItem pageName={pathname} pathName={"/"} href="/">
               서비스 소개
             </S.NavItem>
-            <S.NavItem
-              active={pathname === "/question"}
-              landing={pathname === "/"}
-              href="/question"
-            >
+            <S.NavItem pageName={pathname} pathName={"/chat"} href="/chat">
               질문하기
             </S.NavItem>
-            <S.NavItem
-              active={pathname === "/board"}
-              landing={pathname === "/"}
-              href="/board"
-            >
+            <S.NavItem pageName={pathname} pathName={"/board"} href="/board">
               커뮤니티
             </S.NavItem>
           </S.Navbar>
         </S.NavLeft>
-        <S.Login href="/login" landing={pathname === "/"}>
+        <S.Login href="/login" pageName={pathname}>
           로그인
         </S.Login>
       </S.Header>

@@ -1,12 +1,11 @@
 import Image from "next/image";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
 
-export const Header = styled.header`
-  /* width: calc(100% - 200px); */
+export const Header = styled.header<{ isGrey: boolean }>`
   width: 100%;
-  padding: 0 100px;
-  position: absolute;
+  padding: 0 50px;
+  position: ${({ isGrey }) => (isGrey ? "fixed" : "absolute")};
   height: 5rem;
   left: 50%;
   transform: translateX(-50%);
@@ -14,29 +13,42 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: black; */
+  background-color: ${({ isGrey, theme }) => isGrey && theme.color.lightGrey};
 `;
 
 export const Logo = styled(Image)`
   cursor: pointer;
 `;
 
-export const NavItem = styled(Link)<{ active?: boolean; landing: boolean }>`
+export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
   font-size: 1.5rem;
   font-weight: bolder;
-  mix-blend-mode: difference;
-  color: ${({ theme, landing }) =>
-    landing ? theme.color.grey600 : theme.color.mainGrey} !important;
   cursor: pointer;
   display: flex;
   align-items: center;
   height: 40px;
-  border-bottom: ${({ active, theme, landing }) =>
-    active
-      ? landing
-        ? `2px solid ${theme.color.grey600}`
-        : `2px solid ${theme.color.lightGrey}`
-      : ""};
+  ${({ pageName }) => {
+    switch (pageName) {
+      case "/":
+        return css`
+          color: ${({ theme }) => theme.color.grey600} !important;
+          border-bottom: ${({ theme, pathName }) =>
+            pageName === pathName && `2px solid ${theme.color.grey600}`};
+        `;
+      case "/chat":
+        return css`
+          color: ${({ theme }) => theme.color.grey600} !important;
+          border-bottom: ${({ theme, pathName }) =>
+            pageName === pathName && `2px solid ${theme.color.grey600}`};
+        `;
+      case "/board":
+        return css`
+          color: ${({ theme }) => theme.color.lightGrey} !important;
+          border-bottom: ${({ theme, pathName }) =>
+            pageName === pathName && `2px solid ${theme.color.lightGrey}`};
+        `;
+    }
+  }}
   &:link {
     text-decoration: none;
   }
@@ -55,11 +67,22 @@ export const Login = styled(NavItem)`
   justify-content: center;
   height: 40px;
   width: 110px;
-
-  border: ${({ theme, landing }) =>
-    landing
-      ? `2px solid ${theme.color.grey600}`
-      : `2px solid ${theme.color.lightGrey}`};
+  ${({ pageName }) => {
+    switch (pageName) {
+      case "/":
+        return css`
+          border: 2px solid ${({ theme }) => theme.color.grey600};
+        `;
+      case "/chat":
+        return css`
+          border: 2px solid ${({ theme }) => theme.color.grey600};
+        `;
+      case "/board":
+        return css`
+          border: 2px solid ${({ theme }) => theme.color.lightGrey};
+        `;
+    }
+  }}
 `;
 
 export const NavLeft = styled.div`
