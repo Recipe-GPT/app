@@ -16,7 +16,7 @@ function Header() {
             height={40}
           />
           <S.Navbar>
-            <S.NavItem pageName={pathname} pathName={"/"} href="/">
+            <S.NavItem pageName={pathname} pathName="/" href="/">
               서비스 소개
             </S.NavItem>
             <S.NavItem pageName={pathname} pathName={"/chat"} href="/chat">

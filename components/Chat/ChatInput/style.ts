@@ -9,7 +9,7 @@ export const ChatInput = styled.div`
   transform: translateX(-50%);
 `;
 
-export const InputWrap = styled.div`
+export const InputWrap = styled.form`
   display: flex;
   align-items: center;
   position: relative;

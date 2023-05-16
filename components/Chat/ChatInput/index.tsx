@@ -11,7 +11,8 @@ function ChatInput() {
   const [materialInput, setMaterialInput] = useState<string>("");
   const [materialList, setMaterialList] = useRecoilState(MaterialListState);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (materialInput) {
       if (
         materialList[materialStatus].some(
@@ -31,7 +32,7 @@ function ChatInput() {
       }));
       setMaterialInput("");
     } else {
-      console.log("🫃");
+      console.log("실행되는 그런거");
     }
   };
 
@@ -51,23 +52,18 @@ function ChatInput() {
           조미료
         </S.ChangingStatus>
       </S.ChangingStatusWrap>
-      <S.InputWrap>
+      <S.InputWrap onSubmit={(e) => handleSubmit(e)}>
         <S.Input
           placeholder={`${
-            materialStatus === "INGREDIENT" ? "재" : "조미"
-          }료 추가 입력`}
+            materialStatus === "INGREDIENT" ? "재료" : "조미료"
+          } 추가 입력`}
           onChange={(e) => setMaterialInput(e.target.value)}
-          onKeyPress={(e) => {
-            if (e.key === "Enter") {
-              handleSubmit();
-            }
-          }}
           value={materialInput}
         />
         {!materialInput && (
           <S.Placeholder>Enter로 요리 추천 시작</S.Placeholder>
         )}
-        <S.SendIcon onClick={() => handleSubmit()} />
+        <S.SendIcon type="submit" />
       </S.InputWrap>
     </S.ChatInput>
   );
