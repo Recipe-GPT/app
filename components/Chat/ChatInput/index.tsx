@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./style";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { MaterialStatusState } from "@/atoms/Chat/MaterialStatus";
 import { MaterialListState } from "@/atoms/Chat/MaterialList";
 import { MaterialStatusType } from "@/types/Chat/MaterialStatusType";
@@ -9,10 +9,19 @@ function ChatInput() {
   const [materialStatus, setMaterialStatus] =
     useRecoilState<MaterialStatusType>(MaterialStatusState);
   const [materialInput, setMaterialInput] = useState<string>("");
-  const setMaterialList = useSetRecoilState(MaterialListState);
+  const [materialList, setMaterialList] = useRecoilState(MaterialListState);
 
   const handleSubmit = () => {
     if (materialInput) {
+      if (
+        materialList[materialStatus].some(
+          (material) => material.name === materialInput,
+        )
+      ) {
+        setMaterialInput("");
+        console.log("중복임 ㅋㅋ");
+        return;
+      }
       setMaterialList((prev) => ({
         ...prev,
         [materialStatus]: [
