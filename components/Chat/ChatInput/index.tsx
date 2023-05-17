@@ -22,7 +22,6 @@ function ChatInput() {
         )
       ) {
         setMaterialInput("");
-        console.log("중복임 ㅋㅋ");
         return;
       }
       setMaterialList((prev) => ({
@@ -34,10 +33,7 @@ function ChatInput() {
       }));
       setMaterialInput("");
     } else {
-      console.log(
-        materialList["INGREDIENT"].map((item) => item.name).join(","),
-      );
-      // router.push("/chat/1");
+      router.push("/chat/1");
     }
   };
 

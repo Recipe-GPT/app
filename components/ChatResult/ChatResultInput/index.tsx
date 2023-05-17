@@ -8,36 +8,14 @@ import { MaterialStatusType } from "@/types/Chat/MaterialStatusType";
 
 function ChatDetailInput() {
   const router = useRouter();
-  const [materialStatus, setMaterialStatus] =
-    useRecoilState<MaterialStatusType>(MaterialStatusState);
   const [materialInput, setMaterialInput] = useState<string>("");
-  const [materialList, setMaterialList] = useRecoilState(MaterialListState);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
     if (materialInput) {
-      if (
-        materialList[materialStatus].some(
-          (material) => material.name === materialInput,
-        )
-      ) {
-        setMaterialInput("");
-        console.log("중복임 ㅋㅋ");
-        return;
-      }
-      setMaterialList((prev) => ({
-        ...prev,
-        [materialStatus]: [
-          ...prev[materialStatus],
-          { name: materialInput, isHover: false },
-        ],
-      }));
-      setMaterialInput("");
+      router.push(`/chat/1/${materialInput}`);
     } else {
-      console.log(
-        materialList["INGREDIENT"].map((item) => item.name).join(","),
-      );
-      // router.push("/chat/1");
+      e.preventDefault();
+      router.push("/chat/1");
     }
   };
 
