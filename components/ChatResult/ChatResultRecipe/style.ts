@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 export const Index = styled.span`
@@ -17,5 +18,11 @@ export const Recipe = styled.div`
   cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.color.grey600};
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  &:link {
+    text-decoration: none;
   }
 `;
