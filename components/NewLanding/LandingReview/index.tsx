@@ -3,6 +3,7 @@ import * as S from "./style";
 import ReviewData from "../ReviewCard/data.json";
 import ReviewCard from "../ReviewCard";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import SwiperCore, {
   Navigation,
   Autoplay,
@@ -31,8 +32,8 @@ function LandingReview() {
             slidesPerView={3}
             slidesPerGroup={3}
             spaceBetween={20}
-            pagination={{ clickable: true }}
             loop={true}
+            autoplay={{ delay: 5000 }}
           >
             {ReviewData.reviews.map((r, index) => (
               <SwiperSlide key={index}>

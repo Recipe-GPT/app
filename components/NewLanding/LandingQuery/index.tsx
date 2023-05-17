@@ -5,10 +5,10 @@ function LandingQuery() {
     <S.LandingQuery>
       <S.LandingQue>
         <S.QueryLeft>
-          <div>
+          <S.QueryLeftTop>
             <S.QueryMent>언제 어디서든,</S.QueryMent>
             <S.QueryMent>질문해보세요.</S.QueryMent>
-          </div>
+          </S.QueryLeftTop>
           <S.QueryLeftMid>
             <S.QueryMidMent>남은 재료로 만들 수 있는</S.QueryMidMent>
             <S.QueryMidMent>

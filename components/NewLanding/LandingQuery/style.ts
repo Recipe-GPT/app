@@ -4,7 +4,7 @@ export const LandingQuery = styled.div`
   background: ${({ theme }) => theme.color.serveYellow};
   height: auto;
   position: relative;
-  padding: 70px 0px;
+  padding: 80px 0px;
 `;
 
 export const LandingQue = styled.div`
@@ -17,6 +17,10 @@ export const LandingQue = styled.div`
 `;
 
 export const QueryLeft = styled.div``;
+
+export const QueryLeftTop = styled.div`
+ 
+`;
 
 export const QueryMent = styled.p`
   color: ${({ theme }) => theme.color.lightGrey};
@@ -40,8 +44,7 @@ export const QueryLeftBottom = styled.p`
   color: ${({ theme }) => theme.color.mainYellow};
 `;
 
-export const QueryRight = styled.div`
-`;
+export const QueryRight = styled.div``;
 
 export const QueryProfile = styled.img`
   background-color: white;

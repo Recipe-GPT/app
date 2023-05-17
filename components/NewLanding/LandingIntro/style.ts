@@ -26,4 +26,5 @@ export const LandBold = styled.p`
   font-weight: 600;
   background: ${({ theme }) => theme.color.lightYellow};
   float: left;
+  position: relative;
 `;
