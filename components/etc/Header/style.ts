@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled, { css } from "styled-components";
 import Link from "next/link";
 
-export const Header = styled.header<{ isGrey: boolean }>`
+export const Header = styled.header<{ isGrey?: true }>`
   width: 100%;
   padding: 0 50px;
   position: ${({ isGrey }) => (isGrey ? "fixed" : "absolute")};
@@ -36,6 +36,7 @@ export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
             pageName === pathName && `2px solid ${theme.color.grey600}`};
         `;
       case "/chat":
+      case "/chat/[recipeId]":
         return css`
           color: ${({ theme }) => theme.color.grey600} !important;
           border-bottom: ${({ theme, pathName }) =>
@@ -74,6 +75,7 @@ export const Login = styled(NavItem)`
           border: 2px solid ${({ theme }) => theme.color.grey600};
         `;
       case "/chat":
+      case "/chat/[recipeId]":
         return css`
           border: 2px solid ${({ theme }) => theme.color.grey600};
         `;

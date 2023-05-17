@@ -19,6 +19,7 @@ export const ChatWrap = styled.div`
 `;
 
 export const ContentWrap = styled.div`
+  width: 100%;
   line-height: 2px;
   display: flex;
   flex-direction: column;
@@ -37,6 +38,7 @@ export const ContentLabel = styled.span`
   display: inline-block;
   max-height: 30px;
   min-width: 56px;
+  font-weight: 600;
 `;
 
 export const ShortContentLabel = styled(ContentLabel)`
