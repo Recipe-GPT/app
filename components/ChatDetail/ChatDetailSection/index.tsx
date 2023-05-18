@@ -3,6 +3,7 @@ import * as S from "./style";
 import * as CS from "@/components/Chat/ChatSection/style";
 import { IoAlarmOutline } from "react-icons/io5";
 import ChatDetailTitle from "../ChatDetailTitle";
+import ChatDetailMaterialTitle from "../ChatDetailMaterialTitle";
 
 function ChatDetailSection() {
   return (
@@ -20,7 +21,14 @@ function ChatDetailSection() {
         <S.ContentWrap>
           <S.Content>
             <ChatDetailTitle>재료</ChatDetailTitle>
-            <S.MaterialWrap></S.MaterialWrap>
+            <S.MaterialWrap>
+              <S.Material>
+                <ChatDetailMaterialTitle>기본재료</ChatDetailMaterialTitle>
+              </S.Material>
+              <S.Material>
+                <ChatDetailMaterialTitle>기본재료</ChatDetailMaterialTitle>
+              </S.Material>
+            </S.MaterialWrap>
           </S.Content>
         </S.ContentWrap>
       </S.ChatDetailSection>

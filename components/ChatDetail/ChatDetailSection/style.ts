@@ -45,7 +45,7 @@ export const ContentWrap = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 `;
 
 export const MaterialWrap = styled.div`
@@ -54,3 +54,5 @@ export const MaterialWrap = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 `;
+
+export const Material = styled.div``;
