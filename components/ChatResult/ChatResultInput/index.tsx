@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
-import { MaterialStatusState } from "@/atoms/Chat/MaterialStatus";
-import { MaterialListState } from "@/atoms/Chat/MaterialList";
-import { MaterialStatusType } from "@/types/Chat/MaterialStatusType";
 
-function ChatDetailInput() {
+function ChatResultInput() {
   const router = useRouter();
   const [materialInput, setMaterialInput] = useState<string>("");
 
@@ -32,4 +28,4 @@ function ChatDetailInput() {
   );
 }
 
-export default ChatDetailInput;
+export default ChatResultInput;

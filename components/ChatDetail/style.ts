@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const ChatResult = styled.div`
+export const ChatDetail = styled.div`
   
 `;
