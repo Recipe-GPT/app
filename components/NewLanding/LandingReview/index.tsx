@@ -35,14 +35,14 @@ function LandingReview() {
             loop={true}
             autoplay={{ delay: 5000 }}
           >
-            {ReviewData.reviews.map((r, index) => (
+            {ReviewData.reviews.map((review, index) => (
               <SwiperSlide key={index}>
                 <ReviewCard
-                  profile={r.profile}
-                  name={r.name}
-                  menu={r.menu}
-                  star={r.star}
-                  review={r.review}
+                  profile={review.profile}
+                  name={review.name}
+                  menu={review.menu}
+                  star={review.star}
+                  review={review.review}
                 />
               </SwiperSlide>
             ))}
