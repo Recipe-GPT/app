@@ -21,7 +21,7 @@ export const Logo = styled(Image)`
 `;
 
 export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bolder;
   cursor: pointer;
   display: flex;
@@ -31,9 +31,9 @@ export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
     switch (pageName) {
       case "/":
         return css`
-          color: ${({ theme }) => theme.color.grey600} !important;
+          color: ${({ theme }) => theme.color.lightGrey} !important;
           border-bottom: ${({ theme, pathName }) =>
-            pageName === pathName && `2px solid ${theme.color.grey600}`};
+            pageName === pathName && `2px solid ${theme.color.lightGrey}`};
         `;
       case "/chat":
       case "/chat/[recipeId]":
@@ -66,13 +66,13 @@ export const Login = styled(NavItem)`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  width: 110px;
+  height: 35px;
+  width: 85px;
   ${({ pageName }) => {
     switch (pageName) {
       case "/":
         return css`
-          border: 2px solid ${({ theme }) => theme.color.grey600};
+          border: 2px solid ${({ theme }) => theme.color.lightGrey};
         `;
       case "/chat":
       case "/chat/[recipeId]":
@@ -89,5 +89,5 @@ export const Login = styled(NavItem)`
 
 export const NavLeft = styled.div`
   display: flex;
-  gap: 2.25rem;
+  gap: 1.5rem;
 `;
