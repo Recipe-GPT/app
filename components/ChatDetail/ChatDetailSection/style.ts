@@ -48,11 +48,50 @@ export const Content = styled.div`
   gap: 2rem;
 `;
 
+export const RecipeContent = styled(Content)`
+  gap: 0;
+`;
+
 export const MaterialWrap = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
 `;
 
-export const Material = styled.div``;
+export const Material = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+export const MaterialItemWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+`;
+
+export const MaterialItem = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const MaterialName = styled.span`
+  color: black;
+`;
+
+export const MaterialCount = styled.span`
+  color: ${({ theme }) => theme.color.grey900};
+`;
+
+export const StepWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ButtonWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+`
