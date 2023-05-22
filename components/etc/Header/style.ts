@@ -6,7 +6,7 @@ export const Header = styled.header<{ isGrey?: true }>`
   width: 100%;
   padding: 0 50px;
   position: ${({ isGrey }) => (isGrey ? "fixed" : "absolute")};
-  height: 5rem;
+  height: 4rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
@@ -26,7 +26,7 @@ export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
   cursor: pointer;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 30px;
   ${({ pageName }) => {
     switch (pageName) {
       case "/":
