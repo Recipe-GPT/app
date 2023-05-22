@@ -46,7 +46,7 @@ export const TitleWrap = styled.div`
 
 export const Title = styled.h1`
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

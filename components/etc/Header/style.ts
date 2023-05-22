@@ -26,7 +26,7 @@ export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
   cursor: pointer;
   display: flex;
   align-items: center;
-  height: 30px;
+  height: 33px;
   ${({ pageName }) => {
     switch (pageName) {
       case "/":

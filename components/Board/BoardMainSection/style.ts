@@ -38,7 +38,7 @@ export const Search = styled.input`
   background-color: #f0f0f0;
   color: ${({ theme }) => theme.color.grey900};
   border: none;
-  width: 260px;
+  width: 280px;
   padding: 1rem 1.5rem;
   /* font-size: 1.25rem; */
 `;

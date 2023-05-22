@@ -10,7 +10,7 @@ export const BoardSection = styled.section<{ isYellow?: true }>`
 `;
 
 export const Title = styled.h1<{ isYellow?: true }>`
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   display: flex;
   align-items: center;
   gap: 10px;
