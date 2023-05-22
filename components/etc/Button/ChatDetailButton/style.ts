@@ -6,10 +6,10 @@ export const ChatDetailButton = styled(Link)`
   background-color: ${({ theme }) => theme.color.serveYellow};
   color: ${({ theme }) => theme.color.lightGrey};
   transition: 0.3s;
-  &:hover {
-    background-color: ${({ theme }) => theme.color.lightYellow};
-  }
   border: none;
   border-radius: 15px;
   box-shadow: 0px 1px 2px rgba(255, 215, 96, 0.35);
+  &:hover {
+    background-color: ${({ theme }) => theme.color.lightYellow};
+  }
 `;
