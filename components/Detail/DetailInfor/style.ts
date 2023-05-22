@@ -25,7 +25,7 @@ export const ImageDiv = styled.div`
 `;
 
 export const FoodImage = styled(Image)`
-border-radius: 20px;
+  border-radius: 20px;
 `;
 
 export const Infor = styled.div`
@@ -39,7 +39,6 @@ export const InforDiv = styled.div`
   font-size: 1.3rem;
 `;
 
-
 export const InforIcon = styled.p`
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 `;
