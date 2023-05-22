@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled, { css } from "styled-components";
 import Link from "next/link";
 
-export const Header = styled.header<{ isGrey?: true }>`
+export const Header = styled.header<{ isGrey?: true; pageName: string }>`
   width: 100%;
   padding: 0 50px;
   position: ${({ isGrey }) => (isGrey ? "fixed" : "absolute")};
@@ -14,6 +14,16 @@ export const Header = styled.header<{ isGrey?: true }>`
   align-items: center;
   justify-content: space-between;
   background-color: ${({ isGrey, theme }) => isGrey && theme.color.lightGrey};
+
+  ${({ pageName }) => {
+    switch (pageName) {
+      case "/board/post":
+        return css`
+          background-color: ${({ theme }) =>
+            theme.color.serveYellow} !important;
+        `;
+    }
+  }}
 `;
 
 export const Logo = styled(Image)`
@@ -38,16 +48,22 @@ export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
       case "/chat":
       case "/chat/[recipeId]":
       case "/chat/[recipeId]/[detailId]":
+        console.log(pageName?.slice(0, 5));
         return css`
           color: ${({ theme }) => theme.color.grey600} !important;
           border-bottom: ${({ theme, pathName }) =>
-            pageName === pathName && `2px solid ${theme.color.grey600}`};
+            pageName?.slice(0, pathName?.length) === pathName &&
+            pathName !== "/" &&
+            `2px solid ${theme.color.grey600}`};
         `;
       case "/board":
+      case "/board/post":
         return css`
           color: ${({ theme }) => theme.color.lightGrey} !important;
           border-bottom: ${({ theme, pathName }) =>
-            pageName === pathName && `2px solid ${theme.color.lightGrey}`};
+            pageName?.slice(0, pathName?.length) === pathName &&
+            pathName !== "/" &&
+            `2px solid ${theme.color.lightGrey}`};
         `;
     }
   }}
@@ -71,10 +87,6 @@ export const Login = styled(NavItem)`
   width: 85px;
   ${({ pageName }) => {
     switch (pageName) {
-      case "/":
-        return css`
-          border: 2px solid ${({ theme }) => theme.color.lightGrey};
-        `;
       case "/chat":
       case "/chat/[recipeId]":
       case "/chat/[recipeId]/[detailId]":
@@ -82,6 +94,8 @@ export const Login = styled(NavItem)`
           border: 2px solid ${({ theme }) => theme.color.grey600};
         `;
       case "/board":
+      case "/board/post":
+      case "/":
         return css`
           border: 2px solid ${({ theme }) => theme.color.lightGrey};
         `;

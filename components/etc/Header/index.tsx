@@ -6,7 +6,7 @@ function Header({ isGrey }: { isGrey?: true }) {
   const { pathname } = useRouter();
   return (
     <>
-      <S.Header isGrey={isGrey}>
+      <S.Header isGrey={isGrey} pageName={pathname}>
         <S.NavLeft>
           <S.Logo
             src="/images/Logo.svg"
@@ -18,10 +18,10 @@ function Header({ isGrey }: { isGrey?: true }) {
             <S.NavItem pageName={pathname} pathName="/" href="/">
               서비스 소개
             </S.NavItem>
-            <S.NavItem pageName={pathname} pathName={"/chat"} href="/chat">
+            <S.NavItem pageName={pathname} pathName="/chat" href="/chat">
               질문하기
             </S.NavItem>
-            <S.NavItem pageName={pathname} pathName={"/board"} href="/board">
+            <S.NavItem pageName={pathname} pathName="/board" href="/board">
               커뮤니티
             </S.NavItem>
           </S.Navbar>
