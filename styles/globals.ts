@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
 
   &:link, &:visited{
     color: unset;
+    text-decoration: none;
   }
 
   body{
