@@ -15,10 +15,12 @@ export const Icon = styled.span`
   color: ${({ theme }) => theme.color.grey800};
 `;
 
-export const TextWrap = styled.div`
+export const TextWrap = styled.div<{ isButton?: boolean }>`
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  position: relative;
+  cursor: ${({ isButton }) => isButton && "pointer"};
 `;
 
 export const Text = styled.p`
