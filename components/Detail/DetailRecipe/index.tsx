@@ -16,6 +16,11 @@ function DetailRecipe() {
             <S.RecipeHr/>
           </S.RecipeStep>
         </S.Recipe>
+        <S.RecipeWriter>
+          <S.Writer>작성자</S.Writer>
+          <S.Info>ᐧ</S.Info>
+          <S.Writer>2022.03.05</S.Writer>
+        </S.RecipeWriter>
       </S.DetailRecipe>
     </>
   );
