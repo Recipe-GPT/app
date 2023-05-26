@@ -1,21 +1,7 @@
 import { IoAddCircle } from "react-icons/io5";
 import styled from "styled-components";
 
-export const PostMaterial = styled.div`
-  background-color: white;
-  padding: 1.75rem 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`;
-
-export const MaterialContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const MaterialWrap = styled.div`
+export const PostMaterialInputs = styled.div`
   width: 47.5%;
   display: flex;
   flex-direction: column;
@@ -26,7 +12,7 @@ export const MaterialWrap = styled.div`
 export const MaterialTitle = styled.div`
   text-align: left;
   width: 100%;
-`
+`;
 
 export const Materials = styled.div`
   width: 100%;

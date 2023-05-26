@@ -22,8 +22,8 @@ function Post() {
           <S.Post>
             <PostInfo />
             <PostMaterial />
+            <input type="submit" />
           </S.Post>
-          <input type="submit" />
         </form>
       </FormProvider>
       {/* <Footer /> */}
