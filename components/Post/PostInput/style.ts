@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PostInput = styled.input<{ isBig?: true; width?: string }>`
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #d1d1d7;
   transition: 0.1s;
   font-size: ${({ isBig }) => (isBig ? "1.75rem" : "1.25rem")};
   line-height: 200%;

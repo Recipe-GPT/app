@@ -10,21 +10,22 @@ function Post() {
   const methods = useForm({
     defaultValues: {
       ingredients: [{}, {}, {}],
+      seasonings: [{}, {}, {}],
     },
   });
   const onSubmit = (data: FieldValues) => console.log(data);
   return (
     <>
       <Header />
-      <S.Post>
-        <FormProvider {...methods}>
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <FormProvider {...methods}>
+        <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <S.Post>
             <PostInfo />
             <PostMaterial />
-            <input type="submit" />
-          </form>
-        </FormProvider>
-      </S.Post>
+          </S.Post>
+          <input type="submit" />
+        </form>
+      </FormProvider>
       {/* <Footer /> */}
     </>
   );
