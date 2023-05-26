@@ -12,7 +12,6 @@ import { PostInfoOptionState } from "@/atoms/Post/PostInfoOption";
 function PostInfo() {
   const [options, setOptions] = useRecoilState(PostInfoOptionState);
   const { portion, time, difficulty } = options;
-
   const upPortion = () => {
     setOptions((prev) => ({ ...prev, portion: prev.portion + 1 }));
   };
@@ -40,8 +39,8 @@ function PostInfo() {
       <S.ContentWrap>
         <PostTitle title="정보">레시피의 기본정보를 입력해주세요.</PostTitle>
         <S.InputWrap>
-          <PostInput placeholder="제목" isBig width={300} />
-          <PostInput placeholder="음식 설명" />
+          <PostInput placeholder="제목" isBig width="300px" name="name" />
+          <PostInput placeholder="음식 설명" name="description" />
         </S.InputWrap>
         <S.OptionWrap>
           <PostInfoOption
@@ -74,8 +73,7 @@ function PostInfo() {
         <S.ImageTitle>[음식 사진]</S.ImageTitle>
         <S.ImagePlaceholder>
           <S.Camera />
-          <S.ImageText>
-          음식 사진을 업로드 해주세요.</S.ImageText>
+          <S.ImageText>음식 사진을 업로드 해주세요.</S.ImageText>
         </S.ImagePlaceholder>
       </S.ImageWrap>
     </S.PostInfo>
