@@ -56,7 +56,7 @@ function PostMaterialInputs({ name }: { name: "ingredients" | "seasonings" }) {
                 }
                 control={control}
               />
-              <MdClear />
+              <S.DeleteIcon onClick={() => newField.remove(index)} />
             </S.Material>
           );
         })}

@@ -1,4 +1,5 @@
 import { IoAddCircle } from "react-icons/io5";
+import { MdClear } from "react-icons/md";
 import styled from "styled-components";
 
 export const PostMaterialInputs = styled.div`
@@ -47,4 +48,11 @@ export const AddIcon = styled(IoAddCircle)`
   color: ${({ theme }) => theme.color.mainYellow};
   width: 1.25rem;
   height: 1.25rem;
+`;
+
+export const DeleteIcon = styled(MdClear)`
+  color: ${({ theme }) => theme.color.grey800};
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 `;
