@@ -24,7 +24,7 @@ function PostRecipe() {
                 width="100%"
                 index={index}
                 propertyName="value"
-                placeholder="ex) 후라이팬에 돼기고기와 소고기를 넣고 볶아주세요."
+                placeholder="ex) 후라이팬에 돼자고기와 소고기를 넣고 볶아주세요."
                 control={control}
               />
               <S.DeleteIcon onClick={() => remove(index)} />
