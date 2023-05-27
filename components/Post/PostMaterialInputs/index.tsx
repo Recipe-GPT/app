@@ -3,6 +3,7 @@ import * as S from "./style";
 import PostInput from "../PostInput";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { MdClear } from "react-icons/md";
+import PostAppendButton from "@/components/etc/Button/PostAppendButton";
 
 function PostMaterialInputs({ name }: { name: "ingredients" | "seasonings" }) {
   const { control } = useFormContext();
@@ -61,10 +62,7 @@ function PostMaterialInputs({ name }: { name: "ingredients" | "seasonings" }) {
           );
         })}
       </S.Materials>
-      <S.AddButton onClick={() => newField.append({})}>
-        <S.AddIcon />
-        추가
-      </S.AddButton>
+      <PostAppendButton append={() => newField.append({})} />
     </S.PostMaterialInputs>
   );
 }

@@ -30,26 +30,6 @@ export const Material = styled.div`
   justify-content: space-between;
 `;
 
-export const AddButton = styled.div`
-  display: inline-flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-  color: ${({ theme }) => theme.color.grey900};
-  border-radius: 10px;
-  padding: 0.375rem;
-  &:hover {
-    background-color: ${({ theme }) => theme.color.serveYellow};
-  }
-`;
-
-export const AddIcon = styled(IoAddCircle)`
-  color: ${({ theme }) => theme.color.mainYellow};
-  width: 1.25rem;
-  height: 1.25rem;
-`;
-
 export const DeleteIcon = styled(MdClear)`
   color: ${({ theme }) => theme.color.grey800};
   cursor: pointer;
