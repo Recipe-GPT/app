@@ -20,16 +20,14 @@ function Post() {
     <>
       <Header />
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <S.Post>
-            <PostInfo />
-            <PostMaterial />
-            <PostRecipe />
-            <input type="submit" />
-          </S.Post>
-        </form>
+        <S.Post onSubmit={methods.handleSubmit(onSubmit)}>
+          <PostInfo />
+          <PostMaterial />
+          <PostRecipe />
+          <S.Submit value="레시피 업로드하기" type="submit" />
+        </S.Post>
       </FormProvider>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
