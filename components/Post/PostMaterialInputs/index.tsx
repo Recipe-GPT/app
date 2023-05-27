@@ -2,7 +2,6 @@ import React from "react";
 import * as S from "./style";
 import PostInput from "../PostInput";
 import { useFieldArray, useFormContext } from "react-hook-form";
-import { MdClear } from "react-icons/md";
 import PostAppendButton from "@/components/etc/Button/PostAppendButton";
 
 function PostMaterialInputs({ name }: { name: "ingredients" | "seasonings" }) {
@@ -32,7 +31,9 @@ function PostMaterialInputs({ name }: { name: "ingredients" | "seasonings" }) {
   };
   return (
     <S.PostMaterialInputs>
-      <S.MaterialTitle>[기본재료]</S.MaterialTitle>
+      <S.MaterialTitle>
+        [{name === "ingredients" ? "기본" : "소스"}재료]
+      </S.MaterialTitle>
       <S.Materials>
         {newField.fields.map((field, index) => {
           return (
