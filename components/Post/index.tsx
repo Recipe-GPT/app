@@ -6,8 +6,11 @@ import PostInfo from "./PostInfo";
 import PostMaterial from "./PostMaterial";
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import PostRecipe from "./PostRecipe";
+import { useRecoilValue } from "recoil";
+import { PostInfoOptionState } from "@/atoms/Post/PostInfoOption";
 
 function Post() {
+  const options = useRecoilValue(PostInfoOptionState);
   const methods = useForm({
     defaultValues: {
       ingredients: [{}, {}, {}],
@@ -15,7 +18,9 @@ function Post() {
       recipe: [{}, {}, {}],
     },
   });
-  const onSubmit = (data: FieldValues) => console.log(data);
+  const onSubmit = (data: FieldValues) => {
+    console.log({ ...data, ...options });
+  };
   return (
     <>
       <Header />

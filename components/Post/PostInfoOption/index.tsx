@@ -52,7 +52,6 @@ function PostInfoOption({
         isButton={!up}
         onClick={() => {
           if (!up) {
-            console.log("asdf");
             setIsOpen((prev) => !prev);
           }
         }}
