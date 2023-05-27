@@ -1,6 +1,7 @@
+import Link from "next/link";
 import styled from "styled-components";
 
-export const BoardRecipeButton = styled.button`
+export const BoardRecipeButton = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -5,7 +5,7 @@ function BoardItem() {
   return (
     <S.BoardItem>
       <S.FoodWrap>
-        <S.Food src="./images/Food.svg" alt="음식사진" fill />
+        <S.Food src="/images/Food.svg" alt="음식사진" fill />
       </S.FoodWrap>
       <S.Content>
         <S.TitleWrap>

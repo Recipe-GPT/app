@@ -1,13 +1,12 @@
 import React from "react";
 import * as S from "./style";
 
-function ChatDetailRecipeStep({
-  index,
-  children,
-}: {
+interface ChatDetailRecipeStepType {
   index: number;
   children: string;
-}) {
+}
+
+function ChatDetailRecipeStep({ index, children }: ChatDetailRecipeStepType) {
   return (
     <S.ChatDetailRecipeStep>
       <S.Step>
