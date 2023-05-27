@@ -8,6 +8,7 @@ import { StarRounded } from "@mui/icons-material";
 import PostInfoOption from "../PostInfoOption";
 import { useRecoilState } from "recoil";
 import { PostInfoOptionState } from "@/atoms/Post/PostInfoOption";
+import PostImageInput from "../PostImageInput";
 
 function PostInfo() {
   const [options, setOptions] = useRecoilState(PostInfoOptionState);
@@ -71,10 +72,7 @@ function PostInfo() {
       </S.ContentWrap>
       <S.ImageWrap>
         <S.ImageTitle>[음식 사진]</S.ImageTitle>
-        <S.ImagePlaceholder>
-          <S.Camera />
-          <S.ImageText>음식 사진을 업로드 해주세요.</S.ImageText>
-        </S.ImagePlaceholder>
+        <PostImageInput />
       </S.ImageWrap>
     </S.PostInfo>
   );
