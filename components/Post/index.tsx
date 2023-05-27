@@ -5,12 +5,14 @@ import Footer from "../etc/Footer";
 import PostInfo from "./PostInfo";
 import PostMaterial from "./PostMaterial";
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
+import PostRecipe from "./PostRecipe";
 
 function Post() {
   const methods = useForm({
     defaultValues: {
       ingredients: [{}, {}, {}],
       seasonings: [{}, {}, {}],
+      recipe: [{}, {}, {}],
     },
   });
   const onSubmit = (data: FieldValues) => console.log(data);
@@ -22,6 +24,7 @@ function Post() {
           <S.Post>
             <PostInfo />
             <PostMaterial />
+            <PostRecipe />
             <input type="submit" />
           </S.Post>
         </form>
