@@ -16,8 +16,8 @@ export const MainTitle = styled.p`
 
 export const Description = styled.p`
   color: ${({ theme }) => theme.color.grey800};
-  font-size: 1.3rem;
-  padding: 3px 0px 13px 0px;
+  font-size: 1.2rem;
+  padding: 5px 0px 18px 0px;
 `;
 
 export const ImageDiv = styled.div`
@@ -31,7 +31,7 @@ export const FoodImage = styled(Image)`
 export const Infor = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 40px 60px 30px 60px;
+  padding: 40px 80px 30px 80px;
 `;
 
 export const InforDiv = styled.div`
@@ -41,4 +41,8 @@ export const InforDiv = styled.div`
 
 export const InforIcon = styled.p`
   font-size: 1.8rem;
+`;
+
+export const InforTitle = styled.p`
+
 `;

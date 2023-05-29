@@ -24,19 +24,19 @@ function DetailInfor() {
             <S.InforIcon>
               <MdPeopleAlt />
             </S.InforIcon>
-            <p>2인분</p>
+            <S.InforTitle>2인분</S.InforTitle>
           </S.InforDiv>
           <S.InforDiv>
             <S.InforIcon>
               <BiTimeFive />
             </S.InforIcon>
-            <p>900</p>
+            <S.InforTitle>900</S.InforTitle>
           </S.InforDiv>
           <S.InforDiv>
             <S.InforIcon>
               <AiTwotoneStar />
             </S.InforIcon>
-            <p>어려움</p>
+            <S.InforTitle>어려움</S.InforTitle>
           </S.InforDiv>
         </S.Infor>
       </S.DetailInfor>
