@@ -113,3 +113,7 @@ export const NavLeft = styled.div`
   display: flex;
   gap: 1.5rem;
 `;
+
+export const ProfileImg = styled(Image)`
+  border-radius: 50%;
+`;
