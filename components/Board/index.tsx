@@ -8,7 +8,6 @@ import BoardMainSection from "./BoardMainSection";
 function Board() {
   return (
     <>
-      <Header />
       <S.Board>
         <BoardSection />
         <BoardSection isYellow />

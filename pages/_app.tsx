@@ -4,6 +4,7 @@ import { theme } from "@/styles/theme";
 import GlobalStyle from "@/styles/globals";
 import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Header from "@/components/etc/Header";
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
           <GlobalStyle />
+          <Header />
         </ThemeProvider>
       </QueryClientProvider>
     </RecoilRoot>

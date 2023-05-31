@@ -9,7 +9,6 @@ import Footer from "../etc/Footer";
 function Landing() {
   return (
     <S.Landing>
-      <Header />
       <LandingIntro />
       <LandingQuery />
       <LandingReview />

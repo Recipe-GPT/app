@@ -7,7 +7,6 @@ import ChatDetailSection from "./ChatDetailSection";
 function ChatDetail() {
   return (
     <>
-      <Header isGrey />
       <Sidebar />
       <ChatDetailSection />
     </>
