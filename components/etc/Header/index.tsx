@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 import { getMyInfo } from "@/utils/apis/user";
 import Image from "next/image";
+import HeaderLogin from "../HeaderLogin";
 
 function Header({ isGrey }: { isGrey?: true }) {
   const { pathname } = useRouter();
@@ -17,6 +18,8 @@ function Header({ isGrey }: { isGrey?: true }) {
   const getMyInfoQuery = useQuery("myInfo", getMyInfo, {
     enabled: mount,
   });
+
+  console.log(getMyInfoQuery);
 
   return (
     <>
@@ -40,25 +43,7 @@ function Header({ isGrey }: { isGrey?: true }) {
             </S.NavItem>
           </S.Navbar>
         </S.NavLeft>
-        {mount && localStorage.accessToken ? (
-          <>
-            {
-              <S.ProfileImg
-                src={getMyInfoQuery.data?.imageUrl}
-                alt="프로필 사진"
-                width={50}
-                height={50}
-              />
-            }
-          </>
-        ) : (
-          <S.Login
-            pageName={pathname}
-            href="https://recipe-api.bssm.kro.kr/oauth2/authorization/google"
-          >
-            로그인
-          </S.Login>
-        )}
+        <HeaderLogin />
       </S.Header>
     </>
   );
