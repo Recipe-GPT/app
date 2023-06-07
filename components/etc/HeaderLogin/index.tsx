@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
-import { useMutation, useQuery } from "react-query";
-import { getMyInfo, getMyInfoQuery } from "@/utils/apis/user";
+import { getMyInfoQuery } from "@/utils/apis/user";
 import { useRouter } from "next/router";
-import { getLogout, getLogoutMutation } from "@/utils/apis/auth";
+import { getLogoutMutation } from "@/utils/apis/auth";
 
 function HeaderLogin() {
   const { pathname } = useRouter();

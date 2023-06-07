@@ -3,10 +3,8 @@ import * as S from "./style";
 import * as CS from "@/components/Chat/ChatSection/style";
 import { useRecoilValue } from "recoil";
 import { MaterialListState } from "@/atoms/Chat/MaterialList";
-import ChatInput from "@/components/Chat/ChatInput";
 import ChatResultInput from "../ChatResultInput";
 import ChatResultRecipe from "../ChatResultRecipe";
-
 function ChatResultSection() {
   const materialList = useRecoilValue(MaterialListState);
   return (

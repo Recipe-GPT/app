@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { MaterialStatusState } from "@/atoms/Chat/MaterialStatus";
 import { MaterialListState } from "@/atoms/Chat/MaterialList";
 import { MaterialStatusType } from "@/types/Chat/MaterialStatusType";
+import { getRecommendMutation } from "@/utils/apis/recipe";
 
 function ChatInput() {
   const router = useRouter();
@@ -12,6 +13,14 @@ function ChatInput() {
     useRecoilState<MaterialStatusType>(MaterialStatusState);
   const [materialInput, setMaterialInput] = useState<string>("");
   const [materialList, setMaterialList] = useRecoilState(MaterialListState);
+
+  const recommendMutation = getRecommendMutation(
+    {
+      ingredients: materialList.INGREDIENT.map((item) => item.name),
+      seasonings: materialList.SEASONING.map((item) => item.name),
+    },
+    router,
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,7 +42,7 @@ function ChatInput() {
       }));
       setMaterialInput("");
     } else {
-      router.push("/chat/1");
+      recommendMutation.mutate();
     }
   };
 

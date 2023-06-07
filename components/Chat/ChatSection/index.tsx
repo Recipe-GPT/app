@@ -5,6 +5,7 @@ import ChatInput from "../ChatInput";
 import { MaterialListState } from "@/atoms/Chat/MaterialList";
 import { useRecoilState } from "recoil";
 import { IoClose } from "react-icons/io5";
+import { getRecommendMutation } from "@/utils/apis/recipe";
 
 function ChatSection() {
   const [materialList, setMaterialList] = useRecoilState(MaterialListState);

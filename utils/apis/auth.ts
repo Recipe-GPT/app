@@ -1,12 +1,13 @@
 import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
 import { useMutation, useQuery } from "react-query";
+import { NextRouter } from "next/router";
 
 export const getLogin = async (code: string) => {
   return (await instance.post("oauth", { code })).data;
 };
 
-export const getLoginQuery = (code: string, router: any) => {
+export const getLoginQuery = (code: string, router: NextRouter) => {
   return useQuery("login", () => getLogin(code), {
     enabled: router.isReady,
   });
