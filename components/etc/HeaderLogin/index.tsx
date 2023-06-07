@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { getMyInfo } from "@/utils/apis/user";
 import { useRouter } from "next/router";
+import { getLogout } from "@/utils/apis/auth";
 
 function HeaderLogin() {
   const { pathname } = useRouter();
@@ -17,6 +18,14 @@ function HeaderLogin() {
     enabled: mount,
   });
 
+  const logoutMutation = useMutation(getLogout, {
+    onSuccess: () => {
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      window.location.reload();
+    },
+  });
+  
   if (mount && localStorage.accessToken && getMyInfoQuery.isSuccess) {
     return (
       <>
@@ -26,6 +35,7 @@ function HeaderLogin() {
             alt="프로필 사진"
             width={50}
             height={50}
+            onClick={() => logoutMutation.mutate()}
           />
         }
       </>
