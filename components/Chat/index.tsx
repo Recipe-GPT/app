@@ -7,7 +7,6 @@ import ChatSection from "./ChatSection";
 function Chat() {
   return (
     <>
-      <Header isGrey />
       <Sidebar />
       <ChatSection />
     </>

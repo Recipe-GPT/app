@@ -7,7 +7,6 @@ import ChatResultSection from "./ChatResultSection";
 function ChatResult() {
   return (
     <>
-      <Header isGrey />
       <Sidebar />
       <ChatResultSection />
     </>

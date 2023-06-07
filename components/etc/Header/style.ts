@@ -13,14 +13,20 @@ export const Header = styled.header<{ isGrey?: true; pageName: string }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ isGrey, theme }) => isGrey && theme.color.lightGrey};
-
+  top: 0;
   ${({ pageName }) => {
     switch (pageName) {
       case "/board/post":
         return css`
           background-color: ${({ theme }) =>
             theme.color.serveYellow} !important;
+        `;
+      case "/chat":
+      case "/chat/[recipeId]":
+      case "/chat/[recipeId]/[detailId]":
+        return css`
+          background-color: ${({ theme }) => theme.color.lightGrey};
+          position: fixed;
         `;
     }
   }}
@@ -106,4 +112,8 @@ export const Login = styled(NavItem)`
 export const NavLeft = styled.div`
   display: flex;
   gap: 1.5rem;
+`;
+
+export const ProfileImg = styled(Image)`
+  border-radius: 50%;
 `;
