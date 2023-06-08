@@ -9,7 +9,7 @@ function google() {
       const { accessToken, refreshToken } = loginQuery.data;
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
-      router.push("/");
+      window.history.go(-2);
       return;
     default:
       return;
