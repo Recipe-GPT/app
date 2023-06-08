@@ -60,7 +60,6 @@ export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
       case "/chat":
       case "/chat/[recipeId]":
       case "/chat/[recipeId]/[detailId]":
-        console.log(pageName?.slice(0, 5));
         return css`
           color: ${({ theme }) => theme.color.grey600} !important;
           border-bottom: ${({ theme, pathName }) =>

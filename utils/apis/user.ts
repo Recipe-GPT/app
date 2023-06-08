@@ -9,5 +9,7 @@ export const getMyInfo = async () => {
 export const getMyInfoQuery = (mount: boolean) => {
   return useQuery("myInfo", getMyInfo, {
     enabled: mount,
+    staleTime: Infinity,
+    retry: false,
   });
 };

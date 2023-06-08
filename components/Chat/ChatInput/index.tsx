@@ -60,8 +60,6 @@ function ChatInput() {
       : seasoningListMutation.mutate();
   };
 
-  console.log(ingredientListMutation);
-
   return (
     <S.ChatInput>
       <S.ChangingStatusWrap>
