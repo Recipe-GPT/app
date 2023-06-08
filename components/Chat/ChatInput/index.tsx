@@ -6,6 +6,10 @@ import { MaterialStatusState } from "@/atoms/Chat/MaterialStatus";
 import { MaterialListState } from "@/atoms/Chat/MaterialList";
 import { MaterialStatusType } from "@/types/Chat/MaterialStatusType";
 import { getRecommendMutation } from "@/utils/apis/recipe";
+import {
+  getIngredientListMutation,
+  getSeasoningListMutation,
+} from "@/utils/apis/search";
 
 function ChatInput() {
   const router = useRouter();
@@ -46,6 +50,18 @@ function ChatInput() {
     }
   };
 
+  const ingredientListMutation = getIngredientListMutation(materialInput);
+  const seasoningListMutation = getSeasoningListMutation(materialInput);
+
+  const search = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMaterialInput(e.target.value);
+    materialStatus === "INGREDIENT"
+      ? ingredientListMutation.mutate()
+      : seasoningListMutation.mutate();
+  };
+
+  console.log(ingredientListMutation);
+
   return (
     <S.ChatInput>
       <S.ChangingStatusWrap>
@@ -67,7 +83,7 @@ function ChatInput() {
           placeholder={`${
             materialStatus === "INGREDIENT" ? "재료" : "조미료"
           } 추가 입력`}
-          onChange={(e) => setMaterialInput(e.target.value)}
+          onChange={(e) => search(e)}
           value={materialInput}
         />
         {!materialInput && (
