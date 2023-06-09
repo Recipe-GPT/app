@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Sidebar = styled.div`
   padding: 10px;
@@ -14,7 +15,9 @@ export const Sidebar = styled.div`
   gap: 10px;
 `;
 
-export const SidebarItem = styled.div`
+export const SidebarItemWrap = styled.div``;
+
+const SidebarButtonStyles = css`
   padding: 0.75rem;
   display: flex;
   align-items: center;
@@ -27,10 +30,13 @@ export const SidebarItem = styled.div`
   border-radius: 0.5rem;
 `;
 
-export const SidebarItemWrap = styled.div``;
+export const SidebarItem = styled(Link)`
+  ${SidebarButtonStyles}
+`;
 
-export const NewRecipeButton = styled(SidebarItem)`
+export const NewRecipeButton = styled.div`
   border: 2px solid ${({ theme }) => theme.color.lightGrey};
+  ${SidebarButtonStyles}
 `;
 
 export const ForkIcon = styled(Image)``;

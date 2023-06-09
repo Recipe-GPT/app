@@ -1,45 +1,34 @@
 import React from "react";
 import * as S from "./style";
 import { FiPlus } from "react-icons/fi";
-import { getChatRoomListQuery } from "@/utils/apis/chat";
+import { getChatRoomListQuery, makeChatRoomMutation } from "@/utils/apis/chat";
 
 function Sidebar() {
   const chatRoomListQuery = getChatRoomListQuery();
-  console.log(chatRoomListQuery);
+  const charRoomMutation = makeChatRoomMutation();
   return (
     <S.Sidebar>
-      <S.NewRecipeButton>
+      <S.NewRecipeButton onClick={() => charRoomMutation.mutate()}>
         <FiPlus size={20} />
         새로운 레시피 만들기
       </S.NewRecipeButton>
       <S.SidebarItemWrap>
-        <S.SidebarItem>
-          <S.ForkIcon
-            width={20}
-            height={20}
-            src="/images/ForkAndKnife.svg"
-            alt="수저 아이콘"
-          />
-          파인애플 볶음밥
-        </S.SidebarItem>
-        <S.SidebarItem>
-          <S.ForkIcon
-            width={20}
-            height={20}
-            src="/images/ForkAndKnife.svg"
-            alt="수저 아이콘"
-          />
-          투움바 떡볶이
-        </S.SidebarItem>
-        <S.SidebarItem>
-          <S.ForkIcon
-            width={20}
-            height={20}
-            src="/images/ForkAndKnife.svg"
-            alt="수저 아이콘"
-          />
-          하이라이스
-        </S.SidebarItem>
+        {chatRoomListQuery.isSuccess &&
+          chatRoomListQuery.data?.list.map(
+            (item: { id: number; name: string }) => {
+              return (
+                <S.SidebarItem key={item.id} href={`/chat/${item.id}`}>
+                  <S.ForkIcon
+                    width={20}
+                    height={20}
+                    src="/images/ForkAndKnife.svg"
+                    alt="수저 아이콘"
+                  />
+                  {item.name}
+                </S.SidebarItem>
+              );
+            },
+          )}
       </S.SidebarItemWrap>
     </S.Sidebar>
   );
