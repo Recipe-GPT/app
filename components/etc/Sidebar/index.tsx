@@ -1,13 +1,16 @@
 import React from "react";
 import * as S from "./style";
 import { FiPlus } from "react-icons/fi";
+import { getChatRoomListQuery } from "@/utils/apis/chat";
 
 function Sidebar() {
+  const chatRoomListQuery = getChatRoomListQuery();
+  console.log(chatRoomListQuery);
   return (
     <S.Sidebar>
       <S.NewRecipeButton>
         <FiPlus size={20} />
-        새로운 레시피
+        새로운 레시피 만들기
       </S.NewRecipeButton>
       <S.SidebarItemWrap>
         <S.SidebarItem>
