@@ -5,6 +5,7 @@ import GlobalStyle from "@/styles/globals";
 import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Header from "@/components/etc/Header";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
+          <ReactQueryDevtools initialIsOpen={false} />
           <GlobalStyle />
           <Header />
         </ThemeProvider>
