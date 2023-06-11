@@ -30,8 +30,21 @@ const SidebarButtonStyles = css`
   border-radius: 0.5rem;
 `;
 
-export const SidebarItem = styled(Link)`
+export const SidebarItem = styled(Link)<{ index: number; pathname: string }>`
   ${SidebarButtonStyles}
+  justify-content: space-between;
+  background-color: ${({ theme, index, pathname }) =>
+    index === Number(pathname) && theme.color.lightGrey};
+  &:hover {
+    background-color: ${({ theme, index, pathname }) =>
+      index === Number(pathname) && theme.color.lightGrey};
+  }
+`;
+
+export const NameWrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 `;
 
 export const NewRecipeButton = styled.div`
@@ -40,3 +53,14 @@ export const NewRecipeButton = styled.div`
 `;
 
 export const ForkIcon = styled(Image)``;
+
+export const IconWrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const UpdateNameInput = styled.input`
+  width: 7rem;
+  height: 1.25rem;
+`;

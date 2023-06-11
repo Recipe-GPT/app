@@ -1,6 +1,6 @@
 import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { NextRouter, useRouter } from "next/router";
 
 export const getChatRoomList = async () => {
@@ -8,7 +8,10 @@ export const getChatRoomList = async () => {
 };
 
 export const getChatRoomListQuery = () => {
-  return useQuery("chatroom", getChatRoomList);
+  return useQuery("chatroom", getChatRoomList, {
+    staleTime: 5000,
+    cacheTime: Infinity,
+  });
 };
 
 export const makeChatRoom = async () => {
@@ -20,6 +23,21 @@ export const makeChatRoomMutation = () => {
   return useMutation(makeChatRoom, {
     onSuccess: (data) => {
       router.push(`/chat/${data.chatRoomId}`);
+    },
+  });
+};
+
+export const updateChatRoom = async (id: string, name: string) => {
+  return (
+    await instance.put(`chatroom/update/${id}`, { name }, getAccessToken())
+  ).data;
+};
+
+export const updateChatRoomMutation = (id: string, name: string) => {
+  const queryClient = useQueryClient();
+  return useMutation(() => updateChatRoom(id, name), {
+    onSuccess: () => {
+      queryClient.invalidateQueries("chatroom");
     },
   });
 };
