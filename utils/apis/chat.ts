@@ -37,13 +37,31 @@ export const updateChatRoom = async (id: string, name: string) => {
 
 export const updateChatRoomMutation = (id: string, name: string) => {
   const queryClient = useQueryClient();
-  const router = useRouter();
   const setChatRoomList = useSetRecoilState(ChatRoomListState);
   return useMutation(() => updateChatRoom(id, name), {
     onSuccess: () => {
       queryClient
         .fetchQuery("chatroom", getChatRoomList)
         .then((data) => setChatRoomList(data));
+    },
+  });
+};
+
+export const deleteChatRoom = async (id: string) => {
+  return (await instance.delete(`chatroom/delete/${id}`, getAccessToken()))
+    .data;
+};
+
+export const deleteChatRoomMutation = (id: string) => {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+  const setChatRoomList = useSetRecoilState(ChatRoomListState);
+  return useMutation(() => deleteChatRoom(id), {
+    onSuccess: () => {
+      queryClient
+        .fetchQuery("chatroom", getChatRoomList)
+        .then((data) => setChatRoomList(data))
+        .then(() => router.replace("/chat"));
     },
   });
 };

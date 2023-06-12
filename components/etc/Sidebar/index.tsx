@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { FiPlus } from "react-icons/fi";
 import {
+  deleteChatRoomMutation,
   getChatRoomListQuery,
   makeChatRoomMutation,
   updateChatRoomMutation,
@@ -27,6 +28,7 @@ function Sidebar() {
     recipeId as string,
     chatRoomName,
   );
+  const deleteChatRoomFunc = deleteChatRoomMutation(recipeId as string);
 
   // useEffect(() => {
   //   setIsModify(false);
@@ -84,8 +86,7 @@ function Sidebar() {
                         alt={`${name} 채팅방 수정 버튼`}
                         width={20}
                         height={20}
-                        onClick={(e) => {
-                          // e.stopPropagation();
+                        onClick={() => {
                           setIsModify(true);
                           setChatRoomName(name);
                         }}
@@ -99,6 +100,9 @@ function Sidebar() {
                         alt={`${name} 채팅방 삭제 버튼`}
                         width={20}
                         height={20}
+                        onClick={() => {
+                          deleteChatRoomFunc.mutate();
+                        }}
                       />
                     )}
                   </S.IconWrap>
