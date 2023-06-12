@@ -2,15 +2,17 @@ import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { NextRouter, useRouter } from "next/router";
+import { useSetRecoilState } from "recoil";
+import { ChatRoomListState } from "@/atoms/Chat/ChatRoomList";
 
 export const getChatRoomList = async () => {
   return (await instance.get("chatroom/find", getAccessToken())).data;
 };
 
 export const getChatRoomListQuery = () => {
+  const setChatRoomList = useSetRecoilState(ChatRoomListState);
   return useQuery("chatroom", getChatRoomList, {
-    staleTime: 5000,
-    cacheTime: Infinity,
+    onSuccess: (data) => setChatRoomList(data),
   });
 };
 
@@ -35,9 +37,13 @@ export const updateChatRoom = async (id: string, name: string) => {
 
 export const updateChatRoomMutation = (id: string, name: string) => {
   const queryClient = useQueryClient();
+  const router = useRouter();
+  const setChatRoomList = useSetRecoilState(ChatRoomListState);
   return useMutation(() => updateChatRoom(id, name), {
     onSuccess: () => {
-      queryClient.invalidateQueries("chatroom");
+      queryClient
+        .fetchQuery("chatroom", getChatRoomList)
+        .then((data) => setChatRoomList(data));
     },
   });
 };

@@ -10,9 +10,12 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { AiOutlineCheck } from "react-icons/ai";
 import { MdClose } from "react-icons/md";
+import { useRecoilValue } from "recoil";
+import { ChatRoomListState } from "@/atoms/Chat/ChatRoomList";
 
 function Sidebar() {
   const chatRoomListQuery = getChatRoomListQuery();
+  const chatRoomList = useRecoilValue(ChatRoomListState);
   const chatRoomMutation = makeChatRoomMutation();
   const router = useRouter();
   const [chatRoomName, setChatRoomName] = useState("");
@@ -37,7 +40,7 @@ function Sidebar() {
       </S.NewRecipeButton>
       <S.SidebarItemWrap>
         {chatRoomListQuery.isSuccess &&
-          chatRoomListQuery.data?.list.map(
+          chatRoomList.list.map(
             ({ id, name }: { id: number; name: string }) => (
               <S.SidebarItem
                 key={id}
