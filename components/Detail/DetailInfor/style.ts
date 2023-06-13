@@ -22,10 +22,17 @@ export const Description = styled.p`
 
 export const ImageDiv = styled.div`
   position: relative;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
 `;
 
 export const FoodImage = styled(Image)`
   border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
 `;
 
 export const Infor = styled.div`
@@ -43,6 +50,4 @@ export const InforIcon = styled.p`
   font-size: 1.8rem;
 `;
 
-export const InforTitle = styled.p`
-
-`;
+export const InforTitle = styled.p``;

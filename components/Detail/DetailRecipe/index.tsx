@@ -13,7 +13,7 @@ function DetailRecipe() {
               <S.Step>step 1</S.Step>
               <S.StepStory>먹기좋게~</S.StepStory>
             </S.RecipeTop>
-            <S.RecipeHr/>
+            <S.RecipeHr />
           </S.RecipeStep>
         </S.Recipe>
         <S.RecipeWriter>

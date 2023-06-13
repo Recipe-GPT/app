@@ -1,6 +1,5 @@
 import React from "react";
 import * as S from "./style";
-
 function DetailIngredient() {
   return (
     <>
@@ -26,7 +25,10 @@ function DetailIngredient() {
               <S.ServeHr />
             </S.HrPad>
             <div>
-              
+              <S.IngredientInfor>
+                <S.IngredientName>돼지고기</S.IngredientName>
+                <S.IngredientNum>1팩</S.IngredientNum>
+              </S.IngredientInfor>
             </div>
           </S.Ingredient>
         </S.Ingredients>
