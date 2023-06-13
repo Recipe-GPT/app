@@ -8,7 +8,16 @@ import Header from "@/components/etc/Header";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+      mutations: {
+        retry: false,
+      },
+    },
+  });
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
