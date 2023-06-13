@@ -18,12 +18,16 @@ function ChatInput() {
   const [materialInput, setMaterialInput] = useState<string>("");
   const [materialList, setMaterialList] = useRecoilState(MaterialListState);
 
+  const {
+    query: { recipeId },
+  } = router;
+
   const recommendMutation = getRecommendMutation(
     {
       ingredients: materialList.INGREDIENT.map((item) => item.name),
       seasonings: materialList.SEASONING.map((item) => item.name),
     },
-    router,
+    recipeId as string,
   );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
