@@ -16,14 +16,29 @@ export const getChatRoomListQuery = () => {
   });
 };
 
+export const getChatList = async (id: string) => {
+  return (await instance.get(`chatroom/find/${id}`, getAccessToken())).data;
+};
+
+export const getChatListQuery = (id: string) => {
+  return useQuery(["chatroom", id], () => getChatList(id), {
+    enabled: id !== undefined,
+  });
+};
+
 export const makeChatRoom = async () => {
   return (await instance.post("chatroom", null, getAccessToken())).data;
 };
 
 export const makeChatRoomMutation = () => {
+  const queryClient = useQueryClient();
   const router = useRouter();
+  const setChatRoomList = useSetRecoilState(ChatRoomListState);
   return useMutation(makeChatRoom, {
     onSuccess: (data) => {
+      queryClient
+        .fetchQuery("chatroom", getChatRoomList)
+        .then((data) => setChatRoomList(data));
       router.push(`/chat/${data.chatRoomId}`);
     },
   });
