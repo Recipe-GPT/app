@@ -14,7 +14,7 @@ function ChatSection() {
       <S.ChatWrap>
         <Image
           alt="Recpie GPT 아이콘"
-          src="./images/YellowLogo.svg"
+          src="/images/YellowLogo.svg"
           width={40}
           height={40}
         />

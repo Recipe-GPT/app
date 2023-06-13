@@ -29,11 +29,6 @@ function Sidebar() {
     chatRoomName,
   );
   const deleteChatRoomFunc = deleteChatRoomMutation(recipeId as string);
-
-  // useEffect(() => {
-  //   setIsModify(false);
-  // }, [router.asPath]);
-
   return (
     <S.Sidebar>
       <S.NewRecipeButton onClick={() => chatRoomMutation.mutate()}>
@@ -49,6 +44,7 @@ function Sidebar() {
                 href={`/chat/${id}`}
                 index={id}
                 pathname={recipeId as string}
+                scroll={false}
                 passHref
                 onClick={() => {
                   if (id !== Number(recipeId)) setIsModify(false);
