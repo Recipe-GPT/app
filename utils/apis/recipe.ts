@@ -1,7 +1,7 @@
 import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
 import { useMutation, useQuery } from "react-query";
-import { NextRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 
 export const getRecommend = async (
   materials: {
@@ -22,5 +22,8 @@ export const getRecommendMutation = (
   },
   id: string,
 ) => {
-  return useMutation(() => getRecommend(materials, id));
+  const router = useRouter();
+  return useMutation(() => getRecommend(materials, id), {
+    onSuccess: () => router.reload(),
+  });
 };
