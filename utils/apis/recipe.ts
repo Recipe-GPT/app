@@ -11,7 +11,7 @@ export const getRecommend = async (
   id: string,
 ) => {
   return (
-    await instance.post(`query/recommend/${1}`, materials, getAccessToken())
+    await instance.post(`query/recommend/${id}`, materials, getAccessToken())
   ).data;
 };
 

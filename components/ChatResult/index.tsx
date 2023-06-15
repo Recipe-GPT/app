@@ -14,10 +14,8 @@ function ChatResult() {
   return (
     <>
       <Sidebar />
-      {chatListQuery.isLoading ? (
-        null
-      ) : chatListQuery.data?.list.length ? (
-        <ChatResultSection />
+      {chatListQuery.isLoading ? null : chatListQuery.data?.list.length ? (
+        <ChatResultSection data={chatListQuery.data} />
       ) : (
         <ChatSection />
       )}

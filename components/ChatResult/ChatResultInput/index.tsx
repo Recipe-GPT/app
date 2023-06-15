@@ -5,13 +5,16 @@ import { useRouter } from "next/router";
 function ChatResultInput() {
   const router = useRouter();
   const [materialInput, setMaterialInput] = useState<string>("");
+  const {
+    query: { recipeId },
+  } = router;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (materialInput) {
-      router.push(`/chat/1/${materialInput}`);
+      router.push(`/chat/${recipeId}/${materialInput}`);
     } else {
       e.preventDefault();
-      router.push("/chat/1");
+      router.replace(`/chat/${recipeId}`);
     }
   };
 
