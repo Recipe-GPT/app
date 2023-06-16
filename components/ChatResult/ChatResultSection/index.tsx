@@ -35,8 +35,13 @@ function ChatResultSection({ data }: { data: ChatListType }) {
                 return (
                   <ChatResultRecipe
                     key={item.name}
-                    index={index + 1}
+                    index={index}
                     title={item.name}
+                    length={data.list[0].recommendRecipe.length}
+                    data={{
+                      ingredients: item.ingredients,
+                      seasonings: item.seasonings,
+                    }}
                   >
                     {item.description}
                   </ChatResultRecipe>
