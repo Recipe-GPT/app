@@ -10,6 +10,7 @@ import {
   getIngredientListMutation,
   getSeasoningListMutation,
 } from "@/utils/apis/search";
+import { isLoadingState } from "@/atoms/Etc/isLoading";
 
 function ChatInput() {
   const router = useRouter();
@@ -17,6 +18,7 @@ function ChatInput() {
     useRecoilState<MaterialStatusType>(MaterialStatusState);
   const [materialInput, setMaterialInput] = useState<string>("");
   const [materialList, setMaterialList] = useRecoilState(MaterialListState);
+  const [isLoading, setIsLoading] = useRecoilState(isLoadingState);
 
   const {
     query: { recipeId },
@@ -29,6 +31,10 @@ function ChatInput() {
     },
     recipeId as string,
   );
+
+  if (recommendMutation.isLoading) {
+    setIsLoading(true);
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

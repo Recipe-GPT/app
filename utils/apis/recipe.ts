@@ -2,6 +2,8 @@ import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
 import { useMutation, useQuery } from "react-query";
 import { NextRouter, useRouter } from "next/router";
+import { useSetRecoilState } from "recoil";
+import { isLoadingState } from "@/atoms/Etc/isLoading";
 
 export const getRecommend = async (
   materials: {
@@ -23,7 +25,11 @@ export const getRecommendMutation = (
   id: string,
 ) => {
   const router = useRouter();
+  const setIsLoading = useSetRecoilState(isLoadingState);
   return useMutation(() => getRecommend(materials, id), {
-    onSuccess: () => router.reload(),
+    onSettled: () => {
+      setIsLoading(false);
+      router.reload();
+    },
   });
 };
