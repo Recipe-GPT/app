@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import { MaterialType } from "@/types/Chat/ChatList";
+import { MaterialList } from "../ChatResultSection/style";
 
 function ChatResultRecipe({
   index,
@@ -36,10 +37,26 @@ function ChatResultRecipe({
             newArray[index] = !newArray[index];
             setIsOpenList(newArray);
           }}
+          isOpen={isOpenList[index]}
         >
           엄
         </S.MaterialOpenButton>
-        {isOpenList[index] && JSON.stringify(data)}
+        {isOpenList[index] && (
+          <S.MaterialList>
+            <div>
+              재료 :{" "}
+              <MaterialList>
+                {data.ingredients.map((item) => item.name).join(", ")}
+              </MaterialList>
+            </div>
+            <div>
+              조미료 :{" "}
+              <MaterialList>
+                {data.seasonings.map((item) => item.name).join(", ")}
+              </MaterialList>
+            </div>
+          </S.MaterialList>
+        )}
       </S.Recipe>
     </S.StyledLink>
   );

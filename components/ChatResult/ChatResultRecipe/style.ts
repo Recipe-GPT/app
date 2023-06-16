@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import styled from "styled-components";
 
 export const Index = styled.span`
@@ -28,9 +29,19 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const MaterialOpenButton = styled.button`
+export const MaterialOpenButton = styled(MdKeyboardArrowDown)<{
+  isOpen: boolean;
+}>`
   position: absolute;
   right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 1.875rem;
+  transform: translateY(-50%) ${({ isOpen }) => isOpen && "rotate(180deg)"};
+  width: 1.5rem;
+  height: 1.5rem;
+`;
+
+export const MaterialList = styled.div`
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
 `;
