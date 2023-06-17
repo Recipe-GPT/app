@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "react-query";
 import { NextRouter, useRouter } from "next/router";
 import { useSetRecoilState } from "recoil";
 import { isLoadingState } from "@/atoms/Etc/isLoading";
+import { MaterialType, RecipeQuestionType } from "@/types/Chat/ChatList";
 
 export const getRecommend = async (
   materials: {
@@ -30,6 +31,28 @@ export const getRecommendMutation = (
     onSettled: () => {
       setIsLoading(false);
       router.reload();
+    },
+  });
+};
+
+export const getRecipe = async (data: RecipeQuestionType, id: string) => {
+  return (await instance.post(`query/recipe/${id}`, data, getAccessToken()))
+    .data;
+};
+
+export const getRecipeMutation = (
+  data: RecipeQuestionType,
+  id: string,
+  i: number,
+) => {
+  const router = useRouter();
+  const setIsLoading = useSetRecoilState(isLoadingState);
+  return useMutation(() => getRecipe(data, id), {
+    onSettled: () => {
+      setIsLoading(false);
+    },
+    onSuccess: () => {
+      router.push(`${router.asPath}/${i}`);
     },
   });
 };

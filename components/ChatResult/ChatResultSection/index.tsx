@@ -51,7 +51,7 @@ function ChatResultSection({ data }: { data: ChatListType }) {
             <CS.Content>마음에 드시는 요리를 선택하세요!</CS.Content>
           </CS.ContentWrap>
         </CS.ChatWrap>
-        <ChatResultInput />
+        <ChatResultInput data={data.list[0].recommendRecipe} />
       </CS.ChatSection>
     </>
   );

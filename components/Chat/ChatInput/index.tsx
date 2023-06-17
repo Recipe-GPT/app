@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
@@ -32,9 +32,11 @@ function ChatInput() {
     recipeId as string,
   );
 
-  if (recommendMutation.isLoading) {
-    setIsLoading(true);
-  }
+  useEffect(() => {
+    if (recommendMutation.isLoading) {
+      setIsLoading(true);
+    }
+  }, [recommendMutation.status]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -15,10 +15,17 @@ export interface MaterialType {
   quantity: string;
 }
 
-interface RecipeType {
+export interface RecipeType {
   id: number;
   name: string;
   description: string;
   ingredients: MaterialType[];
   seasonings: MaterialType[];
+}
+
+export interface RecipeQuestionType {
+  name: string;
+  description: string;
+  ingredients: string[];
+  seasonings: string[];
 }
