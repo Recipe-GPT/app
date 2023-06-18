@@ -48,7 +48,7 @@ function BoardSection({ isYellow }: { isYellow?: true }) {
       </S.BoardSection>
     );
   }
-  return;
+  return<></>;
 }
 
 export default BoardSection;

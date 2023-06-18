@@ -1,9 +1,11 @@
 import React from "react";
 import * as S from "./style";
+import { useRouter } from "next/router";
 
 function BoardItem({ data }: { data: BoardType }) {
+  const router = useRouter();
   return (
-    <S.BoardItem>
+    <S.BoardItem onClick={() => router.push(`/board/${data?.boardId}`)}>
       <S.FoodWrap>
         <S.Food src={data?.imageUrl} alt="음식사진" fill />
       </S.FoodWrap>

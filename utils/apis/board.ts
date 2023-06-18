@@ -27,5 +27,15 @@ export const getTrendingBoard = async () => {
 };
 
 export const getTrendingBoardQuery = () => {
-  return useQuery("recommendBoard", getTrendingBoard);
+  return useQuery("trendingBoard", getTrendingBoard);
+};
+
+export const getDetailBoard = async (id: string) => {
+  return (await instance.get(`board/detail/${id}`, getAccessToken())).data;
+};
+
+export const getDetailBoardQuery = (id: string, isReady: boolean) => {
+  return useQuery(["detailBoard", id], () => getDetailBoard(id), {
+    enabled: isReady,
+  });
 };
