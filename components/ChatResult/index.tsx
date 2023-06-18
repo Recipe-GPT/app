@@ -4,6 +4,7 @@ import ChatResultSection from "./ChatResultSection";
 import { getChatListQuery } from "@/utils/apis/chat";
 import { useRouter } from "next/router";
 import ChatSection from "../Chat/ChatSection";
+import ChatDetailSection from "../ChatDetail/ChatDetailSection";
 
 function ChatResult() {
   const router = useRouter();

@@ -7,7 +7,7 @@ interface ChatType {
   requestedIngredients: string[];
   requestedSeasonings: string[];
   recommendRecipe: RecipeType[];
-  selectedRecipe: RecipeType;
+  selectedRecipe: RecipeType[];
 }
 
 export interface MaterialType {
