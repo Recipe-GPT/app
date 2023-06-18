@@ -52,7 +52,7 @@ export const getRecipeMutation = (
       setIsLoading(false);
     },
     onSuccess: () => {
-      router.push(`${router.asPath}/${i}`);
-    },
+      router.reload();
+    }, 
   });
 };

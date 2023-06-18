@@ -12,6 +12,7 @@ function ChatResult() {
     query: { recipeId },
   } = router;
   const chatListQuery = getChatListQuery(recipeId as string);
+  console.log(chatListQuery);
   return (
     <>
       <Sidebar />

@@ -22,7 +22,6 @@ function ChatResultSection({ data }: { data: ChatListType }) {
     };
   }, []);
 
-  console.log(data);
   return (
     <>
       <CS.ChatSection>
@@ -73,10 +72,10 @@ function ChatResultSection({ data }: { data: ChatListType }) {
           isScroll={scrollPosition > 0}
         />
       </CS.ChatSection>
-      {data.list[0].selectedRecipe.map((item) => {
+      {data.list[0].selectedRecipe.map((data) => {
         return (
           <>
-            <ChatDetailSection />
+            <ChatDetailSection data={data} />
           </>
         );
       })}
