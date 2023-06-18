@@ -2,7 +2,7 @@ export interface ChatListType {
   list: ChatType[];
 }
 
-interface ChatType {
+export interface ChatType {
   id: number;
   requestedIngredients: string[];
   requestedSeasonings: string[];

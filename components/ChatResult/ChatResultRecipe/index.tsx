@@ -13,6 +13,7 @@ function ChatResultRecipe({
   children,
   data,
   length,
+  id,
 }: {
   index: number;
   title: string;
@@ -22,6 +23,7 @@ function ChatResultRecipe({
     seasonings: MaterialType[];
   };
   length: number;
+  id: number;
 }) {
   const { asPath } = useRouter();
   const [isOpenList, setIsOpenList] = useState(Array(length).fill(false));
@@ -40,6 +42,7 @@ function ChatResultRecipe({
       seasonings: seasonings.map((item) => item.name),
     },
     recipeId as string,
+    id,
     i,
   );
   useEffect(() => {

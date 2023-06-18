@@ -7,15 +7,18 @@ import ChatDetailRecipeStep from "../ChatDetailRecipeStep";
 import { useRouter } from "next/router";
 import ChatDetailButton from "@/components/etc/Button/ChatDetailButton";
 import { RecipeType } from "@/types/Chat/ChatList";
+import { useRecoilValue } from "recoil";
+import { SelectedRecipeState } from "@/atoms/Chat/SelectedRecipe";
 
-function ChatDetailSection({ data }: { data: RecipeType }) {
+function ChatDetailSection() {
   const router = useRouter();
-  if (data) {
+  const selectedRecipe = useRecoilValue(SelectedRecipeState);
+  if (selectedRecipe.name) {
     return (
       <>
         <S.ChatDetailSection>
           <S.Head>
-            <S.Title>{data.name}</S.Title>
+            <S.Title>{selectedRecipe.name}</S.Title>
             {/* <S.Info>
               <S.InfoItem>
                 <IoAlarmOutline size={24} />
@@ -30,7 +33,7 @@ function ChatDetailSection({ data }: { data: RecipeType }) {
                 <S.Material>
                   <ChatDetailMaterialTitle>기본재료</ChatDetailMaterialTitle>
                   <S.MaterialItemWrap>
-                    {data.ingredients.map((item) => {
+                    {selectedRecipe.ingredients.map((item) => {
                       return (
                         <S.MaterialItem>
                           <S.MaterialName>{item.name}</S.MaterialName>
@@ -45,7 +48,7 @@ function ChatDetailSection({ data }: { data: RecipeType }) {
                 <S.Material>
                   <ChatDetailMaterialTitle>소스재료</ChatDetailMaterialTitle>
                   <S.MaterialItemWrap>
-                    {data.seasonings.map((item) => {
+                    {selectedRecipe.seasonings.map((item) => {
                       return (
                         <S.MaterialItem>
                           <S.MaterialName>{item.name}</S.MaterialName>
@@ -62,7 +65,7 @@ function ChatDetailSection({ data }: { data: RecipeType }) {
             <S.RecipeContent>
               <ChatDetailTitle>레시피</ChatDetailTitle>
               <S.StepWrap>
-                {data.recipe?.map((item, index) => {
+                {selectedRecipe.recipe?.map((item, index) => {
                   return (
                     <ChatDetailRecipeStep index={index + 1}>
                       {item}

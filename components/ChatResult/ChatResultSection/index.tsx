@@ -54,6 +54,7 @@ function ChatResultSection({ data }: { data: ChatListType }) {
                     index={index}
                     title={item.name}
                     length={data.list[0].recommendRecipe.length}
+                    id={item.id}
                     data={{
                       ingredients: item.ingredients,
                       seasonings: item.seasonings,
@@ -72,14 +73,14 @@ function ChatResultSection({ data }: { data: ChatListType }) {
           isScroll={scrollPosition > 0}
         />
       </CS.ChatSection>
-      {data.list[0].selectedRecipe.map((data) => {
+      {/* {data.list[0].selectedRecipe.map((data) => {
         return (
           <>
             <ChatDetailSection data={data} />
           </>
         );
-      })}
-      <GoToTopButton isScroll={scrollPosition > 0} />
+      })} */}
+      {/* <GoToTopButton isScroll={scrollPosition > 0} /> */}
     </>
   );
 }
