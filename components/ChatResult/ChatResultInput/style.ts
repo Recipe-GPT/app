@@ -18,7 +18,7 @@ export const InputWrap = styled.form`
   align-items: center;
   position: relative;
   width: calc(100% - 25rem);
-  left: calc(50%);
+  left: 50%;
   transform: translateX(-50%);
 `;
 
