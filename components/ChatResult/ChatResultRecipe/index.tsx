@@ -14,6 +14,7 @@ function ChatResultRecipe({
   data,
   length,
   id,
+  isSelected,
 }: {
   index: number;
   title: string;
@@ -24,6 +25,7 @@ function ChatResultRecipe({
   };
   length: number;
   id: number;
+  isSelected: boolean;
 }) {
   const { asPath } = useRouter();
   const [isOpenList, setIsOpenList] = useState(Array(length).fill(false));
@@ -51,8 +53,12 @@ function ChatResultRecipe({
   }, [getRecipe.status]);
   return (
     <S.Recipe
-      onClick={(e) => {
-        getRecipe.mutate();
+      onClick={() => {
+        if (isSelected) {
+          router.push(`${asPath}/${id}`);
+        } else {
+          getRecipe.mutate();
+        }
       }}
     >
       <S.Index>{i}.</S.Index>

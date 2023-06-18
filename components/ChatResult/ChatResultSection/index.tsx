@@ -55,6 +55,9 @@ function ChatResultSection({ data }: { data: ChatListType }) {
                     title={item.name}
                     length={data.list[0].recommendRecipe.length}
                     id={item.id}
+                    isSelected={data.list[0].selectedRecipe.some(
+                      (recipe) => recipe.id === item.id,
+                    )}
                     data={{
                       ingredients: item.ingredients,
                       seasonings: item.seasonings,
