@@ -1,24 +1,19 @@
-import { getLogin } from "@/utils/apis/auth";
+import { getLoginQuery } from "@/utils/apis/auth";
 import { useRouter } from "next/router";
-import React from "react";
-import { useQuery } from "react-query";
-
 function google() {
   const router = useRouter();
-  const code = router.query?.code;
-  const loginQuery = useQuery("login", () => getLogin(code), {
-    enabled: router.isReady,
-  });
-  if (loginQuery.isSuccess) {
-    const { accessToken, refreshToken } = loginQuery.data;
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", refreshToken);
-    router.push("/");
+  const code = router.query?.code as string;
+  const loginQuery = getLoginQuery(code, router);
+  switch (loginQuery.status) {
+    case "success":
+      const { accessToken, refreshToken } = loginQuery.data;
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      window.history.go(-2);
+      return;
+    default:
+      return;
   }
-  if (loginQuery.isError) {
-    console.log(loginQuery);
-  }
-  return null;
 }
 
 export default google;

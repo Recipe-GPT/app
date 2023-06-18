@@ -5,6 +5,7 @@ import ChatInput from "../ChatInput";
 import { MaterialListState } from "@/atoms/Chat/MaterialList";
 import { useRecoilState } from "recoil";
 import { IoClose } from "react-icons/io5";
+import { getRecommendMutation } from "@/utils/apis/recipe";
 
 function ChatSection() {
   const [materialList, setMaterialList] = useRecoilState(MaterialListState);
@@ -13,7 +14,7 @@ function ChatSection() {
       <S.ChatWrap>
         <Image
           alt="Recpie GPT 아이콘"
-          src="./images/YellowLogo.svg"
+          src="/images/YellowLogo.svg"
           width={40}
           height={40}
         />

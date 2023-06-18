@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { MaterialStatusState } from "@/atoms/Chat/MaterialStatus";
 import { MaterialListState } from "@/atoms/Chat/MaterialList";
 import { MaterialStatusType } from "@/types/Chat/MaterialStatusType";
+import { getRecommendMutation } from "@/utils/apis/recipe";
+import {
+  getIngredientListMutation,
+  getSeasoningListMutation,
+} from "@/utils/apis/search";
+import { isLoadingState } from "@/atoms/Etc/isLoading";
 
 function ChatInput() {
   const router = useRouter();
@@ -12,6 +18,25 @@ function ChatInput() {
     useRecoilState<MaterialStatusType>(MaterialStatusState);
   const [materialInput, setMaterialInput] = useState<string>("");
   const [materialList, setMaterialList] = useRecoilState(MaterialListState);
+  const [isLoading, setIsLoading] = useRecoilState(isLoadingState);
+
+  const {
+    query: { recipeId },
+  } = router;
+
+  const recommendMutation = getRecommendMutation(
+    {
+      ingredients: materialList.INGREDIENT.map((item) => item.name),
+      seasonings: materialList.SEASONING.map((item) => item.name),
+    },
+    recipeId as string,
+  );
+
+  useEffect(() => {
+    if (recommendMutation.isLoading) {
+      setIsLoading(true);
+    }
+  }, [recommendMutation.status]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,8 +58,18 @@ function ChatInput() {
       }));
       setMaterialInput("");
     } else {
-      router.push("/chat/1");
+      recommendMutation.mutate();
     }
+  };
+
+  const ingredientListMutation = getIngredientListMutation(materialInput);
+  const seasoningListMutation = getSeasoningListMutation(materialInput);
+
+  const search = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMaterialInput(e.target.value);
+    materialStatus === "INGREDIENT"
+      ? ingredientListMutation.mutate()
+      : seasoningListMutation.mutate();
   };
 
   return (
@@ -58,7 +93,7 @@ function ChatInput() {
           placeholder={`${
             materialStatus === "INGREDIENT" ? "재료" : "조미료"
           } 추가 입력`}
-          onChange={(e) => setMaterialInput(e.target.value)}
+          onChange={(e) => search(e)}
           value={materialInput}
         />
         {!materialInput && (

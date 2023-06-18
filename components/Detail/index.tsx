@@ -9,7 +9,6 @@ import DetailRecipe from "./DetailRecipe";
 function Detail() {
   return (
     <>
-      <Header />
       <S.Detail>
         <DetailInfor />
         <DetailIngredient />

@@ -2,9 +2,8 @@ import { IoClose } from "react-icons/io5";
 import styled from "styled-components";
 
 export const ChatSection = styled.section`
-  min-height: calc(100vh - 5rem);
   position: relative;
-  top: 5rem;
+  top: 4rem;
   left: 16.25rem;
   width: calc(100% - 16.25rem);
 `;

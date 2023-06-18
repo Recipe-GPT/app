@@ -1,8 +1,16 @@
 import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
+import { useMutation, useQuery } from "react-query";
+import { NextRouter } from "next/router";
 
-export const getLogin = async (code: string | string[] | undefined) => {
+export const getLogin = async (code: string) => {
   return (await instance.post("oauth", { code })).data;
+};
+
+export const getLoginQuery = (code: string, router: NextRouter) => {
+  return useQuery("login", () => getLogin(code), {
+    enabled: router.isReady,
+  });
 };
 
 export const getLogout = async () => {
@@ -12,4 +20,14 @@ export const getLogout = async () => {
       ...getAccessToken(),
     })
   ).data;
+};
+
+export const getLogoutMutation = () => {
+  return useMutation(getLogout, {
+    onSuccess: () => {
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      window.location.reload();
+    },
+  });
 };

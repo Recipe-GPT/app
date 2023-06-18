@@ -6,6 +6,8 @@ export const ChatDetailSection = styled(ChatSection)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  border-top: 1px solid ${({ theme }) => theme.color.lightYellow};
+  border-bottom: 1px solid ${({ theme }) => theme.color.lightYellow};
 `;
 
 export const Head = styled.div`
@@ -94,4 +96,4 @@ export const ButtonWrap = styled.div`
   display: flex;
   justify-content: center;
   gap: 1.25rem;
-`
+`;

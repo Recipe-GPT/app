@@ -28,6 +28,12 @@ export const Header = styled.header<{ isGrey?: true; pageName: string }>`
           background-color: ${({ theme }) => theme.color.lightGrey};
           position: fixed;
         `;
+      case "/oauth/callback/google":
+        return css`
+          display: none;
+        `;
+      default:
+        return css``;
     }
   }}
 `;
@@ -54,7 +60,6 @@ export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
       case "/chat":
       case "/chat/[recipeId]":
       case "/chat/[recipeId]/[detailId]":
-        console.log(pageName?.slice(0, 5));
         return css`
           color: ${({ theme }) => theme.color.grey600} !important;
           border-bottom: ${({ theme, pathName }) =>
@@ -71,6 +76,8 @@ export const NavItem = styled(Link)<{ pageName: string; pathName?: string }>`
             pathName !== "/" &&
             `2px solid ${theme.color.lightGrey}`};
         `;
+      default:
+        return css``;
     }
   }}
   &:link {
@@ -105,6 +112,8 @@ export const Login = styled(NavItem)`
         return css`
           border: 2px solid ${({ theme }) => theme.color.lightGrey};
         `;
+      default:
+        return css``;
     }
   }}
 `;

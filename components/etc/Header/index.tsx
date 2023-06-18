@@ -1,25 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as S from "./style";
 import { useRouter } from "next/router";
-import { useQuery } from "react-query";
-import { getMyInfo } from "@/utils/apis/user";
-import Image from "next/image";
 import HeaderLogin from "../HeaderLogin";
 
 function Header({ isGrey }: { isGrey?: true }) {
   const { pathname } = useRouter();
-  const [mount, setMount] = useState(false);
-
-  useEffect(() => {
-    setMount(true);
-    return () => setMount(false);
-  }, []);
-
-  const getMyInfoQuery = useQuery("myInfo", getMyInfo, {
-    enabled: mount,
-  });
-
-  console.log(getMyInfoQuery);
 
   return (
     <>

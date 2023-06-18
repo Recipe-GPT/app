@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
-import { useMutation, useQuery } from "react-query";
-import { getMyInfo } from "@/utils/apis/user";
+import { getMyInfoQuery } from "@/utils/apis/user";
 import { useRouter } from "next/router";
-import { getLogout } from "@/utils/apis/auth";
+import { getLogoutMutation } from "@/utils/apis/auth";
 
 function HeaderLogin() {
   const { pathname } = useRouter();
@@ -14,24 +13,16 @@ function HeaderLogin() {
     return () => setMount(false);
   }, []);
 
-  const getMyInfoQuery = useQuery("myInfo", getMyInfo, {
-    enabled: mount,
-  });
+  const myInfoQuery = getMyInfoQuery(mount);
 
-  const logoutMutation = useMutation(getLogout, {
-    onSuccess: () => {
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-      window.location.reload();
-    },
-  });
-  
-  if (mount && localStorage.accessToken && getMyInfoQuery.isSuccess) {
+  const logoutMutation = getLogoutMutation();
+
+  if (mount && localStorage.accessToken && myInfoQuery.isSuccess) {
     return (
       <>
         {
           <S.ProfileImg
-            src={getMyInfoQuery.data?.imageUrl}
+            src={myInfoQuery.data?.imageUrl}
             alt="프로필 사진"
             width={50}
             height={50}
@@ -40,7 +31,7 @@ function HeaderLogin() {
         }
       </>
     );
-  } else if (mount && localStorage.accessToken && getMyInfoQuery.isLoading) {
+  } else if (mount && localStorage.accessToken && myInfoQuery.isLoading) {
     return <></>;
   } else if (mount) {
     return (
