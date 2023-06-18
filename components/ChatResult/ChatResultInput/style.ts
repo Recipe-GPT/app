@@ -1,18 +1,22 @@
 import styled from "styled-components";
 import { FiSend } from "react-icons/fi";
 
-export const ChatInput = styled.div`
-  position: absolute;
+export const ChatInput = styled.div<{ isScroll: boolean }>`
+  position: fixed;
   bottom: 2.5rem;
-  width: calc(100% - 25rem);
-  left: 50%;
-  transform: translateX(-50%);
+  width: calc(100% - 16.25rem);
+  z-index: 1000;
+  opacity: ${({ isScroll }) => (isScroll ? 0 : 1)};
+  transition: 0.3s;
 `;
 
 export const InputWrap = styled.form`
   display: flex;
   align-items: center;
   position: relative;
+  width: calc(100% - 25rem);
+  left: calc(50%);
+  transform: translateX(-50%);
 `;
 
 export const Input = styled.input`
