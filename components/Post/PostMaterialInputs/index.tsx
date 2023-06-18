@@ -19,14 +19,14 @@ function PostMaterialInputs({ name }: { name: "ingredients" | "seasonings" }) {
 
   const placeholderList = {
     ingredients: [
-      { name: "모짜렐라 치즈", count: "100g" },
-      { name: "피망", count: "1개" },
-      { name: "마늘", count: "2쪽" },
+      { name: "모짜렐라 치즈", quantity: "100g" },
+      { name: "피망", quantity: "1개" },
+      { name: "마늘", quantity: "2쪽" },
     ],
     seasonings: [
-      { name: "굴소스", count: "3t" },
-      { name: "고추장", count: "2T" },
-      { name: "데리야끼소스", count: "3t" },
+      { name: "굴소스", quantity: "3t" },
+      { name: "고추장", quantity: "2T" },
+      { name: "데리야끼소스", quantity: "3t" },
     ],
   };
   return (
@@ -52,9 +52,9 @@ function PostMaterialInputs({ name }: { name: "ingredients" | "seasonings" }) {
                 width="calc(50% - 5px)"
                 name={name}
                 index={index}
-                propertyName="count"
+                propertyName="quantity"
                 placeholder={
-                  index < 3 && `ex) ${placeholderList[name][index].count}`
+                  index < 3 && `ex) ${placeholderList[name][index].quantity}`
                 }
                 control={control}
               />

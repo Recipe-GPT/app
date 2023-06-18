@@ -2,7 +2,7 @@ import { Difficulty } from "@/types/Post/Difficulty";
 import { atom } from "recoil";
 
 interface PostInfoOptionStateType {
-  portion: number;
+  serving: number;
   time: number;
   difficulty: Difficulty;
 }
@@ -10,7 +10,7 @@ interface PostInfoOptionStateType {
 export const PostInfoOptionState = atom<PostInfoOptionStateType>({
   key: "PostInfoOptionState",
   default: {
-    portion: 1,
+    serving: 1,
     time: 0,
     difficulty: "VERY_HARD",
   },
