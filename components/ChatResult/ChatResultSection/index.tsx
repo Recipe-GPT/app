@@ -5,6 +5,7 @@ import ChatResultInput from "../ChatResultInput";
 import ChatResultRecipe from "../ChatResultRecipe";
 import { ChatListType } from "@/types/Chat/ChatList";
 import ChatDetailSection from "@/components/ChatDetail/ChatDetailSection";
+import GoToTopButton from "@/components/etc/Button/GoToTopButton";
 function ChatResultSection({ data }: { data: ChatListType }) {
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -79,6 +80,7 @@ function ChatResultSection({ data }: { data: ChatListType }) {
           </>
         );
       })}
+      <GoToTopButton isScroll={scrollPosition > 0} />
     </>
   );
 }

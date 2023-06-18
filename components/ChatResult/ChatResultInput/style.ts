@@ -6,7 +6,10 @@ export const ChatInput = styled.div<{ isScroll: boolean }>`
   bottom: 2.5rem;
   width: calc(100% - 16.25rem);
   z-index: 1000;
-  opacity: ${({ isScroll }) => (isScroll ? 0 : 1)};
+  visibility: ${({ isScroll }) => (isScroll ? "hidden" : "visible")};
+  animation: ${({ isScroll, theme }) =>
+      isScroll ? theme.animations.FadeOut : theme.animations.FadeIn}
+    ease-in-out 0.3s forwards;
   transition: 0.3s;
 `;
 

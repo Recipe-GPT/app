@@ -8,7 +8,6 @@ export const ChatDetailSection = styled(ChatSection)`
   gap: 2rem;
   border-top: 1px solid ${({ theme }) => theme.color.lightYellow};
   border-bottom: 1px solid ${({ theme }) => theme.color.lightYellow};
-  /* top: 0; */
 `;
 
 export const Head = styled.div`
