@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import * as CS from "@/components/Chat/ChatSection/style";
 import ChatResultInput from "../ChatResultInput";
 import ChatResultRecipe from "../ChatResultRecipe";
 import { ChatListType } from "@/types/Chat/ChatList";
+import ChatDetailSection from "@/components/ChatDetail/ChatDetailSection";
+import GoToTopButton from "@/components/etc/Button/GoToTopButton";
 function ChatResultSection({ data }: { data: ChatListType }) {
-  console.log(data);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    function handleScroll() {
+      const position = window.pageYOffset || document.documentElement.scrollTop;
+      setScrollPosition(position);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <CS.ChatSection>
@@ -38,6 +54,7 @@ function ChatResultSection({ data }: { data: ChatListType }) {
                     index={index}
                     title={item.name}
                     length={data.list[0].recommendRecipe.length}
+                    id={item.id}
                     data={{
                       ingredients: item.ingredients,
                       seasonings: item.seasonings,
@@ -51,8 +68,19 @@ function ChatResultSection({ data }: { data: ChatListType }) {
             <CS.Content>마음에 드시는 요리를 선택하세요!</CS.Content>
           </CS.ContentWrap>
         </CS.ChatWrap>
-        <ChatResultInput data={data.list[0].recommendRecipe} />
+        <ChatResultInput
+          data={data.list[0].recommendRecipe}
+          isScroll={scrollPosition > 0}
+        />
       </CS.ChatSection>
+      {/* {data.list[0].selectedRecipe.map((data) => {
+        return (
+          <>
+            <ChatDetailSection data={data} />
+          </>
+        );
+      })} */}
+      {/* <GoToTopButton isScroll={scrollPosition > 0} /> */}
     </>
   );
 }

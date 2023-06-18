@@ -13,6 +13,7 @@ import { postBoardMutation } from "@/utils/apis/board";
 function Post() {
   const formData = new FormData();
   const options = useRecoilValue(PostInfoOptionState);
+  
   const methods = useForm({
     defaultValues: {
       ingredients: [{}, {}, {}],
@@ -51,7 +52,6 @@ function Post() {
   };
   return (
     <>
-      <Header />
       <FormProvider {...methods}>
         <S.Post onSubmit={methods.handleSubmit(onSubmit)}>
           <PostInfo />

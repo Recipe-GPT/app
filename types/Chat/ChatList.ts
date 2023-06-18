@@ -2,12 +2,12 @@ export interface ChatListType {
   list: ChatType[];
 }
 
-interface ChatType {
+export interface ChatType {
   id: number;
   requestedIngredients: string[];
   requestedSeasonings: string[];
   recommendRecipe: RecipeType[];
-  selectedRecipe: RecipeType;
+  selectedRecipe: RecipeType[];
 }
 
 export interface MaterialType {
@@ -21,6 +21,7 @@ export interface RecipeType {
   description: string;
   ingredients: MaterialType[];
   seasonings: MaterialType[];
+  recipe?: string[];
 }
 
 export interface RecipeQuestionType {

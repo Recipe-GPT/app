@@ -10,7 +10,13 @@ import {
 import { useRecoilState } from "recoil";
 import { isLoadingState } from "@/atoms/Etc/isLoading";
 
-function ChatResultInput({ data }: { data: RecipeType[] }) {
+function ChatResultInput({
+  data,
+  isScroll,
+}: {
+  data: RecipeType[];
+  isScroll: boolean;
+}) {
   const router = useRouter();
   const [materialInput, setMaterialInput] = useState<string>("");
   const [isLoading, setIsLoading] = useRecoilState(isLoadingState);
@@ -27,7 +33,8 @@ function ChatResultInput({ data }: { data: RecipeType[] }) {
       seasonings: selectedData?.seasonings.map((item) => item.name),
     },
     recipeId as string,
-    Number(materialInput)
+    selectedData?.id,
+    // Number(materialInput),
   );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -48,7 +55,7 @@ function ChatResultInput({ data }: { data: RecipeType[] }) {
   }, [getRecipe.status]);
 
   return (
-    <S.ChatInput>
+    <S.ChatInput isScroll={isScroll}>
       <S.InputWrap onSubmit={(e) => handleSubmit(e)}>
         <S.Input
           onChange={(e) => setMaterialInput(e.target.value)}

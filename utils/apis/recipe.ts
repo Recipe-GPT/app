@@ -5,6 +5,8 @@ import { NextRouter, useRouter } from "next/router";
 import { useSetRecoilState } from "recoil";
 import { isLoadingState } from "@/atoms/Etc/isLoading";
 import { MaterialType, RecipeQuestionType } from "@/types/Chat/ChatList";
+import { SelectedRecipeState } from "@/atoms/Chat/SelectedRecipe";
+import { updateChatRoomMutation } from "./chat";
 
 export const getRecommend = async (
   materials: {
@@ -35,24 +37,36 @@ export const getRecommendMutation = (
   });
 };
 
-export const getRecipe = async (data: RecipeQuestionType, id: string) => {
-  return (await instance.post(`query/recipe/${id}`, data, getAccessToken()))
-    .data;
+export const getRecipe = async (
+  data: RecipeQuestionType,
+  id: string,
+  recipeId: number,
+) => {
+  return (
+    await instance.post(
+      `query/recipe/${id}/${recipeId}`,
+      data,
+      getAccessToken(),
+    )
+  ).data;
 };
 
 export const getRecipeMutation = (
   data: RecipeQuestionType,
   id: string,
-  i: number,
+  recipeId: number,
+  // i: number,
 ) => {
   const router = useRouter();
   const setIsLoading = useSetRecoilState(isLoadingState);
-  return useMutation(() => getRecipe(data, id), {
+  const updateChatRoom = updateChatRoomMutation(id, data.name);
+  return useMutation(() => getRecipe(data, id, recipeId), {
     onSettled: () => {
       setIsLoading(false);
     },
     onSuccess: () => {
-      router.push(`${router.asPath}/${i}`);
+      router.push(`${router.asPath}/${recipeId}`);
+      updateChatRoom.mutate();
     },
   });
 };
