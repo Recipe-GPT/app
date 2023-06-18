@@ -3,23 +3,29 @@ import * as S from "./style";
 import { CgArrowsExchangeAltV } from "react-icons/cg";
 import { VscTriangleDown } from "react-icons/vsc";
 import { useOnClickOutside } from "usehooks-ts";
+import { useRecoilState } from "recoil";
+import { SortedByState } from "@/atoms/Board/SortedBy";
+import { SearchState } from "@/atoms/Board/Search";
+import { getSearchBoardQuery } from "@/utils/apis/board";
 
-type SortedByType = "RECENTLY" | "POPULARITY";
+export type SortedByType = "RECENT" | "POPULAR";
 
 type TextOfSortedByType = {
   [key in SortedByType]: string;
 };
 
 const textOfSortedBy: TextOfSortedByType = {
-  RECENTLY: "최신순",
-  POPULARITY: "인기순",
+  RECENT: "최신순",
+  POPULAR: "인기순",
 };
 
-const sortedByList: SortedByType[] = ["RECENTLY", "POPULARITY"];
+const sortedByList: SortedByType[] = ["RECENT", "POPULAR"];
 
 function BoardMenuButton() {
+  const [search, setSearch] = useRecoilState(SearchState);
+  const getSearchBoardFunc = getSearchBoardQuery(search);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [sortedBy, setSortedBy] = useState<SortedByType>("RECENTLY");
+  const [sortedBy, setSortedBy] = useRecoilState<SortedByType>(SortedByState);
 
   const ref = useRef(null);
 
@@ -40,6 +46,7 @@ function BoardMenuButton() {
               onClick={() => {
                 setSortedBy(sortedBy);
                 setIsOpen((prev) => !prev);
+                getSearchBoardFunc.mutate();
               }}
             >
               {textOfSortedBy[sortedBy]}&nbsp;
@@ -54,6 +61,7 @@ function BoardMenuButton() {
                     onClick={() => {
                       setSortedBy(item);
                       setIsOpen((prev) => !prev);
+                      getSearchBoardFunc.mutate();
                     }}
                   >
                     {textOfSortedBy[item]}
