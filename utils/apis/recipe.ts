@@ -55,7 +55,7 @@ export const getRecipeMutation = (
   data: RecipeQuestionType,
   id: string,
   recipeId: number,
-  i: number,
+  // i: number,
 ) => {
   const router = useRouter();
   const setIsLoading = useSetRecoilState(isLoadingState);
@@ -65,7 +65,7 @@ export const getRecipeMutation = (
       setIsLoading(false);
     },
     onSuccess: () => {
-      router.push(`${router.asPath}/${i}`);
+      router.push(`${router.asPath}/${recipeId}`);
       updateChatRoom.mutate();
     },
   });

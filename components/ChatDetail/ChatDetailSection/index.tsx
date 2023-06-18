@@ -13,7 +13,7 @@ import { SelectedRecipeState } from "@/atoms/Chat/SelectedRecipe";
 function ChatDetailSection() {
   const router = useRouter();
   const selectedRecipe = useRecoilValue(SelectedRecipeState);
-  if (selectedRecipe.name) {
+  if (selectedRecipe?.name) {
     return (
       <>
         <S.ChatDetailSection>

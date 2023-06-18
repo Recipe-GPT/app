@@ -43,7 +43,6 @@ function ChatResultRecipe({
     },
     recipeId as string,
     id,
-    i,
   );
   useEffect(() => {
     if (getRecipe.isLoading) {

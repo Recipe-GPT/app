@@ -33,7 +33,8 @@ function ChatResultInput({
       seasonings: selectedData?.seasonings.map((item) => item.name),
     },
     recipeId as string,
-    Number(materialInput),
+    selectedData?.id,
+    // Number(materialInput),
   );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
