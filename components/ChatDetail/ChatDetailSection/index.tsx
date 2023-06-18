@@ -17,11 +17,13 @@ function ChatDetailSection() {
   const setPostSelectedValues = useSetRecoilState(PostSelectedValuesState);
   const selectedRecipe = useRecoilValue(SelectedRecipeState);
   if (selectedRecipe?.name) {
+    const { name, ingredients, seasonings, recipe, description } =
+      selectedRecipe;
     return (
       <>
         <S.ChatDetailSection>
           <S.Head>
-            <S.Title>{selectedRecipe.name}</S.Title>
+            <S.Title>{name}</S.Title>
             {/* <S.Info>
               <S.InfoItem>
                 <IoAlarmOutline size={24} />
@@ -36,7 +38,7 @@ function ChatDetailSection() {
                 <S.Material>
                   <ChatDetailMaterialTitle>기본재료</ChatDetailMaterialTitle>
                   <S.MaterialItemWrap>
-                    {selectedRecipe.ingredients.map((item) => {
+                    {ingredients.map((item) => {
                       return (
                         <S.MaterialItem>
                           <S.MaterialName>{item.name}</S.MaterialName>
@@ -51,7 +53,7 @@ function ChatDetailSection() {
                 <S.Material>
                   <ChatDetailMaterialTitle>소스재료</ChatDetailMaterialTitle>
                   <S.MaterialItemWrap>
-                    {selectedRecipe.seasonings.map((item) => {
+                    {seasonings.map((item) => {
                       return (
                         <S.MaterialItem>
                           <S.MaterialName>{item.name}</S.MaterialName>
@@ -68,7 +70,7 @@ function ChatDetailSection() {
             <S.RecipeContent>
               <ChatDetailTitle>레시피</ChatDetailTitle>
               <S.StepWrap>
-                {selectedRecipe.recipe?.map((item, index) => {
+                {recipe?.map((item, index) => {
                   return (
                     <ChatDetailRecipeStep index={index + 1}>
                       {item}
@@ -83,7 +85,22 @@ function ChatDetailSection() {
               </ChatDetailButton>
               <ChatDetailButton
                 href={"/board/post"}
-                onClick={() => setPostSelectedValues()}
+                onClick={() => {
+                  console.log({
+                    name,
+                    ingredients,
+                    seasonings,
+                    recipe: recipe.map((item) => ({ value: item })),
+                    description,
+                  });
+                  setPostSelectedValues({
+                    name,
+                    ingredients,
+                    seasonings,
+                    recipe: recipe.map((item) => ({ value: item })),
+                    description,
+                  });
+                }}
               >
                 레시피 공유하기
               </ChatDetailButton>

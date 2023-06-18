@@ -10,7 +10,11 @@ function ChatDetailButton({
   href: string;
   onClick?: () => void;
 }) {
-  return <S.ChatDetailButton href={href}>{children}</S.ChatDetailButton>;
+  return (
+    <S.ChatDetailButton href={href} onClick={onClick}>
+      {children}
+    </S.ChatDetailButton>
+  );
 }
 
 export default ChatDetailButton;

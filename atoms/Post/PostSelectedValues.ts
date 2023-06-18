@@ -7,10 +7,7 @@ interface PostSelectedValuesType {
   description: string;
   ingredients: MaterialType[];
   seasonings: MaterialType[];
-  recipe: string[];
-  serving: number;
-  time: number;
-  difficulty: Difficulty;
+  recipe: { value: string }[];
 }
 
 export const PostSelectedValuesState = atom<PostSelectedValuesType>({
@@ -18,11 +15,16 @@ export const PostSelectedValuesState = atom<PostSelectedValuesType>({
   default: {
     name: "",
     description: "",
-    ingredients: [],
-    seasonings: [],
-    recipe: [],
-    serving: 0,
-    time: 0,
-    difficulty: "VERY_EASY",
+    ingredients: [
+      { name: "", quantity: "" },
+      { name: "", quantity: "" },
+      { name: "", quantity: "" },
+    ],
+    seasonings: [
+      { name: "", quantity: "" },
+      { name: "", quantity: "" },
+      { name: "", quantity: "" },
+    ],
+    recipe: [{ value: "" }, { value: "" }, { value: "" }],
   },
 });

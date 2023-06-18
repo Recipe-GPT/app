@@ -21,7 +21,7 @@ export interface RecipeType {
   description: string;
   ingredients: MaterialType[];
   seasonings: MaterialType[];
-  recipe?: string[];
+  recipe: string[];
 }
 
 export interface RecipeQuestionType {

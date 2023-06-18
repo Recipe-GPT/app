@@ -14,7 +14,13 @@ function PostInput({ ...props }) {
           render={({ field }) => <S.PostInput {...props} {...field} />}
         />
       ) : (
-        <S.PostInput {...props} {...register(name)} />
+        // <S.PostInput {...props} {...register(name)} />
+
+        <Controller
+          control={control}
+          name={name}
+          render={({ field }) => <S.PostInput {...props} {...field} />}
+        />
       )}
     </>
   );

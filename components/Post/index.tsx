@@ -6,21 +6,26 @@ import PostInfo from "./PostInfo";
 import PostMaterial from "./PostMaterial";
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import PostRecipe from "./PostRecipe";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { PostInfoOptionState } from "@/atoms/Post/PostInfoOption";
 import { postBoardMutation } from "@/utils/apis/board";
+import { PostSelectedValuesState } from "@/atoms/Post/PostSelectedValues";
 
 function Post() {
   const formData = new FormData();
   const options = useRecoilValue(PostInfoOptionState);
-  
+  const postSelectedValues = useRecoilValue(PostSelectedValuesState);
+  const { name, description, ingredients, seasonings, recipe } =
+    postSelectedValues;
+
   const methods = useForm({
-    defaultValues: {
-      ingredients: [{}, {}, {}],
-      seasonings: [{}, {}, {}],
-      recipe: [{}, {}, {}],
-    },
+    defaultValues: postSelectedValues,
   });
+
+  console.log(postSelectedValues)
+  // if (postSelectedValues?.name) {
+  //   methods.control.("name", name);
+  // }
   const postBoardFunc = postBoardMutation(formData);
   const onSubmit = (data: FieldValues) => {
     const { difficulty, serving, time } = options;
