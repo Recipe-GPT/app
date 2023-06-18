@@ -1,6 +1,6 @@
 import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { useRouter } from "next/router";
 
 export const postBoard = async (data: FormData) => {
@@ -12,4 +12,20 @@ export const postBoardMutation = (data: FormData) => {
   return useMutation(() => postBoard(data), {
     onSuccess: () => router.replace("/board"),
   });
+};
+
+export const getRecommendBoard = async () => {
+  return (await instance.get("board/recommend", getAccessToken())).data;
+};
+
+export const getRecommendBoardQuery = () => {
+  return useQuery("recommendBoard", getRecommendBoard);
+};
+
+export const getTrendingBoard = async () => {
+  return (await instance.get("board/trending", getAccessToken())).data;
+};
+
+export const getTrendingBoardQuery = () => {
+  return useQuery("recommendBoard", getTrendingBoard);
 };
