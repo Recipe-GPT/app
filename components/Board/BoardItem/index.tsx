@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./style";
 
 function BoardItem() {
+
   return (
     <S.BoardItem>
       <S.FoodWrap>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MaterialList = styled.span`
+export const Material = styled.span`
   background-color: ${({ theme }) => theme.color.lightYellow};
   font-weight: normal;
 `;

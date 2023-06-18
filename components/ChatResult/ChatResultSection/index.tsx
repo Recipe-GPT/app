@@ -14,17 +14,17 @@ function ChatResultSection({ data }: { data: ChatListType }) {
             <CS.Content>
               <CS.ShortContentLabel>
                 재료 :{" "}
-                <S.MaterialList>
+                <S.Material>
                   {data.list[0].requestedIngredients.join(", ")}
-                </S.MaterialList>
+                </S.Material>
               </CS.ShortContentLabel>
             </CS.Content>
             <CS.Content>
               <CS.ContentLabel>
                 조미료 :{" "}
-                <S.MaterialList>
+                <S.Material>
                   {data.list[0].requestedSeasonings.join(", ")}
-                </S.MaterialList>
+                </S.Material>
               </CS.ContentLabel>
             </CS.Content>
             <CS.Content>

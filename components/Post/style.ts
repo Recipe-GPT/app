@@ -6,7 +6,7 @@ export const Post = styled.form`
   display: flex;
   gap: 20px;
   flex-direction: column;
-  top: 5rem;
+  top: 4rem;
   padding: 0 9.375rem 9.375rem;
   min-height: calc(100vh - 5rem);
 `;

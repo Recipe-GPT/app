@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import { MaterialType } from "@/types/Chat/ChatList";
-import { MaterialList } from "../ChatResultSection/style";
+import { Material } from "../ChatResultSection/style";
 import { useRecoilState } from "recoil";
 import { isLoadingState } from "@/atoms/Etc/isLoading";
 import { getRecipeMutation } from "@/utils/apis/recipe";
@@ -25,7 +25,6 @@ function ChatResultRecipe({
 }) {
   const { asPath } = useRouter();
   const [isOpenList, setIsOpenList] = useState(Array(length).fill(false));
-  console.log(isOpenList);
   const [isLoading, setIsLoading] = useRecoilState(isLoadingState);
   const i = index + 1;
   const { ingredients, seasonings } = data;
@@ -70,15 +69,15 @@ function ChatResultRecipe({
         <S.MaterialList>
           <div>
             재료 :{" "}
-            <MaterialList>
+            <S.MaterialEmphasis>
               {data.ingredients.map((item) => item.name).join(", ")}
-            </MaterialList>
+            </S.MaterialEmphasis>
           </div>
           <div>
             조미료 :{" "}
-            <MaterialList>
+            <S.MaterialEmphasis>
               {data.seasonings.map((item) => item.name).join(", ")}
-            </MaterialList>
+            </S.MaterialEmphasis>
           </div>
         </S.MaterialList>
       )}
