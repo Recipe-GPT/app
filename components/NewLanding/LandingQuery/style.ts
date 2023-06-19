@@ -18,9 +18,7 @@ export const LandingQue = styled.div`
 
 export const QueryLeft = styled.div``;
 
-export const QueryLeftTop = styled.div`
- 
-`;
+export const QueryLeftTop = styled.div``;
 
 export const QueryMent = styled.p`
   color: ${({ theme }) => theme.color.lightGrey};
@@ -41,6 +39,7 @@ export const QueryMidMent = styled.p`
 `;
 export const QueryLeftBottom = styled.p`
   padding-top: 15px;
+  cursor: pointer;
   color: ${({ theme }) => theme.color.mainYellow};
 `;
 
