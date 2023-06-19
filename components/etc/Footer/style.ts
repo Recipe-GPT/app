@@ -6,7 +6,7 @@ export const Footer = styled.footer<{ isLanding: boolean }>`
   margin: 0 auto;
   justify-content: space-between;
   position: relative;
-  top: 5rem;
+  top: 4rem;
   ${({ isLanding }) => {
     if (isLanding) {
       return LandingFooter;

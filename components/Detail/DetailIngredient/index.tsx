@@ -1,6 +1,12 @@
 import React from "react";
 import * as S from "./style";
-function DetailIngredient() {
+import { MaterialType } from "@/types/Chat/ChatList";
+function DetailIngredient({
+  data,
+}: {
+  data: { ingredients: MaterialType[]; seasonings: MaterialType[] };
+}) {
+  console.log(data);
   return (
     <>
       <S.DetailIngredients>
@@ -13,10 +19,14 @@ function DetailIngredient() {
               <S.ServeHr />
             </S.HrPad>
             <div>
-              <S.IngredientInfor>
-                <S.IngredientName>돼지고기</S.IngredientName>
-                <S.IngredientNum>1팩</S.IngredientNum>
-              </S.IngredientInfor>
+              {data.ingredients.map((item: MaterialType) => {
+                return (
+                  <S.IngredientInfor>
+                    <S.IngredientName>{item.name}</S.IngredientName>
+                    <S.IngredientNum>{item.quantity ?? ""}</S.IngredientNum>
+                  </S.IngredientInfor>
+                );
+              })}
             </div>
           </S.Ingredient>
           <S.Ingredient>
@@ -25,10 +35,14 @@ function DetailIngredient() {
               <S.ServeHr />
             </S.HrPad>
             <div>
-              <S.IngredientInfor>
-                <S.IngredientName>돼지고기</S.IngredientName>
-                <S.IngredientNum>1팩</S.IngredientNum>
-              </S.IngredientInfor>
+              {data.seasonings.map((item: MaterialType) => {
+                return (
+                  <S.IngredientInfor>
+                    <S.IngredientName>{item.name}</S.IngredientName>
+                    <S.IngredientNum>{item.quantity ?? ""}</S.IngredientNum>
+                  </S.IngredientInfor>
+                );
+              })}
             </div>
           </S.Ingredient>
         </S.Ingredients>

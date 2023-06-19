@@ -8,7 +8,7 @@ import { useOnClickOutside } from "usehooks-ts";
 
 interface PostInfoOptionType {
   icon: ReactNode;
-  value: "portion" | "time" | "difficulty";
+  value: "serving" | "time" | "difficulty";
   children: string;
   up?: () => void;
   down?: () => void;
@@ -30,7 +30,7 @@ function PostInfoOption({
   down,
 }: PostInfoOptionType) {
   const options = useRecoilValue(PostInfoOptionState);
-  const { portion, time, difficulty } = options;
+  const { serving, time, difficulty } = options;
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const ref = useRef(null);
 
@@ -40,7 +40,7 @@ function PostInfoOption({
     }
   });
   const valueText = {
-    portion: `${portion}인분`,
+    serving: `${serving}인분`,
     time: `${time}초`,
     difficulty: difficultyText[difficulty],
   };

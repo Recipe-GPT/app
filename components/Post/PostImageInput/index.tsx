@@ -11,7 +11,7 @@ function PostImageInput() {
 
   const image = watch("image");
 
-  const { ref, ...rest } = register("image");
+  const { ref, ...rest } = register("image", { required: true });
 
   useEffect(() => {
     if (image && image.length > 0) {

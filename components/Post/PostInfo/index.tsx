@@ -12,16 +12,16 @@ import PostImageInput from "../PostImageInput";
 
 function PostInfo() {
   const [options, setOptions] = useRecoilState(PostInfoOptionState);
-  const { portion, time, difficulty } = options;
-  const upPortion = () => {
-    setOptions((prev) => ({ ...prev, portion: prev.portion + 1 }));
+  const { serving, time, difficulty } = options;
+  const upServing = () => {
+    setOptions((prev) => ({ ...prev, serving: prev.serving + 1 }));
   };
 
-  const downPortion = () => {
-    if (portion === 1) {
+  const downServing = () => {
+    if (serving === 1) {
       return;
     }
-    setOptions((prev) => ({ ...prev, portion: prev.portion - 1 }));
+    setOptions((prev) => ({ ...prev, serving: prev.serving - 1 }));
   };
 
   const upTime = () => {
@@ -46,9 +46,9 @@ function PostInfo() {
         <S.OptionWrap>
           <PostInfoOption
             icon={<MdPeople />}
-            value="portion"
-            up={upPortion}
-            down={downPortion}
+            value="serving"
+            up={upServing}
+            down={downServing}
           >
             레시피의 기준이 되는 인분을 입력하세요.
           </PostInfoOption>
