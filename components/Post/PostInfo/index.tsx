@@ -9,10 +9,13 @@ import PostInfoOption from "../PostInfoOption";
 import { useRecoilState } from "recoil";
 import { PostInfoOptionState } from "@/atoms/Post/PostInfoOption";
 import PostImageInput from "../PostImageInput";
+import { getMyInfoQuery } from "@/utils/apis/user";
+import { getKoreanDate } from "@/utils/date";
 
 function PostInfo() {
   const [options, setOptions] = useRecoilState(PostInfoOptionState);
   const { serving, time, difficulty } = options;
+  const getMyInfoFunc = getMyInfoQuery(true);
   const upServing = () => {
     setOptions((prev) => ({ ...prev, serving: prev.serving + 1 }));
   };
@@ -65,9 +68,9 @@ function PostInfo() {
           </PostInfoOption>
         </S.OptionWrap>
         <S.ExtraInfoWrap>
-          <span>정승민</span>
+          <span>{getMyInfoFunc.data?.name}</span>
           <span>·</span>
-          <span>2022-05-09</span>
+          <span>{getKoreanDate(new Date())}</span>
         </S.ExtraInfoWrap>
       </S.ContentWrap>
       <S.ImageWrap>
