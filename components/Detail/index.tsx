@@ -34,7 +34,7 @@ function Detail() {
           <DetailIngredient
             data={{
               ingredients: data.recipe.ingredients,
-              seasonings: data.recipe.seasoning,
+              seasonings: data.recipe.seasonings,
             }}
           />
           <DetailRecipe
