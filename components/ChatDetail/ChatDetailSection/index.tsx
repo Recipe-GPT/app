@@ -14,8 +14,14 @@ import { PostSelectedValuesState } from "@/atoms/Post/PostSelectedValues";
 
 function ChatDetailSection() {
   const router = useRouter();
+  const {
+    query: { recipeId },
+  } = router;
   const setPostSelectedValues = useSetRecoilState(PostSelectedValuesState);
   const selectedRecipe = useRecoilValue(SelectedRecipeState);
+  const checkNull = (string: string) => {
+    return string ?? "";
+  };
   if (selectedRecipe?.name) {
     const { name, ingredients, seasonings, recipe, description } =
       selectedRecipe;
@@ -38,12 +44,12 @@ function ChatDetailSection() {
                 <S.Material>
                   <ChatDetailMaterialTitle>기본재료</ChatDetailMaterialTitle>
                   <S.MaterialItemWrap>
-                    {ingredients.map((item) => {
+                    {ingredients.map((ingredient) => {
                       return (
                         <S.MaterialItem>
-                          <S.MaterialName>{item.name}</S.MaterialName>
+                          <S.MaterialName>{ingredient.name}</S.MaterialName>
                           <S.MaterialCount>
-                            {item.quantity ?? ""}
+                            {checkNull(ingredient.quantity)}
                           </S.MaterialCount>
                         </S.MaterialItem>
                       );
@@ -53,12 +59,12 @@ function ChatDetailSection() {
                 <S.Material>
                   <ChatDetailMaterialTitle>소스재료</ChatDetailMaterialTitle>
                   <S.MaterialItemWrap>
-                    {seasonings.map((item) => {
+                    {seasonings.map((seasoning) => {
                       return (
                         <S.MaterialItem>
-                          <S.MaterialName>{item.name}</S.MaterialName>
+                          <S.MaterialName>{seasoning.name}</S.MaterialName>
                           <S.MaterialCount>
-                            {item.quantity ?? ""}
+                            {checkNull(seasoning.quantity)}
                           </S.MaterialCount>
                         </S.MaterialItem>
                       );
@@ -80,7 +86,7 @@ function ChatDetailSection() {
               </S.StepWrap>
             </S.RecipeContent>
             <S.ButtonWrap>
-              <ChatDetailButton href={`/chat/${router.query?.recipeId}`}>
+              <ChatDetailButton href={`/chat/${recipeId}`}>
                 이전 화면으로 가기
               </ChatDetailButton>
               <ChatDetailButton

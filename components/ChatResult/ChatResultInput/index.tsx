@@ -10,13 +10,12 @@ import {
 import { useRecoilState } from "recoil";
 import { isLoadingState } from "@/atoms/Etc/isLoading";
 
-function ChatResultInput({
-  data,
-  isScroll,
-}: {
+interface ChatResultInputPropsType {
   data: RecipeType[];
   isScroll: boolean;
-}) {
+}
+
+function ChatResultInput({ data, isScroll }: ChatResultInputPropsType) {
   const router = useRouter();
   const [materialInput, setMaterialInput] = useState<string>("");
   const [isLoading, setIsLoading] = useRecoilState(isLoadingState);
