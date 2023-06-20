@@ -2,14 +2,20 @@ import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
 import { useMutation, useQuery } from "react-query";
 import { NextRouter } from "next/router";
+import { useSetRecoilState } from "recoil";
+import { isNeedLoginState } from "@/atoms/Etc/isNeedLogin";
 
 export const getLogin = async (code: string) => {
   return (await instance.post("oauth", { code })).data;
 };
 
 export const getLoginQuery = (code: string, router: NextRouter) => {
+  const setIsNeedLogin = useSetRecoilState(isNeedLoginState);
   return useQuery("login", () => getLogin(code), {
     enabled: router.isReady,
+    onSuccess: () => {
+      setIsNeedLogin(false);
+    },
   });
 };
 
@@ -28,11 +34,16 @@ export const getRefreshToken = async (mount: boolean) => {
 };
 
 export const getRefreshTokenMutation = (mount: boolean) => {
+  const setIsNeedLogin = useSetRecoilState(isNeedLoginState);
   return useMutation(() => getRefreshToken(mount), {
     onSuccess: (data) => {
       localStorage.setItem("accessToken", data.accessToken);
     },
-    retry: true,
+    onError: () => {
+      setIsNeedLogin(true);
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+    },
   });
 };
 

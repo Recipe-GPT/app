@@ -12,5 +12,6 @@ export const getMyInfoQuery = () => {
     enabled: false,
     staleTime: Infinity,
     retry: false,
+    onError: () => {},
   });
 };

@@ -17,61 +17,54 @@ function HeaderLogin() {
 
   useEffect(() => {
     setMount(true);
+    if (localStorage.accessToken) {
+      myInfoQuery.refetch();
+    }
     return () => setMount(false);
   }, []);
 
   const myInfoQuery = getMyInfoQuery();
-  const getRefreshToken = async (): Promise<string | void> => {
+  const getRefreshToken = () => {
     try {
-      if (mount) {
-        myInfoQuery.refetch();
-        getRefreshTokenFunc.mutate();
-      }
-      if (getRefreshTokenFunc.data?.accessToken !== undefined) {
-        localStorage.setItem(
-          "accessToken",
-          getRefreshTokenFunc.data?.accessToken,
-        );
-      }
-      // return getRefreshTokenFunc.data?.accessToken;
-    } catch (e) {
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
+      getRefreshTokenFunc.mutate();
+      return getRefreshTokenFunc.data?.accessToken;
+    } catch (error) {
+      console.log(error);
     }
   };
   instance.interceptors.response.use(
     (res) => res,
-    (err: AxiosError): Promise<AxiosError> => {
-      if (mount && !localStorage.refreshToken) {
-        setIsNeedLogin(true);
-        return Promise.reject(err);
+    async function (error) {
+      const originalRequest = error.config;
+
+      // 에러 응답이 401 (Unauthorized)이고 originalRequest에 refreshToken이 없는 경우
+      if (error.response.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
+
+        // refreshToken을 사용하여 새로운 accessToken을 발급받는 API 호출
+        const refreshToken = localStorage.refreshToken;
+        const response = await instance.post("oauth/refresh", {
+          refreshToken,
+        });
+
+        // 새로운 accessToken을 받아온 경우
+        if (response.status === 200) {
+          const accessToken = response.data.accessToken;
+          localStorage.setItem("accessToken", accessToken);
+          originalRequest.headers.token = accessToken;
+          return instance(originalRequest);
+        }
       }
-      const { config, response } = err;
-      const originalRequest = config as InternalAxiosRequestConfig;
-      if (response?.status !== 401) {
-        setIsNeedLogin(true);
-        return Promise.reject(err);
-      }
 
-      getRefreshToken();
-
-      // if (accessToken) {
-      //   originalRequest.headers.token = accessToken;
-      //   return instance(originalRequest);
-      // }
-
-      return Promise.reject(err);
+      // 그 외의 에러 응답 처리
+      setIsNeedLogin(true)
+      return Promise.reject(error);
     },
   );
 
   const logoutMutation = getLogoutMutation();
 
-  if (
-    mount &&
-    typeof window !== "undefined" &&
-    localStorage.getItem("accessToken") &&
-    myInfoQuery.isSuccess
-  ) {
+  if (mount && localStorage.getItem("accessToken") && myInfoQuery.isSuccess) {
     return (
       <>
         {
@@ -87,7 +80,6 @@ function HeaderLogin() {
     );
   } else if (
     mount &&
-    typeof window !== "undefined" &&
     localStorage.getItem("accessToken") &&
     myInfoQuery.isLoading
   ) {
