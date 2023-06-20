@@ -1,6 +1,9 @@
 import React from "react";
 import * as S from "./style";
+import { useRouter } from "next/router";
+
 function LandingQuery() {
+  const router = useRouter();
   return (
     <S.LandingQuery>
       <S.LandingQue>
@@ -15,13 +18,15 @@ function LandingQuery() {
               다양한 레시피를 Gpt와 함께 알아보세요!
             </S.QueryMidMent>
           </S.QueryLeftMid>
-          <S.QueryLeftBottom>지금 질문하러 가기 ▸</S.QueryLeftBottom>
+          <S.QueryLeftBottom onClick={() => router.push("/chat")}>
+            지금 질문하러 가기 ▸
+          </S.QueryLeftBottom>
         </S.QueryLeft>
         <S.QueryRight>
           <S.Question>
             <S.QuestionMe>
-              돼지고기, 당근, 마늘, 김치가 남았는데<br/> 이걸로 만들 수 있는 음식이
-              있을까?
+              돼지고기, 당근, 마늘, 김치가 남았는데
+              <br /> 이걸로 만들 수 있는 음식이 있을까?
             </S.QuestionMe>
             <S.QueryProfile
               src="https://i.pinimg.com/564x/cd/d2/d4/cdd2d458ea81f0de645890a63213e22d.jpg"
@@ -43,10 +48,10 @@ function LandingQuery() {
             </S.QuestionGpt>
           </S.QuestionY>
           <S.Question>
-              <S.QuestionMe>
-                오늘은 김치볶음밥이 땡기네!
-                <br /> 맛있는 김치볶음밥 레시피 알려줘
-              </S.QuestionMe>
+            <S.QuestionMe>
+              오늘은 김치볶음밥이 땡기네!
+              <br /> 맛있는 김치볶음밥 레시피 알려줘
+            </S.QuestionMe>
             <S.QueryProfile
               src="https://i.pinimg.com/564x/cd/d2/d4/cdd2d458ea81f0de645890a63213e22d.jpg"
               width={50}
