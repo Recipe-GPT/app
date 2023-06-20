@@ -9,4 +9,5 @@ export const NoChatRoomSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
 `;

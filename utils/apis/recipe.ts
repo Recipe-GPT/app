@@ -7,6 +7,8 @@ import { isLoadingState } from "@/atoms/Etc/isLoading";
 import { MaterialType, RecipeQuestionType } from "@/types/Chat/ChatList";
 import { SelectedRecipeState } from "@/atoms/Chat/SelectedRecipe";
 import { updateChatRoomMutation } from "./chat";
+import { toast } from "react-toastify";
+import { AxiosError } from "axios";
 
 export const getRecommend = async (
   materials: {
@@ -32,7 +34,14 @@ export const getRecommendMutation = (
   return useMutation(() => getRecommend(materials, id), {
     onSettled: () => {
       setIsLoading(false);
-      router.reload();
+    },
+    onError: (
+      error: AxiosError<{
+        fields: { ingredients: string; seasonings: string };
+      }>,
+    ) => {
+      toast.error(`재료: ${error.response?.data.fields.ingredients}`);
+      toast.error(`조미료: ${error.response?.data.fields.seasonings}`);
     },
   });
 };

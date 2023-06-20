@@ -8,7 +8,7 @@ export const getMyInfo = async () => {
 
 export const getMyInfoQuery = (mount: boolean) => {
   return useQuery("myInfo", getMyInfo, {
-    enabled: mount,
+    enabled: mount && !!localStorage.accessToken,
     staleTime: Infinity,
     retry: false,
   });

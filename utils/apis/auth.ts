@@ -13,6 +13,22 @@ export const getLoginQuery = (code: string, router: NextRouter) => {
   });
 };
 
+export const getRefreshToken = async () => {
+  return (
+    await instance.post("oauth/refresh", {
+      refreshToken: localStorage.refreshToken,
+    })
+  ).data;
+};
+
+export const getRefreshTokenMutation = () => {
+  return useMutation(getRefreshToken, {
+    onSuccess: (data) => {
+      localStorage.setItem("accessToken", data.accessToken);
+    },
+  });
+};
+
 export const getLogout = async () => {
   return (
     await instance.delete("logout", {

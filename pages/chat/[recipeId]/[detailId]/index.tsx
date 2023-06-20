@@ -16,7 +16,7 @@ function ChatDetailPage() {
   const setSelectedRecipe = useSetRecoilState(SelectedRecipeState);
   if (
     chatListQuery.isSuccess &&
-    chatListQuery.data.list[0].selectedRecipe.length
+    !!chatListQuery.data.list[0].selectedRecipe.length
   ) {
     setSelectedRecipe(
       chatListQuery.data.list[0].selectedRecipe.filter(

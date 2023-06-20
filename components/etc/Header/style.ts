@@ -16,6 +16,7 @@ export const Header = styled.header<{ isGrey?: true; pageName: string }>`
   top: 0;
   ${({ pageName }) => {
     switch (pageName) {
+      case "/":
       case "/board/post":
         return css`
           background-color: ${({ theme }) =>
@@ -33,7 +34,9 @@ export const Header = styled.header<{ isGrey?: true; pageName: string }>`
           display: none;
         `;
       default:
-        return css``;
+        return css`
+          background-color: white;
+        `;
     }
   }}
 `;

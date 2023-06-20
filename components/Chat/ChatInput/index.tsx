@@ -33,9 +33,7 @@ function ChatInput() {
   );
 
   useEffect(() => {
-    if (recommendMutation.isLoading) {
-      setIsLoading(true);
-    }
+    setIsLoading(recommendMutation.isLoading);
   }, [recommendMutation.status]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
