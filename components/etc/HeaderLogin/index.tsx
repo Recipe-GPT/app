@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import { getLogoutMutation, getRefreshTokenMutation } from "@/utils/apis/auth";
-import { useMutation, useQuery } from "react-query";
-import { getMyInfo, getMyInfoQuery } from "@/utils/apis/user";
+import { getMyInfoQuery } from "@/utils/apis/user";
 import { instance } from "@/utils/instance";
 import { AxiosError, InternalAxiosRequestConfig } from "axios";
+import { useSetRecoilState } from "recoil";
+import { isNeedLoginState } from "@/atoms/Etc/isNeedLogin";
 
 function HeaderLogin() {
-  const { pathname } = useRouter();
+  const { pathname, push } = useRouter();
   const [mount, setMount] = useState(false);
+  const setIsNeedLogin = useSetRecoilState(isNeedLoginState);
 
   const getRefreshTokenFunc = getRefreshTokenMutation();
 
@@ -29,7 +31,7 @@ function HeaderLogin() {
           getRefreshTokenFunc.data?.accessToken,
         );
       }
-      return getRefreshTokenFunc.data?.accessToken;
+      // return getRefreshTokenFunc.data?.accessToken;
     } catch (e) {
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
@@ -39,15 +41,17 @@ function HeaderLogin() {
     (res) => res,
     (err: AxiosError): Promise<AxiosError> => {
       if (!localStorage.refreshToken) {
+        setIsNeedLogin(true);
         return Promise.reject(err);
       }
       const { config, response } = err;
       const originalRequest = config as InternalAxiosRequestConfig;
       if (response?.status !== 401) {
+        setIsNeedLogin(true);
         return Promise.reject(err);
       }
 
-      const accessToken = getRefreshToken();
+      getRefreshToken();
 
       // if (accessToken) {
       //   originalRequest.headers.token = accessToken;

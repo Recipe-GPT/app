@@ -1,14 +1,17 @@
 import { isLoadingState } from "@/atoms/Etc/isLoading";
 import React from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import Header from "../Header";
 import Loading from "../Loading";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { isNeedLoginState } from "@/atoms/Etc/isNeedLogin";
+import NeedLoginModal from "../NeedLoginModal";
 
 function Layout() {
-  const [isLoading, setIsLoading] = useRecoilState(isLoadingState);
-  console.log(isLoading);
+  const isLoading = useRecoilValue(isLoadingState);
+  const isNeedLogin = useRecoilValue(isNeedLoginState);
+  console.log(isNeedLogin);
   return (
     <>
       <Header />
@@ -25,6 +28,7 @@ function Layout() {
         theme="light"
       />
       {isLoading && <Loading />}
+      {isNeedLogin && <NeedLoginModal />}
     </>
   );
 }
