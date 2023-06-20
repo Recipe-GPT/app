@@ -13,18 +13,20 @@ function HeaderLogin() {
   const [mount, setMount] = useState(false);
   const setIsNeedLogin = useSetRecoilState(isNeedLoginState);
 
-  const getRefreshTokenFunc = getRefreshTokenMutation();
+  const getRefreshTokenFunc = getRefreshTokenMutation(mount);
 
   useEffect(() => {
     setMount(true);
     return () => setMount(false);
   }, []);
 
-  const myInfoQuery = getMyInfoQuery(mount);
+  const myInfoQuery = getMyInfoQuery();
   const getRefreshToken = async (): Promise<string | void> => {
     try {
-      getRefreshTokenFunc.mutate();
-      console.log(getRefreshTokenFunc);
+      if (mount) {
+        myInfoQuery.refetch();
+        getRefreshTokenFunc.mutate();
+      }
       if (getRefreshTokenFunc.data?.accessToken !== undefined) {
         localStorage.setItem(
           "accessToken",
@@ -40,7 +42,7 @@ function HeaderLogin() {
   instance.interceptors.response.use(
     (res) => res,
     (err: AxiosError): Promise<AxiosError> => {
-      if (!localStorage.refreshToken) {
+      if (mount && !localStorage.refreshToken) {
         setIsNeedLogin(true);
         return Promise.reject(err);
       }
@@ -64,7 +66,12 @@ function HeaderLogin() {
 
   const logoutMutation = getLogoutMutation();
 
-  if (mount && localStorage.accessToken && myInfoQuery.isSuccess) {
+  if (
+    mount &&
+    typeof window !== "undefined" &&
+    localStorage.getItem("accessToken") &&
+    myInfoQuery.isSuccess
+  ) {
     return (
       <>
         {
@@ -78,7 +85,12 @@ function HeaderLogin() {
         }
       </>
     );
-  } else if (mount && localStorage.accessToken && myInfoQuery.isLoading) {
+  } else if (
+    mount &&
+    typeof window !== "undefined" &&
+    localStorage.getItem("accessToken") &&
+    myInfoQuery.isLoading
+  ) {
     return <></>;
   } else if (mount) {
     return (

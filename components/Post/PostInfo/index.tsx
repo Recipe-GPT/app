@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./style";
 import PostTitle from "../PostTitle";
 import PostInput from "../PostInput";
@@ -15,7 +15,10 @@ import { getKoreanDate } from "@/utils/date";
 function PostInfo() {
   const [options, setOptions] = useRecoilState(PostInfoOptionState);
   const { serving, time, difficulty } = options;
-  const getMyInfoFunc = getMyInfoQuery(true);
+  const getMyInfoFunc = getMyInfoQuery();
+  useEffect(() => {
+    getMyInfoFunc.refetch();
+  }, []);
   const upServing = () => {
     setOptions((prev) => ({ ...prev, serving: prev.serving + 1 }));
   };

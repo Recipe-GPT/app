@@ -1,14 +1,15 @@
 import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
 import { useQuery } from "react-query";
+import { useEffect, useState } from "react";
 
 export const getMyInfo = async () => {
   return (await instance.get("member", getAccessToken())).data;
 };
 
-export const getMyInfoQuery = (mount: boolean) => {
+export const getMyInfoQuery = () => {
   return useQuery("myInfo", getMyInfo, {
-    enabled: mount && !!localStorage.accessToken,
+    enabled: false,
     staleTime: Infinity,
     retry: false,
   });

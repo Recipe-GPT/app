@@ -13,19 +13,26 @@ export const getLoginQuery = (code: string, router: NextRouter) => {
   });
 };
 
-export const getRefreshToken = async () => {
+const returnToken = (mount: boolean) => {
+  if (mount) {
+    return localStorage.refreshToken;
+  }
+};
+
+export const getRefreshToken = async (mount: boolean) => {
   return (
     await instance.post("oauth/refresh", {
-      refreshToken: localStorage.refreshToken,
+      refreshToken: returnToken(mount),
     })
   ).data;
 };
 
-export const getRefreshTokenMutation = () => {
-  return useMutation(getRefreshToken, {
+export const getRefreshTokenMutation = (mount: boolean) => {
+  return useMutation(() => getRefreshToken(mount), {
     onSuccess: (data) => {
       localStorage.setItem("accessToken", data.accessToken);
     },
+    retry: true,
   });
 };
 

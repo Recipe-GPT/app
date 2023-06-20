@@ -90,7 +90,7 @@ function ChatDetailSection() {
                 이전 화면으로 가기
               </ChatDetailButton>
               <ChatDetailButton
-                href={"/board/post"}
+                href="/board/post"
                 onClick={() => {
                   console.log({
                     name,
