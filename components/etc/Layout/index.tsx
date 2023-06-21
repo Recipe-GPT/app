@@ -11,7 +11,6 @@ import NeedLoginModal from "../NeedLoginModal";
 function Layout() {
   const isLoading = useRecoilValue(isLoadingState);
   const isNeedLogin = useRecoilValue(isNeedLoginState);
-  console.log(isNeedLogin);
   return (
     <>
       <Header />

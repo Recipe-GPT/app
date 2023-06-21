@@ -24,14 +24,6 @@ function HeaderLogin() {
   }, []);
 
   const myInfoQuery = getMyInfoQuery();
-  const getRefreshToken = () => {
-    try {
-      getRefreshTokenFunc.mutate();
-      return getRefreshTokenFunc.data?.accessToken;
-    } catch (error) {
-      console.log(error);
-    }
-  };
   instance.interceptors.response.use(
     (res) => res,
     async function (error) {

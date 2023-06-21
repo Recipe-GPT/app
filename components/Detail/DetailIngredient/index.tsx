@@ -6,7 +6,6 @@ function DetailIngredient({
 }: {
   data: { ingredients: MaterialType[]; seasonings: MaterialType[] };
 }) {
-  console.log(data);
   return (
     <>
       <S.DetailIngredients>

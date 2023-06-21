@@ -92,13 +92,6 @@ function ChatDetailSection() {
               <ChatDetailButton
                 href="/board/post"
                 onClick={() => {
-                  console.log({
-                    name,
-                    ingredients,
-                    seasonings,
-                    recipe: recipe.map((item) => ({ value: item })),
-                    description,
-                  });
                   setPostSelectedValues({
                     name,
                     ingredients,
