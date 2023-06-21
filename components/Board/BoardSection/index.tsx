@@ -14,6 +14,11 @@ function BoardSection({ isYellow }: { isYellow?: true }) {
   const [isLoading, setIsLoading] = useRecoilState(isLoadingState);
   const getTrendingFunc = getTrendingBoardQuery();
   const getRecommendFunc = getRecommendBoardQuery();
+
+  const lengthCheckedArray = (array: BoardType[]) => {
+    return array.length >= 4 ? array.slice(0, 4) : array;
+  };
+
   if (getRecommendFunc.isLoading || getTrendingFunc.isLoading) {
     setIsLoading(true);
     return (
@@ -58,19 +63,19 @@ function BoardSection({ isYellow }: { isYellow?: true }) {
           getRecommendFunc.data?.list.length ? (
             isYellow ? (
               <>
-                {getTrendingFunc.data?.list
-                  .slice(0, 4)
-                  .map((item: BoardType) => {
+                {lengthCheckedArray(getTrendingFunc.data?.list).map(
+                  (item: BoardType) => {
                     return <BoardItem data={item} />;
-                  })}
+                  },
+                )}
               </>
             ) : (
               <>
-                {getRecommendFunc.data?.list
-                  .slice(0, 4)
-                  .map((item: BoardType) => {
+                {lengthCheckedArray(getRecommendFunc.data?.list).map(
+                  (item: BoardType) => {
                     return <BoardItem data={item} />;
-                  })}
+                  },
+                )}
               </>
             )
           ) : (
