@@ -35,6 +35,10 @@ function HeaderLogin() {
   instance.interceptors.response.use(
     (res) => res,
     async function (error) {
+      if (!localStorage.refreshToken) {
+        setIsNeedLogin(true);
+        return Promise.reject(error);
+      }
       const originalRequest = error.config;
 
       if (error.response.status === 401 && !originalRequest._retry) {
