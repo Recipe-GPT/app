@@ -37,27 +37,23 @@ function HeaderLogin() {
     async function (error) {
       const originalRequest = error.config;
 
-      // 에러 응답이 401 (Unauthorized)이고 originalRequest에 refreshToken이 없는 경우
       if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
 
-        // refreshToken을 사용하여 새로운 accessToken을 발급받는 API 호출
         const refreshToken = localStorage.refreshToken;
         const response = await instance.post("oauth/refresh", {
           refreshToken,
         });
 
-        // 새로운 accessToken을 받아온 경우
         if (response.status === 200) {
           const accessToken = response.data.accessToken;
           localStorage.setItem("accessToken", accessToken);
           originalRequest.headers.token = accessToken;
           return instance(originalRequest);
         }
+        setIsNeedLogin(true);
       }
 
-      // 그 외의 에러 응답 처리
-      setIsNeedLogin(true)
       return Promise.reject(error);
     },
   );
