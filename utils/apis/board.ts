@@ -62,5 +62,5 @@ export const getSearchBoard = async (
 
 export const getSearchBoardQuery = (search: string) => {
   const [sortedBy, setSortedBy] = useRecoilState<SortedByType>(SortedByState);
-  return useMutation(() => getSearchBoard(search, sortedBy));
+  return useQuery("searchBoard", () => getSearchBoard(search, sortedBy));
 };
