@@ -35,14 +35,6 @@ export const getRecommendMutation = (
     onSettled: () => {
       setIsLoading(false);
     },
-    onError: (
-      error: AxiosError<{
-        fields: { ingredients: string; seasonings: string };
-      }>,
-    ) => {
-      toast.error(`재료: ${error.response?.data.fields.ingredients}`);
-      toast.error(`조미료: ${error.response?.data.fields.seasonings}`);
-    },
   });
 };
 

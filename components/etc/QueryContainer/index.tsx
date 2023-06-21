@@ -15,10 +15,10 @@ function QueryContainer({ Component }: { Component: ReactNode }) {
   const errorBoundary = (error: unknown) => {
     const axiosError = error as AxiosError<{
       message: string;
-      field?: { [key: string]: string };
+      fields?: { [key: string]: string };
     }>;
-    if (!!axiosError.response?.data.field) {
-      Object.values(axiosError.response?.data.field).forEach((message) =>
+    if (axiosError.response?.data.fields) {
+      Object.values(axiosError.response?.data.fields).forEach((message) =>
         toast.error(message),
       );
     } else {
