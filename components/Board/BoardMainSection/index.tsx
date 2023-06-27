@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import * as S from "./style";
 import BoardRecipeButton from "@/components/etc/Button/BoardRecipeButton";
 import BoardItem from "../BoardItem";
