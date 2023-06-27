@@ -22,7 +22,6 @@ function Post() {
     defaultValues: postSelectedValues,
   });
 
-  console.log(postSelectedValues)
   // if (postSelectedValues?.name) {
   //   methods.control.("name", name);
   // }

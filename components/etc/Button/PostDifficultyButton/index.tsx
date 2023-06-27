@@ -14,22 +14,13 @@ const difficultyList: Difficulty[] = [
   "VERY_HARD",
 ];
 
-function PostDifficultyButton({
-  setIsOpen,
-}: {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+function PostDifficultyButton() {
   const [options, setOptions] = useRecoilState(PostInfoOptionState);
   const { difficulty } = options;
   return (
     <>
       <S.PostDifficultyWrap>
-        <S.PostDifficultyButton
-          onClick={() => {
-            console.log("asdfasdf");
-            // setIsOpen(false);
-          }}
-        >
+        <S.PostDifficultyButton>
           {difficultyText[difficulty]}&nbsp;
           <VscTriangleDown size={15} />
         </S.PostDifficultyButton>
@@ -41,7 +32,6 @@ function PostDifficultyButton({
                 key={index}
                 onClick={() => {
                   setOptions((prev) => ({ ...prev, difficulty: item }));
-                  // setIsOpen(false);
                 }}
               >
                 {difficultyText[item]}

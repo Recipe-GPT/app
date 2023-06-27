@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import * as S from "./style";
 import BoardRecipeButton from "@/components/etc/Button/BoardRecipeButton";
 import BoardItem from "../BoardItem";
@@ -11,12 +11,8 @@ function BoardMainSection() {
   const [search, setSearch] = useRecoilState(SearchState);
   const getSearchBoardFunc = getSearchBoardQuery(search);
   useEffect(() => {
-    getSearchBoardFunc.mutate();
+    getSearchBoardFunc.refetch();
   }, []);
-  console.log(getSearchBoardFunc);
-  if (getSearchBoardFunc.isSuccess) {
-    console.log(getSearchBoardFunc.data);
-  }
   return (
     <S.BoardMainSection>
       <S.RecipeButtons>
@@ -37,7 +33,7 @@ function BoardMainSection() {
           />
           <S.SearchButton
             size={20}
-            onClick={() => getSearchBoardFunc.mutate()}
+            onClick={() => getSearchBoardFunc.refetch()}
           />
         </S.SearchWrap>
       </S.BoardMenuWrap>

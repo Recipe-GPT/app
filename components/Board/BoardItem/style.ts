@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const BoardItem = styled.div`
   border-radius: 15px;
-  width: 260px;
+  width: 16.25rem;
   background-color: white;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
   cursor: pointer;

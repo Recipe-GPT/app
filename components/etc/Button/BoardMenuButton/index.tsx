@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as S from "./style";
 import { CgArrowsExchangeAltV } from "react-icons/cg";
 import { VscTriangleDown } from "react-icons/vsc";
@@ -35,6 +35,10 @@ function BoardMenuButton() {
     }
   });
 
+  useEffect(() => {
+    getSearchBoardFunc.refetch();
+  }, [sortedBy]);
+
   return (
     <>
       {isOpen ? (
@@ -46,7 +50,6 @@ function BoardMenuButton() {
               onClick={() => {
                 setSortedBy(sortedBy);
                 setIsOpen((prev) => !prev);
-                getSearchBoardFunc.mutate();
               }}
             >
               {textOfSortedBy[sortedBy]}&nbsp;
@@ -61,7 +64,6 @@ function BoardMenuButton() {
                     onClick={() => {
                       setSortedBy(item);
                       setIsOpen((prev) => !prev);
-                      getSearchBoardFunc.mutate();
                     }}
                   >
                     {textOfSortedBy[item]}

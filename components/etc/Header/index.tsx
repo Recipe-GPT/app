@@ -4,17 +4,18 @@ import { useRouter } from "next/router";
 import HeaderLogin from "../HeaderLogin";
 
 function Header({ isGrey }: { isGrey?: true }) {
-  const { pathname } = useRouter();
+  const { pathname, push } = useRouter();
 
   return (
     <>
       <S.Header isGrey={isGrey} pageName={pathname}>
         <S.NavLeft>
           <S.Logo
-            src="/images/Logo.svg"
+            src="/images/Logo.svg" 
             alt="레시피 GPT 로고"
             width={50}
             height={33}
+            onClick={() => push("/")}
           />
           <S.Navbar>
             <S.NavItem pageName={pathname} pathName="/" href="/">
