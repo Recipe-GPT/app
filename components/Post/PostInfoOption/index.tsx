@@ -57,7 +57,7 @@ function PostInfoOption({
         }}
         ref={ref}
       >
-        {isOpen && <PostDifficultyButton setIsOpen={setIsOpen} />}
+        {isOpen && <PostDifficultyButton />}
         <S.Text>{valueText[value]}</S.Text>
         <S.TriangleWrap>
           {up && <S.Triangle onClick={up} />}
