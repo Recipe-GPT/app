@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import * as S from "./style";
 import { AiFillFire } from "react-icons/ai";
 import BoardItem from "../BoardItem";
@@ -15,9 +15,9 @@ function BoardSection({ isYellow }: { isYellow?: true }) {
   const getTrendingFunc = getTrendingBoardQuery();
   const getRecommendFunc = getRecommendBoardQuery();
 
-  const lengthCheckedArray = (array: BoardType[]) => {
+  const lengthCheckedArray = useCallback((array: BoardType[]) => {
     return array.length >= 4 ? array.slice(0, 4) : array;
-  };
+  }, []);
 
   if (getRecommendFunc.isLoading || getTrendingFunc.isLoading) {
     setIsLoading(true);
