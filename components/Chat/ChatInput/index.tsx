@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
@@ -63,12 +63,15 @@ function ChatInput() {
   const ingredientListMutation = getIngredientListMutation(materialInput);
   const seasoningListMutation = getSeasoningListMutation(materialInput);
 
-  const search = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMaterialInput(e.target.value);
-    materialStatus === "INGREDIENT"
-      ? ingredientListMutation.mutate()
-      : seasoningListMutation.mutate();
-  };
+  const search = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setMaterialInput(e.target.value);
+      materialStatus === "INGREDIENT"
+        ? ingredientListMutation.mutate()
+        : seasoningListMutation.mutate();
+    },
+    [materialInput],
+  );
 
   return (
     <S.ChatInput>

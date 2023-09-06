@@ -13,8 +13,12 @@ export const getLoginQuery = (code: string, router: NextRouter) => {
   const setIsNeedLogin = useSetRecoilState(isNeedLoginState);
   return useQuery("login", () => getLogin(code), {
     enabled: router.isReady,
-    onSuccess: () => {
+    onSuccess: (data) => {
       setIsNeedLogin(false);
+      const { accessToken, refreshToken } = data;
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      window.history.go(-2);
     },
   });
 };

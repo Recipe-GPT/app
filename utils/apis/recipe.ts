@@ -2,13 +2,14 @@ import { getAccessToken } from "@/functions/getAccessToken";
 import { instance } from "../instance";
 import { useMutation, useQuery } from "react-query";
 import { NextRouter, useRouter } from "next/router";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { isLoadingState } from "@/atoms/Etc/isLoading";
 import { MaterialType, RecipeQuestionType } from "@/types/Chat/ChatList";
 import { SelectedRecipeState } from "@/atoms/Chat/SelectedRecipe";
 import { updateChatRoomMutation } from "./chat";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
+import { MaterialListState } from "@/atoms/Chat/MaterialList";
 
 export const getRecommend = async (
   materials: {
@@ -29,11 +30,17 @@ export const getRecommendMutation = (
   },
   id: string,
 ) => {
+  const [materialList, setMaterialList] = useRecoilState(MaterialListState);
   const router = useRouter();
   const setIsLoading = useSetRecoilState(isLoadingState);
   return useMutation(() => getRecommend(materials, id), {
     onSettled: () => {
       setIsLoading(false);
+      router.reload();
+      setMaterialList({
+        INGREDIENT: [],
+        SEASONING: [],
+      });
     },
   });
 };
